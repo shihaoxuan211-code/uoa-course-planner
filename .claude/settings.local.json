@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Recurse -Depth 0 -Name c:\\\\Users\\\\020-Orange\\\\Documents\\\\website)"
+    ]
+  }
+}

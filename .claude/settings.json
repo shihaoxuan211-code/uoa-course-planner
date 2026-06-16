@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Recurse -File -Name c:\\\\Users\\\\020-Orange\\\\Documents\\\\website)",
+      "Bash(npm run *)",
+      "Bash(npx tsc *)",
+      "Bash(node -e \"const fs=require\\('fs'\\); const d=JSON.parse\\(fs.readFileSync\\('src/data/generated-courses.json','utf8'\\)\\); console.log\\('Total courses:', d.length\\); const subjects={}; d.forEach\\(c=>{subjects[c.subject]=subjects[c.subject]||[]; subjects[c.subject].push\\(c.code\\)}\\); Object.keys\\(subjects\\).sort\\(\\).forEach\\(s=>console.log\\(s+':', subjects[s].length\\)\\)\")",
+      "Bash(curl -s \"http://localhost:3000/courses?subject=ECON&semester=Semester+1&stage=2\")",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

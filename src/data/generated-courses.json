@@ -1,0 +1,2606 @@
+[
+  {
+    "id": "busan-300",
+    "code": "BUSAN 300",
+    "title": "Data Wrangling and Big Data",
+    "subject": "BUSAN",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Organisations are increasingly adopting big data analysis, predictive analytics, social data mining, and deep machine learning to gain business intelligence and insight. The value of such technologies relies on having high-quality data, yet raw data is messy and its transformation to add value is often neglected. Students will explore a data wrangling toolbox to add value to data.",
+    "prerequisites": "must have completed 1 of BUSAN 201 / INFOMGMT 292 / INFOSYS 222",
+    "restrictions": "must not have completed INFOMGMT 390",
+    "workload": "150 hours learning over a single semester including: 18 hours of preparatory reading 24 hours of lecture 18 hours of lab 90 hours of practice and assessment",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Project",
+        "weight": "20% - Group Coursework"
+      },
+      {
+        "type": "Tests",
+        "weight": "50% - Individual Test"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=BUSAN%20300",
+    "sourceFetchedAt": "2026-06-16T14:44:15.454Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "intbus-305",
+    "code": "INTBUS 305",
+    "title": "Governing International Business",
+    "subject": "INTBUS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2"
+    ],
+    "description": "Firms that compete internationally need to employ political strategies and understand the governing institutions that affect their ability to do business. Examines the interactions between international firms and governing institutions, and explores the implications of the international regulatory framework for specific industries.",
+    "prerequisites": "must have completed 1 of BUSINESS 200 / INTBUS 201",
+    "restrictions": "must not have completed INTBUS 304",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 3 hours of lectures, 3-5 hours of reading and thinking about the content and 3-4 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Individual assignments x4",
+        "weight": "40% - Individual Coursework"
+      },
+      {
+        "type": "Group assignment",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Tests - in-class x2",
+        "weight": "40% - Individual Test"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INTBUS%20305",
+    "sourceFetchedAt": "2026-06-16T14:44:16.500Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "intbus-333",
+    "code": "INTBUS 333",
+    "title": "International Business Strategy",
+    "subject": "INTBUS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Examines how multinational enterprises (MNEs) and smaller internationalised companies compete successfully across borders. Considers how firms decide which markets to enter and how to pursue growth, and how they might do so given their position in dynamic industrial, national and global contexts.",
+    "prerequisites": "must have completed 1 of INTBUS 201 / INTBUS 202",
+    "restrictions": "must not have completed INTBUS 300",
+    "assessments": [
+      {
+        "type": "Case Analysis",
+        "weight": "25% - Individual Coursework"
+      },
+      {
+        "type": "Group Assignments",
+        "weight": "35% - Group & Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INTBUS%20333",
+    "sourceFetchedAt": "2026-06-16T14:44:17.536Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "infosys-222",
+    "code": "INFOSYS 222",
+    "title": "Database Systems",
+    "subject": "INFOSYS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Managers and other knowledge workers find that many of their duties revolve around accessing, organising, and presenting organisational and external information. The ability to develop and use computer databases is becoming a critical skill that is required in many disciplines. These skills are developed through an introduction to data modelling, relational theory, database design, and the management of databases.",
+    "prerequisites": "must have completed 1 of COMPSCI 105, COMPSCI 107, COMPSCI 101 / COMPSCI 130 / INFOSYS 110",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 2 hours of lectures, a 1.5 hours lab, 6.5 hours of work on reading, practising and assessment related activities.",
+    "assessments": [
+      {
+        "type": "Assignment",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Lab",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "50% - Individual Test"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INFOSYS%20222",
+    "sourceFetchedAt": "2026-06-16T14:44:18.654Z",
+    "hasFinalExam": false,
+    "hasGroupWork": false
+  },
+  {
+    "id": "comlaw-201",
+    "code": "COMLAW 201",
+    "title": "Commercial Contracts",
+    "subject": "COMLAW",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Explores ways in which contracts enable businesses to operate and flourish, how contracts are formed, and what happens when things go wrong. Examines common provisions in commercial contracts using real life examples and employs problem-solving skills in considering typical case studies in a business context.",
+    "prerequisites": "must have completed 1 of COMLAW 191, COMLAW 101 OR must have completed all of BUSINESS 114 / BUSINESS 115",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect to participate in a 2-hour workshop each week, with approximately 5 hours of reading, workshop preparation and thinking about the content, as well as 3 hours of work on assignments, test and exam preparation. Workshops are not recorded.",
+    "assessments": [
+      {
+        "type": "Workshop Participation",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Mid-Semester Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      },
+      {
+        "type": "Project",
+        "weight": "10% - Group & Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=COMLAW%20201",
+    "sourceFetchedAt": "2026-06-16T14:44:19.734Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "mktg-202",
+    "code": "MKTG 202",
+    "title": "Marketing Research",
+    "subject": "MKTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Focuses on the critical role and importance of information in marketing. Covers the fundamental concepts of marketing research in traditional and digital environments and examines how these can be used to assist companies in their decision-making.",
+    "prerequisites": "must have completed 1 of MKTG 201, MKTG 203 AND must have completed 1 of ECON 221 / ENGSCI 211 / STATS 100 / STATS 101 / STATS 108",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 24 hours of lectures, 24 hours of reading and thinking about the content and 72 hours of work on assignments and/or exam preparation.",
+    "assessments": [
+      {
+        "type": "Quizzes",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Assignments",
+        "weight": "30% - Group Coursework"
+      },
+      {
+        "type": "Case Study Discussions",
+        "weight": "40% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MKTG%20202",
+    "sourceFetchedAt": "2026-06-16T14:44:20.799Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "mgmt-223",
+    "code": "MGMT 223",
+    "title": "Understanding Work and People",
+    "subject": "MGMT",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2",
+      "Summer School"
+    ],
+    "description": "Examines the forces shaping the nature and quality of work and their impact for individuals, organisations and communities. Explores the evolution of work to better understand contemporary challenges related to organising work, technology, globalisation, diversity, and worker voice and power. Develops critical, analytical and reflective skills.",
+    "prerequisites": "must have completed BUSINESS 112 OR must have completed BUSINESS 113 OR must have completed 2 of ANTHRO 108 / ANTHRO 110 / BUSINESS 151 / COMMS 100 / COMMS 101 / COMMS 102 / COMMS 103 / COMMS 104 / COMMS 106 / DRAMA 100 / ENGLISH 121 / GENDER 101 / GLOBAL 101 / MAORI 130 / MKTG 151 / PACIFIC 105 / SCIGEN 101 / SOCIOL 100 / SOCIOL 101 / SOCIOL 103 / SOCIOL 105 / SUSTAIN 100",
+    "workload": "This course is a standard 15-point course. For summer school, we have two class sessions of up to three hours each week so as to cover the content of a normal semester in half the time. Including your work in preparing for class, in doing assignments and in preparing for the exam, this means a total of 20 hours of academic work per week. In semester one, we have the normal 12-week timetable and students are expected to spend 10 hours per week on academic work for this course.",
+    "assessments": [
+      {
+        "type": "Individual written coursework",
+        "weight": "65% - Individual Coursework"
+      },
+      {
+        "type": "Individual video presentation",
+        "weight": "35% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MGMT%20223",
+    "sourceFetchedAt": "2026-06-16T14:44:21.889Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "acctg-102",
+    "code": "ACCTG 102",
+    "title": "Accounting Concepts",
+    "subject": "ACCTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 1,
+    "points": 15,
+    "semesters": [
+      "Summer School",
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Basic principles and concepts of accounting that underlie the production of information for internal and external reporting. This course provides the technical platform for second year courses in financial and management accounting, finance, and accounting information systems.",
+    "prerequisites": "must have completed 1 of ACCTG 101 / BUSINESS 114",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course across the entire semester, you can expect 24 hours of attendance for live in-class workshops, 52 hours of self-study, reading and thinking about the content, 24 hours of workshop problem preparation, and 50 hours of work on coursework, mid-semester test assessment and final exam assessment preparation.",
+    "assessments": [
+      {
+        "type": "Assignments, Online Quizzes and Other Coursework",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Mid-semester Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ACCTG%20102",
+    "sourceFetchedAt": "2026-06-16T14:44:23.019Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "busan-200",
+    "code": "BUSAN 200",
+    "title": "Business Analytics",
+    "subject": "BUSAN",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "An introduction to data-driven decision-making. Develops skills in using data analysis methods and tools for analysing information. Equips students to apply modelling skills in a variety of decision-making applications relevant to business.",
+    "prerequisites": "must have completed 1 of ECON 221 / ENGSCI 211 / STATS 101 / STATS 108 AND must have completed 1 of COMPSCI 107, COMPSCI 101 / COMPSCI 130 / INFOMGMT 192 / INFOSYS 110",
+    "restrictions": "must not have completed INFOMGMT 290",
+    "workload": "This course is a standard 15-point course, and students are expected to spend 10 hours per week involved in each 15-point course that they are enrolled in. For this course, you can expect 2 hours of lectures, a 2-hour lab session, 2 hours of reading and thinking about the content, and 4 hours of work on assignments and/or test preparation per week.",
+    "assessments": [
+      {
+        "type": "Coursework",
+        "weight": "40% - Individual Coursework"
+      },
+      {
+        "type": "Test 1",
+        "weight": "25% - Individual Test"
+      },
+      {
+        "type": "Test 2",
+        "weight": "35% - Individual Test"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=BUSAN%20200",
+    "sourceFetchedAt": "2026-06-16T14:44:24.100Z",
+    "hasFinalExam": false,
+    "hasGroupWork": false
+  },
+  {
+    "id": "busan-201",
+    "code": "BUSAN 201",
+    "title": "Data Management",
+    "subject": "BUSAN",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Rapid advancements in computing power and data storage capacity have changed how digital data is created, stored, consumed and managed. As a result, business data exists in many formats and representations. Students will be equipped with contemporary data management tools and exploratory techniques to realise the value of data as a business asset.",
+    "prerequisites": "must have completed 1 of COMPSCI 107, COMPSCI 101 / COMPSCI 130 / INFOMGMT 192 / INFOSYS 110",
+    "restrictions": "must not have completed INFOMGMT 292",
+    "workload": "The learning and teaching philosophy behind this course is that proficiency in practical skills reflects a sound understanding of the content. During a typical teaching week, there will be one 2-hour lecture and one 2-hour lab. For the 12 teaching weeks, this totals to 48 hours. Since the course as a whole represents approximately 150 hours of study, that leaves a total of 102 hours across the entire semester for independent study, e.g. reading, revising, and practising course material; completing assignments; and preparing for assessments, etc.",
+    "assessments": [
+      {
+        "type": "Individual Assignments",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Group Assignment",
+        "weight": "15% - Group Coursework"
+      },
+      {
+        "type": "Test 1",
+        "weight": "25% - Individual Test"
+      },
+      {
+        "type": "Test 2",
+        "weight": "30% - Individual Test"
+      },
+      {
+        "type": "Lab Quizzes",
+        "weight": "10% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=BUSAN%20201",
+    "sourceFetchedAt": "2026-06-16T14:44:25.164Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "intbus-151",
+    "code": "INTBUS 151",
+    "title": "Business across Borders",
+    "subject": "INTBUS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 1,
+    "points": 15,
+    "semesters": [
+      "Summer School",
+      "Semester 2"
+    ],
+    "description": "Business on a global scale presents unique challenges and unrivalled opportunities to companies equipped to cross national boundaries. Set against a background of current events, the course explores the influence of international trade and multinational corporations on the contemporary global economy.",
+    "restrictions": "must not have completed BUSINESS 101, BUSINESS 111 / INTBUS 201 / INTBUS 202",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in.",
+    "assessments": [
+      {
+        "type": "Podcast",
+        "weight": "15% - Group Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "25% - Individual Test"
+      },
+      {
+        "type": "Individual Online Exercises",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INTBUS%20151",
+    "sourceFetchedAt": "2026-06-16T14:44:26.232Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "intbus-201",
+    "code": "INTBUS 201",
+    "title": "Foundations of International Business",
+    "subject": "INTBUS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Explores the distinctive nature of business conducted beyond the boundary of the domestic market. Examines how firms reach multinational scale while exposed to the turbulence and complexity of international political and economic forces.",
+    "prerequisites": "( must have completed 1 of MGMT 101, BUSINESS 102, BUSINESS 112 / BUSINESS 113 AND must have completed 1 of ECON 111, ECON 191, BUSINESS 115 / ECON 151 / ECON 152 ) OR ( must have completed 1 of ECON 111, ECON 151 / ECON 152 AND must have completed 2 of INTBUS 151 / INTBUS 151 G / INTBUS 201 / INTBUS 202 )",
+    "restrictions": "must not have completed INTBUS 211, INTBUS 210",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in.",
+    "assessments": [
+      {
+        "type": "Individual assessment",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Group assessment",
+        "weight": "30% - Group Coursework"
+      },
+      {
+        "type": "Final exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INTBUS%20201",
+    "sourceFetchedAt": "2026-06-16T14:44:27.307Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "intbus-202",
+    "code": "INTBUS 202",
+    "title": "Foundations of Strategy",
+    "subject": "INTBUS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Examines how firms compete. Focuses on the frameworks and tools needed to make sense of the competitive landscape in order to formulate and implement strategies. Considers the challenges and constraints that managers face in increasingly complex environments and industries.",
+    "prerequisites": "must have completed 1 of MGMT 101, BUSINESS 102, BUSINESS 112 / BUSINESS 113 OR ( must have completed 1 of ECON 151 / ECON 152 AND must have completed 2 of INTBUS 151 / INTBUS 151 G / INTBUS 201 / INTBUS 202 )",
+    "workload": "About 10 hours per week is expected to complete this course. On average you should spend about seven hours per week on pre-reading and learning concepts independently, with some weeks requiring a larger time commitment than others.",
+    "assessments": [
+      {
+        "type": "Test",
+        "weight": "40% - Individual Test"
+      },
+      {
+        "type": "Group Assignment",
+        "weight": "30% - Group Coursework"
+      },
+      {
+        "type": "Individual Assignment",
+        "weight": "30% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INTBUS%20202",
+    "sourceFetchedAt": "2026-06-16T14:44:28.358Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "infosys-110",
+    "code": "INFOSYS 110",
+    "title": "Digital Systems",
+    "subject": "INFOSYS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 1,
+    "points": 15,
+    "semesters": [
+      "Summer School",
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Explores how information systems and analytical tools help organisations to innovate, optimise and deliver value. Examines how the development and implementation of systems and technologies coordinate and manage information, people, and processes within data governance and privacy frameworks.",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For each week in this course, you are expected to do 3 hours of pre-class preparation, a 1 hour plenary lecture session, a 2 hours computer based lab, and 4 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Exam",
+        "weight": "50% - Individual Examination"
+      },
+      {
+        "type": "Online Technical Training",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Group Assignments",
+        "weight": "30% - Group Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INFOSYS%20110",
+    "sourceFetchedAt": "2026-06-16T14:44:29.488Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "infosys-220",
+    "code": "INFOSYS 220",
+    "title": "Business Systems Analysis",
+    "subject": "INFOSYS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "An Information Technology (IT) professional must understand how IT systems are constructed and tested and how quality is assessed, in order to manage, develop or provide innovative business solutions. Business Systems Analysis introduces systems development process concepts and activities, with a strong focus on understanding the problem and solution through modelling.",
+    "prerequisites": "must have completed 1 of COMPSCI 105, COMPSCI 107, COMPSCI 101 / COMPSCI 130 / INFOMGMT 192 / INFOSYS 110",
+    "restrictions": "must not have completed INFOMGMT 291",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 3 hours of lectures, a 2 hour tutorial, 2hours of reading and thinking about the content and 2 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "25% - Individual Coursework"
+      },
+      {
+        "type": "Presentation",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Laboratories",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Project",
+        "weight": "30% - Group & Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "30% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INFOSYS%20220",
+    "sourceFetchedAt": "2026-06-16T14:44:30.592Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "infosys-300",
+    "code": "INFOSYS 300",
+    "title": "Robotic Process Automation",
+    "subject": "INFOSYS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [],
+    "description": "Examines Robotic Process Automation (RPA) Systems and how RPA fits into the current information technology setups and helps the modern organisation address business process-related problems and opportunities. Examines the benefits and limitations of RPA and how it differs from other business solution technologies.",
+    "prerequisites": "must have completed 2 of ACCTG 211 / ACCTG 221 / ACCTG 222 / BUSAN 200 / BUSAN 200 LVL / BUSAN 201 / COMPSCI 210 / COMPSCI 215 / COMPSCI 220 / COMPSCI 225 / COMPSCI 230 / COMPSCI 235 / COMPSCI 289 / COMPSCI 290 / ENGSCI 205 / ENGSCI 211 / ENGSCI 233 / ENGSCI 255 / ENGSCI 263 / ENGSCI 270 / ENGSCI 299 / INFOSYS 220 / INFOSYS 221 / INFOSYS 222 / MKTG 202 / MKTG 203 / OPSMGT 255 / OPSMGT 258 / SOFTENG 206 / SOFTENG 211 / SOFTENG 250 / SOFTENG 251 / SOFTENG 254 / SOFTENG 281 / SOFTENG 282 / SOFTENG 283 / SOFTENG 284 / SOFTENG 299",
+    "restrictions": "must not have completed SOFTENG 762",
+    "assessments": [],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INFOSYS%20300",
+    "sourceFetchedAt": "2026-06-16T14:44:31.649Z",
+    "hasFinalExam": false,
+    "hasGroupWork": false
+  },
+  {
+    "id": "comlaw-101",
+    "code": "COMLAW 101",
+    "title": "Law in a Business Environment",
+    "subject": "COMLAW",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 1,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Decision makers in commerce and industry require an understanding of legal structures, concepts and obligations. Provides an introduction to the New Zealand legal system and the legal environment in which businesses operate, and also introduces legal concepts of property and the law of obligations, including detailed study of various forms of legal liability relevant to business.",
+    "restrictions": "must not have completed COMLAW 191, BUSINESS 111",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 24 hours of in-person Workshops (1 x 2-hour Workshop per week for 12 weeks), as well as approximately 72 hours of Workshop preparation (including reading, watching pre-recorded lecture content, and engaging with online activities), and around 54 hours on assignments and consolidation/revision in preparation for assessments.",
+    "assessments": [
+      {
+        "type": "Quizzes",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Presentation",
+        "weight": "10% - Group Coursework"
+      },
+      {
+        "type": "Workshop participation",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Mid-Semester Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=COMLAW%20101",
+    "sourceFetchedAt": "2026-06-16T14:44:32.744Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "comlaw-301",
+    "code": "COMLAW 301",
+    "title": "Taxation",
+    "subject": "COMLAW",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "An introduction to the Income Tax Act and the Goods and Services Tax Act, with emphasis on developing an understanding of these types of tax as relevant to taxpayers. Specific topics include the nature of income, taxation of common types of income (such as wages, shares and land), the deduction and prohibition of various types of expenses, tax accounting issues (cash or accrual basis), provisional tax, rebates, PAYE system, tax returns and an introduction to GST.",
+    "prerequisites": "must have completed 1 of COMLAW 201 / COMLAW 203",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 3 hours of lectures, about the content and 7 hours of work on assignments and/or test preparation per week.",
+    "assessments": [
+      {
+        "type": "Module Reviews",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Assignment Part A",
+        "weight": "3% - Individual Coursework"
+      },
+      {
+        "type": "Assignment Part B",
+        "weight": "17% - Individual Coursework"
+      },
+      {
+        "type": "Mid-Term Test",
+        "weight": "20% - Individual Examination"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50%"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=COMLAW%20301",
+    "sourceFetchedAt": "2026-06-16T14:44:33.846Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "mgmt-211",
+    "code": "MGMT 211",
+    "title": "Understanding Organisations",
+    "subject": "MGMT",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Examines the nature of organisations, groups and people, and how they affect each other. Provides students with diverse learning opportunities that develop approaches to assist with navigating organisations successfully.",
+    "prerequisites": "must have completed BUSINESS 112 OR must have completed BUSINESS 113 OR must have completed 2 of ANTHRO 108 / ANTHRO 110 / BUSINESS 151 / COMMS 100 / COMMS 101 / COMMS 102 / COMMS 103 / COMMS 104 / COMMS 106 / DRAMA 100 / ENGLISH 121 / GENDER 101 / GLOBAL 101 / MAORI 130 / MKTG 151 / PACIFIC 105 / SCIGEN 101 / SOCIOL 100 / SOCIOL 101 / SOCIOL 103 / SOCIOL 105 / SUSTAIN 100",
+    "workload": "This course is a standard [15] point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in.",
+    "assessments": [
+      {
+        "type": "Critical Reflective Writing",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Proposal and Video Presentation",
+        "weight": "30% - Group & Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MGMT%20211",
+    "sourceFetchedAt": "2026-06-16T14:44:35.798Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "mktg-151",
+    "code": "MKTG 151",
+    "title": "Essential Marketing",
+    "subject": "MKTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 1,
+    "points": 15,
+    "semesters": [
+      "Semester 1"
+    ],
+    "description": "Introduces fundamental marketing ideas and skillsets. Explores the world of customer value creation and marketing communications through the eyes of marketing and creative experts. Covers current topics in marketing including digital and social media, social entrepreneurship, big data analytics, green marketing and sustainability.",
+    "restrictions": "must not have completed BUSINESS 111 / BUSINESS 112 / MKTG 203",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. During a typical teaching week there will be 2 hours of lectures, and 1 hour of guided online activities. For the 12 teaching weeks, this totals to 36 hours. Since the course as a whole represents approximately 150 hours of study, that leaves a total of 114 hours across the entire semester for independent study, e.g. reading, thinking about and engaging with course resources and content, and/or preparing for, and working on, assessments.",
+    "assessments": [
+      {
+        "type": "Canvas Quizzes",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Semester test",
+        "weight": "30% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MKTG%20151",
+    "sourceFetchedAt": "2026-06-16T14:44:37.771Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "mktg-301",
+    "code": "MKTG 301",
+    "title": "Advanced Marketing Strategy",
+    "subject": "MKTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Develops knowledge in how to analyse, implement and evaluate advanced marketing strategies. Encourages the application and consideration of marketing strategies to solve real business challenges. Nurtures a strong appreciation for how marketing connects and relates to other business disciplines.",
+    "prerequisites": "must have completed MKTG 202 AND must have completed 1 of MKTG 201, MKTG 203",
+    "workload": "People vary in their use of time. However, University guidelines are that a 15-point course should equate to about 150 hours of learning. For 'typical' students this can be broken down to approximately: • 3 scheduled contact hours per week • 7-8 hrs of self-study, team assignment research and related work. Note that in MKTG 301, a team self-selection process has been designed to place equivalently-engaged students into the same teams by aligning student goals and acknowledging that a diverse student cohort will have differing priorities.",
+    "assessments": [
+      {
+        "type": "Group Assessment",
+        "weight": "30% - Group Coursework"
+      },
+      {
+        "type": "Exam",
+        "weight": "40% - Individual Examination"
+      },
+      {
+        "type": "AI-Integrated Research Journal Assessment",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Presentation",
+        "weight": "20% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MKTG%20301",
+    "sourceFetchedAt": "2026-06-16T14:44:39.784Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "finance-251",
+    "code": "FINANCE 251",
+    "title": "Financial Management",
+    "subject": "FINANCE",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Summer School",
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Focuses on practical aspects of corporate finance. Topics covered include: concepts of value creation, risk and required rates of return, financial maths, capital budgeting, capital structure and dividend policies.",
+    "prerequisites": "must have completed ACCTG 102 AND must have completed 1 of ENGSCI 111 / MATHS 108 / STATS 101 / STATS 108",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in.",
+    "assessments": [
+      {
+        "type": "Presentation",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Quiz One",
+        "weight": "10% - Individual Test"
+      },
+      {
+        "type": "Quiz Two",
+        "weight": "10% - Individual Test"
+      },
+      {
+        "type": "Assignment Part One",
+        "weight": "20% - Group Coursework"
+      },
+      {
+        "type": "Assignment Part Two",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=FINANCE%20251",
+    "sourceFetchedAt": "2026-06-16T14:44:40.988Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "finance-261",
+    "code": "FINANCE 261",
+    "title": "Introduction to Investments",
+    "subject": "FINANCE",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Markets for shares, fixed income securities, options and futures. Methods of valuing shares, fixed income securities, options and futures. Simple techniques of hedging risk. Portfolio diversification. Portfolio evaluation.",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in.",
+    "assessments": [
+      {
+        "type": "Assignment One",
+        "weight": "12.5% - Individual Coursework"
+      },
+      {
+        "type": "Assignment Two",
+        "weight": "12.5% - Individual Coursework"
+      },
+      {
+        "type": "Quiz One",
+        "weight": "10% - Individual Test"
+      },
+      {
+        "type": "Quiz Two",
+        "weight": "10% - Individual Test"
+      },
+      {
+        "type": "Stock Trading Simulation",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=FINANCE%20261",
+    "sourceFetchedAt": "2026-06-16T14:44:42.059Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "finance-351",
+    "code": "FINANCE 351",
+    "title": "Advanced Financial Management",
+    "subject": "FINANCE",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "A rigorous study of advanced capital budgeting procedures, more difficult aspects associated with capital structure and dividend decisions, mergers and acquisitions. Case study applications of financial management are used. A continuation of the material introduced in FINANCE 251.",
+    "prerequisites": "must have completed FINANCE 251",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, on average, you can expect two to three hours of interactive class sessions and/or office hours, two to three hours of watching pre-recorded videos, three hours of reading and thinking about the content and two hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Assignment One",
+        "weight": "15% - Individual Coursework"
+      },
+      {
+        "type": "Assignment Two",
+        "weight": "15% - Individual Coursework"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Mid-term Assessment",
+        "weight": "25% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=FINANCE%20351",
+    "sourceFetchedAt": "2026-06-16T14:44:43.168Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "econ-151",
+    "code": "ECON 151",
+    "title": "Understanding the Global Economy",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 1,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Summer School",
+      "Semester 1"
+    ],
+    "description": "Economics affects our daily lives and the global environment in many ways. Through the media we are constantly made aware of price increases, interest rate changes, exchange rate movements and balance of payments problems, growth and recessions, standard of living comparisons, regional trading agreements. What does it all mean and how does it all work?",
+    "restrictions": "must not have completed ECON 101, ECON 111, ECON 191, BUSINESS 115",
+    "workload": "This course is a standard 15-point course and students are expected to spend 10 hours per week involved in each 15-point course that they are enrolled in. For this course, you can expect to spend on average, 2 hours listening to lecture recordings before attending the class, 3 hours interacting with your lecturer, 2 hours reading and thinking about the content and 3 hours working on assignments and exam preparation.",
+    "assessments": [
+      {
+        "type": "Quizzes",
+        "weight": "25% - Individual Coursework"
+      },
+      {
+        "type": "Essay",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Reflections",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20151",
+    "sourceFetchedAt": "2026-06-16T14:44:44.246Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "econ-152",
+    "code": "ECON 152",
+    "title": "Principles of Economics",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 1,
+    "points": 15,
+    "semesters": [
+      "Summer School",
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Analysis of issues that affect our daily lives, including pricing decisions by firms and their impact on our cost of living; game theory and strategic decision-making; tackling problems of pollution and global warming; and how governments use monetary and fiscal policies to stimulate economic growth and address unemployment and inequality.",
+    "prerequisites": "must have completed 1 of BUSINESS 115 / ECON 151",
+    "restrictions": "must not have completed ECON 111, ECON 191, ECON 101",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 3 hours of plenary lecture (including 1 hour of active learning exercises), a 1-hour tutorial, 4.5 hours of reading/watching/engaging with the content and 3 hours of work on assignments and/or exam preparation.",
+    "assessments": [
+      {
+        "type": "Quizzes",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Lab Worksheets",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Presentation",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Mid-Term Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20152",
+    "sourceFetchedAt": "2026-06-16T14:44:45.378Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "econ-201",
+    "code": "ECON 201",
+    "title": "Microeconomics Analysis",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Study of the allocation of scarce resources among competing end uses. Intermediate-level analysis of the economic behaviour of individual units, in particular consumers and firms. Although the focus is on perfectly competitive markets, attention is also given to other types of markets. Analysis also includes concepts of expected utility and uncertainty, and welfare economics.",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect overall, weekly: 4 hours of lectures, 1 hour of tutorials, an average of 7 hours of reading and thinking about the content, as well as of work on assignments and/or test preparation. It is important to note that most learning can be achieved during class and tutorial time, plus preparation for both classes and tutorials. Lectures provide a structure to assist your study, introducing the relevant topics, concepts, tools, and providing examples and exercises for you to work on, to begin with. Tutorial time allows you to practice with the self-assessment exercises and selected end-of-chapter exercises on a regular basis. Weekly tutorials will focus on reviewing self-assessed and selected end-of-chapter exercises. The level of difficulty of exercises chosen for either tutorial sessions or assessments (take-home tests) will be on the easier side. Even if not assessed on those, students can choose to also practice with more challenging exercises, especially if interested in pursuing further studies in economics. Regardless, the available exercises always give students ample opportunity to apply concepts from previous worked-out examples during class time.",
+    "assessments": [
+      {
+        "type": "Reflective Essay",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Presentation",
+        "weight": "15% - Group & Individual Coursework"
+      },
+      {
+        "type": "Take-home online assessments via Canvas",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20201",
+    "sourceFetchedAt": "2026-06-16T14:44:46.452Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "econ-301",
+    "code": "ECON 301",
+    "title": "Advanced Microeconomics",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1"
+    ],
+    "description": "Advanced treatment of aspects of consumer theory, producer theory and game theory. Applications of this basic theory to the analysis of some topics in uncertainty, contracts, auctions, oligopoly and information economics.",
+    "prerequisites": "must have completed ECON 201 AND must have completed 1 of ENGGEN 150, ENGSCI 111 / MATHS 108 / MATHS 130",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect about 3 hours of class room meetings, a 1 hour tutorial, and 6 hours of work on exercises, assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20301",
+    "sourceFetchedAt": "2026-06-16T14:44:47.644Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "business-201",
+    "code": "BUSINESS 201",
+    "title": "Special Topic",
+    "subject": "BUSINESS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [],
+    "description": "This course is designed for students keen to explore emerging or niche areas. Learning outcomes include advanced knowledge in a specialised subject area, critically evaluating current research and practice, and communicating ideas in written reports and/or oral presentations.",
+    "assessments": [],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=BUSINESS%20201",
+    "sourceFetchedAt": "2026-06-16T14:44:50.426Z",
+    "hasFinalExam": false,
+    "hasGroupWork": false
+  },
+  {
+    "id": "opsmgt-255",
+    "code": "OPSMGT 255",
+    "title": "Introduction to Operations and Supply Chain Management",
+    "subject": "OPSMGT",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "An introduction to important decision areas in operations and supply chain management. Modelling and analytical skills will be developed and supporting techniques/tools will be introduced using spreadsheets. Common qualitative and quantitative aspects of supply chain management will be discussed.",
+    "prerequisites": "must have completed BUSINESS 112 AND must have completed 1 of ECON 221 / ENGSCI 211 / STATS 101 / STATS 108",
+    "workload": "This course is a standard 15-point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 2 hours of lectures, a 1-hour computer lab session, 4 hours of reading and reflecting upon the content and 3 hours of work on assignments and/or test/exam preparation.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Project",
+        "weight": "20% - Group Coursework"
+      },
+      {
+        "type": "Laboratories",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "45% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=OPSMGT%20255",
+    "sourceFetchedAt": "2026-06-16T14:44:51.518Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "opsmgt-357",
+    "code": "OPSMGT 357",
+    "title": "Project Management",
+    "subject": "OPSMGT",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "An introduction to the management of projects in organisations, with a particular emphasis placed on the interdisciplinary nature and broad application of projects. Topics covered include people management, organisational planning and resource issues.",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect per week a 2 hours lecture workshop class, a 2 hours lab class (every other week), 2 hours of reading and thinking about the content and 4-5 hours of work on assignments and/or assessment preparation.",
+    "assessments": [
+      {
+        "type": "Quiz",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Group Project",
+        "weight": "30% - Group & Individual Coursework"
+      },
+      {
+        "type": "Individual Assignment",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=OPSMGT%20357",
+    "sourceFetchedAt": "2026-06-16T14:44:52.646Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "opsmgt-370",
+    "code": "OPSMGT 370",
+    "title": "Operations and Supply Chain Strategy",
+    "subject": "OPSMGT",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Investigates and explores complex and dynamic issues associated with the design and execution of operations and processes. Promotes an applied, integrated and systemic approach towards operations across supply chains.",
+    "prerequisites": "must have completed 1 of ENGGEN 303 / OPSMGT 255 / OPSMGT 258",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. A variety of instructional methods will be employed, including lectures, videos, reading articles, and case studies. To make the class livelier and more valuable for everyone, all students are expected to have read and thought about the material assigned for each day and actively participate in the class discussions. In the spirit of continuous improvement, feedback and ideas on this course are welcome. The expectation is that students spend an average of 7-9 hours per week on the course outside of class (approximately evenly split between reading/studying and assignments). For this course, you can expect 2 hours of lectures, 1 hour of tutorial, 2 hours of reading and thinking about the content and 3 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Assignment 1",
+        "weight": "7.5% - Individual Coursework"
+      },
+      {
+        "type": "Assignment 2",
+        "weight": "7.5% - Individual Coursework"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Test 1",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Group Project",
+        "weight": "15% - Group Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "45% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=OPSMGT%20370",
+    "sourceFetchedAt": "2026-06-16T14:44:53.724Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "acctg-211",
+    "code": "ACCTG 211",
+    "title": "Financial Accounting",
+    "subject": "ACCTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Develops an understanding of factors influencing the development of New Zealand International Financial Reporting Standards (NZ IFRS). Applies a selection of NZ IFRS including accounting for leases, accounting for business combinations, and preparing group financial statements.",
+    "prerequisites": "must have completed ACCTG 102",
+    "workload": "This course is a standard 15-point course, i.e., students are expected to spend 150 hours on ACCTG 211 over the semester. Less than one-third of these 150 hours comprise lecture and workshop attendance; therefore, over 100 hours consist of self-study.",
+    "assessments": [
+      {
+        "type": "Quizzes",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Group Presentation",
+        "weight": "30% - Group Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ACCTG%20211",
+    "sourceFetchedAt": "2026-06-16T14:44:54.890Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "acctg-221",
+    "code": "ACCTG 221",
+    "title": "Cost and Management Accounting",
+    "subject": "ACCTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Budgets and standards, costing systems, cost information for decision-making and control, performance appraisal, and contemporary related issues.",
+    "prerequisites": "must have completed ACCTG 102",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. During a typical teaching week there will be 2 hours of lectures and 2 hours of workshops. You will be expected to spend 2 hours per week preparing for lectures and doing background readings. For the 12 teaching weeks, this totals 72 hours. Since the course as a whole represents approximately 150 hours of study, that leaves a total of 78 hours over the semester for independent study, e.g. reading, reflection, preparing for assessments, etc.",
+    "assessments": [
+      {
+        "type": "Assignment/s",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ACCTG%20221",
+    "sourceFetchedAt": "2026-06-16T14:44:56.021Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "acctg-222",
+    "code": "ACCTG 222",
+    "title": "Accounting Information Systems",
+    "subject": "ACCTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Encompasses the development and distribution of economic information about organisations for internal and external decision-making. Major themes include: objectives and procedures of internal control, the database approach to data management, data modelling, typical business documents and reports and proper system documentation through data flow diagrams and flowcharts.",
+    "prerequisites": "must have completed all of ACCTG 102 / INFOSYS 110",
+    "workload": "This course is a standard 15-point course. A 15-point course represents approximately 150 hours of study. For this course, you can expect 24 hours of lectures, 12 hours of workshops, 64 hours of reading and practising and 50 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Quizes - Individual",
+        "weight": "15% - Individual Coursework"
+      },
+      {
+        "type": "Assignments - Group",
+        "weight": "15% - Group Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Final exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ACCTG%20222",
+    "sourceFetchedAt": "2026-06-16T14:44:57.114Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "acctg-311",
+    "code": "ACCTG 311",
+    "title": "Financial Accounting",
+    "subject": "ACCTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Explanatory and prescriptive theories of accounting provide the context for an examination of the determinants of financial reporting practice in New Zealand with special reference to accounting for pensions, foreign currency, deferred tax and financial instruments. Issues in international accounting and professional ethics are also addressed.",
+    "prerequisites": "must have completed ACCTG 211",
+    "workload": "This course is a standard [15] point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, each week you can expect around 2 hours of pre-recorded lecture videos, 2 hours of on campus workshop, 2-3 hours of reading and thinking about the content and 3 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Assignment 1",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Mid-semester Test",
+        "weight": "25% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "45% - Individual Examination"
+      },
+      {
+        "type": "Assignment 2",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Assignment 3",
+        "weight": "10% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ACCTG%20311",
+    "sourceFetchedAt": "2026-06-16T14:44:58.198Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "acctg-312",
+    "code": "ACCTG 312",
+    "title": "Auditing",
+    "subject": "ACCTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "An introduction to the audit of financial statements. The objective of an audit is to add credibility to the information contained in the financial statements. Emphasises the auditor's process in determining the nature and amount of evidence necessary to support management's assertions and providing a report expressing the auditor's opinion on the fair presentation of the client's financial statements.",
+    "prerequisites": "must have completed all of ACCTG 211 / ACCTG 222",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect two to three hours of lectures each week, a one hour tutorial in weeks 4 to 5 and 7 to 12, three hours of reading and thinking about the content and three hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Tutorials",
+        "weight": "25% - Group & Individual Coursework"
+      },
+      {
+        "type": "Assignments",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "55% - Individual Examination"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "15% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ACCTG%20312",
+    "sourceFetchedAt": "2026-06-16T14:44:59.265Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "acctg-321",
+    "code": "ACCTG 321",
+    "title": "Strategic Management Accounting",
+    "subject": "ACCTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1"
+    ],
+    "description": "A study of the design of revenue and cost management systems to facilitate strategic decisions. This includes activity-based costing and activity-based management. The learning environment is student-centred with the seminar leader's role being that of facilitator rather than lecturer. Students work not only as individuals but also in teams. The learning environment is a combination of lectures, case studies and related readings.",
+    "prerequisites": "must have completed ACCTG 221",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. During a typical teaching week there will be pre-recorded material, a 1 hour online livestream lecture, and 1 hour of tutorials. You will be expected to spend 3 hours preparing the case study for the week, which includes reviewing background materials, reading and annotating the case, attempting calculations and recommendations, and submitting your work. For the 12 teaching weeks, this totals 72 hours. Since the course as a whole represents approximately 120 hours of study, that leaves a total of 48 hours over the semester for independent study, e.g. reading, reflection, preparing for assessments, etc.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Team Presentation",
+        "weight": "15% - Group Coursework"
+      },
+      {
+        "type": "Tutorial Preparation",
+        "weight": "15% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ACCTG%20321",
+    "sourceFetchedAt": "2026-06-16T14:45:00.392Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "business-111",
+    "code": "BUSINESS 111",
+    "title": "Understanding Business",
+    "subject": "BUSINESS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 1,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Business involves creating and capturing different forms of value for diverse stakeholders. Considers customers and markets, and the wider context within which business operates. Develops an understanding of innovation and entrepreneurship and how to manage people. Develops personal and professional capabilities needed in business, including strategies to manage self and work effectively with others.",
+    "restrictions": "must not have completed MGMT 101, BUSINESS 101",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, students can expect to spend: Prework: Up to 4 hours each week completing workshop preparation in Canvas (including set readings). Class Time: 2 hours in a weekly workshop. Other: Up to 2 hours per week attending optional supporting tutorials and services. The remaining time, on average about 2-4 hours for a typical student, will be used for individual study e.g. consolidating notes and preparing for assessments.",
+    "assessments": [
+      {
+        "type": "DELNA screening",
+        "weight": "1% - Individual Coursework"
+      },
+      {
+        "type": "Individual Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Group Assessments ( two X 10 % and one X 9%)",
+        "weight": "29% - Group Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=BUSINESS%20111",
+    "sourceFetchedAt": "2026-06-16T14:45:03.227Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "business-112",
+    "code": "BUSINESS 112",
+    "title": "Managing Sustainable Growth 1",
+    "subject": "BUSINESS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 1,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Develops understanding of how to manage people, processes and resources for the benefit of business and society. Focuses on the decisions and trade-offs involved in growing a business, managing customer relationships, and competing in international markets. Explores strategies to enhance productivity and ensure sustainability, and how legal tools can be used to protect value.",
+    "prerequisites": "must have completed BUSINESS 111",
+    "restrictions": "must not have completed BUSINESS 113",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, students can expect to spend: Up to 3-4 hours each week on online Workshop Preparation. 2 hours in Weekly Workshops. For those who are invited or chosen to attend academic skills tutorials, up to 2 hours will be spent each week attending those tutorials. The remaining time, on average about 2-4 hours for a typical student, will be used for individual study e.g. consolidating notes, preparing for assignments, etc.",
+    "assessments": [
+      {
+        "type": "Maker Space Prototype Portfolio",
+        "weight": "25% - Individual Coursework"
+      },
+      {
+        "type": "In-Class Team Assessment",
+        "weight": "10% - Group Coursework"
+      },
+      {
+        "type": "Team Video Presentation",
+        "weight": "15% - Group Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=BUSINESS%20112",
+    "sourceFetchedAt": "2026-06-16T14:45:04.310Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "business-114",
+    "code": "BUSINESS 114",
+    "title": "Accounting for Decision Making",
+    "subject": "BUSINESS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 1,
+    "points": 15,
+    "semesters": [
+      "Summer School",
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Examines how understanding financial, non-financial and legal information is critical to business decision making. Considers the accounting and legal requirements, issues and mechanisms that impact management of an organisation. Develops skills in analysing, interpreting and communicating accounting information.",
+    "restrictions": "must not have completed ACCTG 101",
+    "workload": "Following University workload guidelines, a standard 15-point course represents approximately 150 hours of study. It is essential that students prepare in advance for the workshop by watching the lecture videos and doing pre-workshop quizzes. During a typical teaching week, there will be one 2-hour workshop where you can also expect up to two hours of online pre-workshop preparation e.g. watching videos and engaging in activities in Canvas. The remainder of your 150 hours of study will be for independent study e.g. reading, preparing for assessments and your exam.",
+    "assessments": [
+      {
+        "type": "Quizzes",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Assignment 01",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Assignment 02",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Assignment 03",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Test (Online)",
+        "weight": "10% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=BUSINESS%20114",
+    "sourceFetchedAt": "2026-06-16T14:45:05.388Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "business-202",
+    "code": "BUSINESS 202",
+    "title": "Business Consulting",
+    "subject": "BUSINESS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Teams will apply multidisciplinary knowledge to solve complex problems in business scenarios. Builds skills in interpreting and presenting business information, project management, ethical decision-making and working in teams. Develops and advances core knowledge, including goals and strategy, organisational culture and structure, marketing, legal analysis, operations and supply chain management, within a dynamic macroeconomic environment.",
+    "prerequisites": "must have completed 3 of BUSINESS 112 / BUSINESS 113 / BUSINESS 114 / BUSINESS 115",
+    "restrictions": "must not have completed BUSINESS 203",
+    "workload": "Following University workload guidelines, a standard 15-point course represents approximately 150 hours of study. For this course, you can expect three 2-hour lectures, three compulsory 2-hour labs, and six additional sessions across the 12 week semester. You can expect the remainder of your allocated time reading, thinking, and engaging with online course resources, and working on individual and team assignments.",
+    "assessments": [
+      {
+        "type": "Competing Globally: Individual task 1",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Competing Globally: Individual task 2",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Climate Change: Individual task",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Climate change: Team task",
+        "weight": "15% - Group Coursework"
+      },
+      {
+        "type": "Future of Work: Individual task",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Future of Work: Team task",
+        "weight": "15% - Group Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=BUSINESS%20202",
+    "sourceFetchedAt": "2026-06-16T14:45:06.578Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "comlaw-303",
+    "code": "COMLAW 303",
+    "title": "Insolvency Law",
+    "subject": "COMLAW",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1"
+    ],
+    "description": "A business in difficulty may fail or it may be rehabilitated. Insolvency Law looks at aspects of business failure and near failure, including informal workouts, formal business rescue regimes, company receiverships and personal bankruptcy. Students will develop the skills and expertise to operate in these fields.",
+    "prerequisites": "must have completed 1 of COMLAW 203 / LAWCOMM 464",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 36 hours of lectures/workshops, 60 hours of reading and thinking about the content and 24 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Workshop",
+        "weight": "5% - Group Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "15% - Individual Test"
+      },
+      {
+        "type": "Memo",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Video Presentation",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=COMLAW%20303",
+    "sourceFetchedAt": "2026-06-16T14:45:09.140Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "comlaw-311",
+    "code": "COMLAW 311",
+    "title": "Advanced Taxation",
+    "subject": "COMLAW",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2"
+    ],
+    "description": "An advanced study of income tax issues from domestic and cross-border tax planning perspectives. Specific topics include associated persons rules, the General Anti-Avoidance Rule, common specific anti-avoidance provisions, rules targeting cross-border tax base erosion (i.e. Foreign Investment Fund, Controlled Foreign Company, transfer pricing and thin capitalisation rules), income tax implications of investments in (and disposals of) personal property and land, taxation of income from personal services and various business structures, including multinational enterprises.",
+    "prerequisites": "must have completed 1 of COMLAW 301 / LAWCOMM 416",
+    "restrictions": "must not have completed LAW 409",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 3 hours of lectures, 5 hours of reading and thinking about the content and 2 hours of work on assignments and/or workshop preparation per week.",
+    "assessments": [
+      {
+        "type": "Module reviews",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Assignment Part 1",
+        "weight": "10% - Group & Individual Coursework"
+      },
+      {
+        "type": "Assignment Part 2",
+        "weight": "10% - Group & Individual Coursework"
+      },
+      {
+        "type": "Mid-term Test",
+        "weight": "20% - Individual Examination"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=COMLAW%20311",
+    "sourceFetchedAt": "2026-06-16T14:45:10.353Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "econ-211",
+    "code": "ECON 211",
+    "title": "Macroeconomics Analysis",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Provides an introduction to the dynamic microfoundations of macroeconomics, and demonstrates how we can utilise these foundations (i) to understand the trends and fluctuations of macroeconomic aggregates like national output, unemployment, inflation and interest rates, and (ii) to predict the outcome of alternative government policies related to current economic problems of New Zealand and the rest of the world.",
+    "workload": "This course is a standard [15] point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 36 hours of lectures, 11 hours of tutorials in small groups (1 hour per week for 11 weeks), 24 hours (2 hours per week) of reading and thinking about the content related to 10 quizzes which involve interactions in small groups, 44 hours of work on assignments and/or test preparation, and 35 hours of study prior to the final exam.",
+    "assessments": [
+      {
+        "type": "Written and Oral Assignments",
+        "weight": "20% - Group & Individual Coursework"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "10% - Group & Individual Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20211",
+    "sourceFetchedAt": "2026-06-16T14:45:14.176Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "econ-212",
+    "code": "ECON 212",
+    "title": "Strategic Reasoning",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2"
+    ],
+    "description": "An introduction to the fundamental concepts of non-cooperative and cooperative game theory: the concept of strategy; two person constant sum non-cooperative games and the minmax value; n-person non-cooperative games and Nash equilibrium; examples and applications in auctions, bargaining and other economic models, political science and other fields; the idea of backward induction and sub-game perfection; introduction to games in coalitional form; the core and the Shapley value.",
+    "prerequisites": "must have completed 1 of BUSINESS 115 / ENGSCI 111 / MATHS 108 / MATHS 130 / PHIL 101",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 2 hours of recordings, 4 hours of readings, doing exercises and preparing for tests, and 4 hours of flipped classroom discussing the recordings and exercises.",
+    "assessments": [
+      {
+        "type": "Class Quizs (20 quizs)",
+        "weight": "40% - Individual Coursework"
+      },
+      {
+        "type": "Test 1",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "est 2",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Test 3",
+        "weight": "20% - Individual Test"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20212",
+    "sourceFetchedAt": "2026-06-16T14:45:15.298Z",
+    "hasFinalExam": false,
+    "hasGroupWork": false
+  },
+  {
+    "id": "econ-221",
+    "code": "ECON 221",
+    "title": "Introduction to Econometrics",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Equips students with essential statistical skills and business analytics tools necessary for data analysis in economics, finance, marketing and other related areas. Develops proficiency in applying statistical techniques to real-world business scenarios and decision-making challenges and using software for reproducible analyses.",
+    "prerequisites": "must have completed ECON 152 AND must have completed 1 of MATHS 108 / MATHS 120 / STATS 108",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 1.5 hours of watching online lectures, 1.5 hours of in-person workshop, a one-hour tutorial, 3 hours of reading and thinking about the content, and 3 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Tests",
+        "weight": "25% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "5% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20221",
+    "sourceFetchedAt": "2026-06-16T14:45:16.398Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "econ-271",
+    "code": "ECON 271",
+    "title": "Behavioural Economics",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2"
+    ],
+    "description": "Scientists and philosophers have long pondered whether human decisions are primarily deliberative or more prone to emotions. This course brings together findings from economics, psychology and neuroscience to discuss decision making at the level of individuals, within small groups and in more anonymous and impersonal market settings with an emphasis on the role of social norms and cognitive biases.",
+    "prerequisites": "must have completed 1 of BUSINESS 115 / ECON 151 / ECON 152 / ENGSCI 111 / MATHS 108 / MATHS 130 / PHIL 101 / PSYCH 108 / PSYCH 109 / STATS 101 / STATS 108",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. The course will involve at least 150 hours of learning over the semester including (approx.) - 48 hours of lectures (including discussion and small group interactions) - 30 hours (2.5 hours per week during the semester) of preparatory reading - 24 hours (2 hours per week during the semester) of self-study following lectures - 24 hours (for quizzes/reflections) - 24 hours of study prior to final exam.",
+    "assessments": [
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      },
+      {
+        "type": "Essay",
+        "weight": "15% - Individual Coursework"
+      },
+      {
+        "type": "Problem Sets",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Presentation",
+        "weight": "5% - Group Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20271",
+    "sourceFetchedAt": "2026-06-16T14:45:19.084Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "econ-311",
+    "code": "ECON 311",
+    "title": "Advanced Macroeconomics",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Designed to teach students modern macroeconomic analysis and focuses on the standard dynamic general equilibrium model, which is central to current macroeconomic research. Students are given a careful introduction to the overlapping generations version of this model and shown how this model can be adapted in different ways to address a wide variety of economic issues and policy questions.",
+    "prerequisites": "must have completed 1 of ECON 201 / ECON 211 AND must have completed 1 of ENGGEN 150, ENGSCI 111 / MATHS 108 / MATHS 130",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 3 hours of lectures, a one hour tutorial per week. Tutorials will begin in the second week of the semester.",
+    "assessments": [
+      {
+        "type": "Problem sets (2 - 15% each)",
+        "weight": "25% - Individual Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      },
+      {
+        "type": "Group presentation",
+        "weight": "5% - Group & Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20311",
+    "sourceFetchedAt": "2026-06-16T14:45:20.156Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "econ-321",
+    "code": "ECON 321",
+    "title": "Financial and Macro Econometrics",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2"
+    ],
+    "description": "Provides specialised training in advanced econometric methods used in financial and macroeconomic analyses. Examines the statistical properties of financial and macroeconomic data, introduces the appropriate econometric tools for working with such data, and applies the methods to estimate models commonly used in financial and macroeconomic analyses using real-world data. Translates economic theory into empirical strategies to estimate causal relationships.",
+    "prerequisites": "must have completed 1 of ECON 221 / STATS 201 / STATS 208 / STATS 210 / STATS 225 AND must have completed 1 of ENGSCI 111 / MATHS 108 / MATHS 120",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 3 hours of lectures, a 1 hour tutorial. For the 12 teaching weeks, this totals to 48 hours. Since the course as a whole represents approximately 150 hours of study, that leaves a total of 102 hours across the entire semester for independent study, e.g. reading, reflection, preparing for assessments/exams, etc.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "27% - Individual Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "27% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "6% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20321",
+    "sourceFetchedAt": "2026-06-16T14:45:21.259Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "econ-341",
+    "code": "ECON 341",
+    "title": "International Trade",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2"
+    ],
+    "description": "The main theories of international trade in goods and services, and of international movements of capital and labour. Partial equilibrium and general equilibrium analysis of the major instruments of trade policy, their economic effects, and the issues created by their use in practice. The economics of regional trading arrangements, such as free trade areas, customs unions and common markets.",
+    "prerequisites": "must have completed 1 of ECON 201 / ECON 211 / ECON 232 / ECON 241",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 3 hours of lectures/tutorial, 4 hours of reading and thinking about the content and 3 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "40% - Individual Coursework"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20341",
+    "sourceFetchedAt": "2026-06-16T14:45:22.372Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "econ-351",
+    "code": "ECON 351",
+    "title": "Financial Economics",
+    "subject": "ECON",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [],
+    "description": "A study of the modern literature on corporate finance, investments and derivative securities. An analysis of consumption and investment decisions in the presence of time and risk, asset pricing models and market efficiency. The term structure of interest rates and various issues in debt and equity financing. The use of derivative securities, e.g., forwards and/or options to manage exchange rate risk.",
+    "prerequisites": "must have completed ECON 201 AND must have completed 1 of ENGGEN 150, ENGSCI 111 / MATHS 108 / MATHS 130",
+    "assessments": [],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=ECON%20351",
+    "sourceFetchedAt": "2026-06-16T14:45:23.429Z",
+    "hasFinalExam": false,
+    "hasGroupWork": false
+  },
+  {
+    "id": "finance-361",
+    "code": "FINANCE 361",
+    "title": "Modern Investment Theory and Management",
+    "subject": "FINANCE",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1"
+    ],
+    "description": "Portfolio theory and equilibrium asset pricing models and empirical tests. Portfolio management (forecasting, construction, administration and evaluation) including issues relating to fixed interest and international equity investment. A continuation of the material introduced in FINANCE 261.",
+    "prerequisites": "must have completed FINANCE 261",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in.",
+    "assessments": [
+      {
+        "type": "Mid-Semester Test",
+        "weight": "25% - Individual Test"
+      },
+      {
+        "type": "Assignment Part One: Project Report",
+        "weight": "20% - Group Coursework"
+      },
+      {
+        "type": "Assignment Part Two: Project Presentation",
+        "weight": "8% - Group Coursework"
+      },
+      {
+        "type": "Assignment Part Three: Individual Communication Capabilities",
+        "weight": "7% - Individual Coursework"
+      },
+      {
+        "type": "Assignment Part Four: Individual Reflective Journal",
+        "weight": "5% - Individual Coursework"
+      },
+      {
+        "type": "Exam",
+        "weight": "35% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=FINANCE%20361",
+    "sourceFetchedAt": "2026-06-16T14:45:25.558Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "finance-362",
+    "code": "FINANCE 362",
+    "title": "Risk Management",
+    "subject": "FINANCE",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2"
+    ],
+    "description": "Examines theoretical and practical aspects of risk management with an emphasis on the effective use of futures, options and other financial derivatives to control market risk exposure. Reviews no-arbitrage methods used to value financial futures and options, including the Black-Scholes model and binomial tree numerical methods.",
+    "prerequisites": "must have completed FINANCE 261",
+    "workload": "This is a standard 15-point course. Students are expected to spend approximately 10 hours per week on each 15-point course in which they are enrolled. The course will be delivered through up to three hours of lectures per week, plus a one-hour workshop. Students are expected to devote at least 6 additional hours per week to reading, revision, quizzes, assignments, and preparation for the mid-term assessments and final exam.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "25% - Individual Coursework"
+      },
+      {
+        "type": "Mid-term Assessment",
+        "weight": "30% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "5% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=FINANCE%20362",
+    "sourceFetchedAt": "2026-06-16T14:45:26.903Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "infosys-303",
+    "code": "INFOSYS 303",
+    "title": "Solutions Architecture",
+    "subject": "INFOSYS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [],
+    "description": "Information systems specifically designed for organisational IT environments provide competitive advantages. Focusses on using high quality information architecture to address business requirements including the iterative use of system analysis, design and prototyping. Develops familiarity with state-of-the-art modelling, development, and deployment environments, and solutions for designing business systems architecture.",
+    "prerequisites": "must have completed INFOSYS 220 AND must have completed 1 of BUSAN 201 / INFOSYS 222",
+    "restrictions": "must not have completed INFOSYS 320",
+    "workload": "This course is a standard 15-point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 2 hours of lectures, 2 hours of labs, 3 hours of reading and thinking about the content, and 3 hours of work on assignments and/or test preparation per week.",
+    "assessments": [
+      {
+        "type": "Coursework",
+        "weight": "20% - Group & Individual Coursework"
+      },
+      {
+        "type": "Assignments",
+        "weight": "40% - Group & Individual Coursework"
+      },
+      {
+        "type": "Tests",
+        "weight": "40% - Individual Test"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INFOSYS%20303",
+    "sourceFetchedAt": "2026-06-16T14:45:28.840Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "infosys-304",
+    "code": "INFOSYS 304",
+    "title": "IT Infrastructure",
+    "subject": "INFOSYS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1"
+    ],
+    "description": "Modern IT infrastructure relies on a functionally hierarchical network designed around the OSI model. Explores internet-oriented backbones and high-speed access infrastructure, and uses the TCP/IP suite, cloud infrastructure and digital services, and applications to understand basic and business-oriented infrastructure challenges such as capacity planning, architecture design, and scaling of IT infrastructure and applications.",
+    "prerequisites": "must have completed 1 of COMPSCI 230 / INFOSYS 220 AND must have completed 1 of COMPSCI 215 / COMPSCI 235 / INFOSYS 222",
+    "restrictions": "must not have completed INFOSYS 322, INFOSYS 339, INFOSYS 224",
+    "workload": "This course is a standard 15-point course and students are expected to spend 10 hours per week involved in every 15 points they are enrolled in. For this course, you can expect 2 hours of lectures, a 1-hour tutorial, 3 hours of reading and thinking about the content and 4 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Midterm test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Laboratories",
+        "weight": "30% - Group & Individual Coursework"
+      },
+      {
+        "type": "Course project",
+        "weight": "20% - Group Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INFOSYS%20304",
+    "sourceFetchedAt": "2026-06-16T14:45:29.954Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "infosys-305",
+    "code": "INFOSYS 305",
+    "title": "Digital Strategy and Transformation",
+    "subject": "INFOSYS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Explores strategic opportunities for delivering value through digital technologies. Examines best practices to ensure the effective development and operation of digital capabilities in the global context by aligning business and information technology strategies, controlling risks, and complying with regulatory requirements and standards.",
+    "prerequisites": "must have completed INFOSYS 220 AND must have completed 1 of BUSAN 201 / INFOSYS 222",
+    "restrictions": "must not have completed INFOSYS 323",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 2 hours of lectures, 2-hour team-based learning (TBL) session, 2 hours of reading and thinking about the content, 4 hours of work on assignments, and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Quizzes (closed book)",
+        "weight": "14% - Individual Coursework"
+      },
+      {
+        "type": "TBL deliverables",
+        "weight": "10% - Group & Individual Coursework"
+      },
+      {
+        "type": "Group Assignment",
+        "weight": "30% - Group Coursework"
+      },
+      {
+        "type": "Presentation",
+        "weight": "10% - Group & Individual Coursework"
+      },
+      {
+        "type": "Test (Interactive Oral)",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Research and Reflection",
+        "weight": "14% - Individual Coursework"
+      },
+      {
+        "type": "Panel engagement",
+        "weight": "2% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INFOSYS%20305",
+    "sourceFetchedAt": "2026-06-16T14:45:31.257Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "infosys-321",
+    "code": "INFOSYS 321",
+    "title": "Enterprise Systems",
+    "subject": "INFOSYS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Examines cross-functional integrated computer-based information systems, known as Enterprise Resource Planning (ERP) systems, designed to support an organisation's information needs and operations. Considers issues associated with the selection, analysis, design, implementation and configuration of such systems. Investigates transaction processing, management information and decision support across an organisation's business processes. Explores the characterisation of problems, in terms of process and information models.",
+    "prerequisites": "must have completed 1 of ACCTG 211 / ACCTG 221 / ACCTG 222 / BUSAN 200 / BUSAN 200 LVL / BUSAN 201 / COMPSCI 210 / COMPSCI 215 / COMPSCI 220 / COMPSCI 225 / COMPSCI 230 / COMPSCI 235 / COMPSCI 289 / COMPSCI 290 / ENGSCI 205 / ENGSCI 211 / ENGSCI 233 / ENGSCI 255 / ENGSCI 263 / ENGSCI 270 / ENGSCI 299 / INFOSYS 220 / INFOSYS 221 / INFOSYS 222 / MKTG 202 / MKTG 203 / OPSMGT 255 / OPSMGT 258 / SOFTENG 206 / SOFTENG 211 / SOFTENG 250 / SOFTENG 251 / SOFTENG 254 / SOFTENG 281 / SOFTENG 282 / SOFTENG 283 / SOFTENG 284 / SOFTENG 299",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect per week 2 hours of lectures, a 2 hour lab class, 1.5 hours of reading and thinking about the content and 3.5 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "35% - Individual Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "25% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INFOSYS%20321",
+    "sourceFetchedAt": "2026-06-16T14:45:33.302Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "infosys-341",
+    "code": "INFOSYS 341",
+    "title": "Information Security in Business",
+    "subject": "INFOSYS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2"
+    ],
+    "description": "An overview of policies, procedures, activities and methods used to manage information assets securely. Topics covered include governance and strategic planning, protection mechanisms, information security practices and policies, risk assessment and management, contingency and response planning, and the legal, and ethical issues associated with information security.",
+    "prerequisites": "must have completed 2 of BUSAN 200 / BUSAN 200 LVL / BUSAN 201 / COMPSCI 210 / COMPSCI 215 / COMPSCI 220 / COMPSCI 225 / COMPSCI 230 / COMPSCI 235 / COMPSCI 289 / COMPSCI 290 / INFOSYS 220 / INFOSYS 221 / INFOSYS 222",
+    "workload": "This course is an introduction to managing information security. General knowledge of digital technology and business processes is essential to cope successfully with the course material. Familiarity with data communication would be a significant advantage. This course need about 150 hours learning during the semester including: - 36 contact hours - 24 hours preparatory reading - 90 hours of self-study The key to successful completion of the course without much stress is a regular study during the whole semester. Attendance at the lectures is not obligatory but is highly recommended.",
+    "assessments": [
+      {
+        "type": "Lab",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Project",
+        "weight": "30% - Group Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Discussions",
+        "weight": "10% - Group & Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INFOSYS%20341",
+    "sourceFetchedAt": "2026-06-16T14:45:37.135Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "intbus-306",
+    "code": "INTBUS 306",
+    "title": "Global and Regional Business",
+    "subject": "INTBUS",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1"
+    ],
+    "description": "Focuses on the conduct of business in the world's regions. Examines globalisation, regionalisation and market integration and their impact on firms.",
+    "prerequisites": "must have completed 1 of BUSINESS 200 / INTBUS 201",
+    "restrictions": "must not have completed INTBUS 311, INTBUS 312, INTBUS 313, INTBUS 310",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. During a typical teaching week there will be 3 hours of lectures. For the 12 teaching weeks, this totals to 36 hours. Since the course as a whole represents approximately 150 hours of study, that leaves a total of 114 hours across the entire semester for independent study, e.g. reading, reflection, preparing for assessments/exams, etc.",
+    "assessments": [
+      {
+        "type": "Group work",
+        "weight": "30% - Group Coursework"
+      },
+      {
+        "type": "Exam",
+        "weight": "50% - Individual Examination"
+      },
+      {
+        "type": "Quiz",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Online exercises",
+        "weight": "10% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=INTBUS%20306",
+    "sourceFetchedAt": "2026-06-16T14:45:40.043Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "mgmt-302",
+    "code": "MGMT 302",
+    "title": "Strategic Management",
+    "subject": "MGMT",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Summer School"
+    ],
+    "description": "Engages in a holistic exploration of the tensions that arise from content – the what, where and how – in the process and context of strategy to develop skills and knowledge for addressing wicked problems.",
+    "prerequisites": "must have completed 1 of BUSINESS 200 / BUSINESS 201 / BUSINESS 202 / BUSINESS 210 / BUSINESS 211 / BUSINESS 291 / INNOVENT 200LVL / INNOVENT 203 / INNOVENT 203 G / INNOVENT 204 / INTBUS 201 / INTBUS 202 / MGMT 211 / MGMT 223 OR must have completed 1 of ENGGEN 204 / ENGGEN 303 / SCIGEN 201 / SCIGEN 301 / SCIGEN 301 G",
+    "restrictions": "must not have completed BUSINESS 304",
+    "workload": "This course is based on 150 hours of learning over a single semester or Summer School, spread across: · 48 hours preparatory reading (e.g., 12 sessions of 4 hours) · 12 hours of in-class discussion of the readings and assessed quizzes (e.g., 12 sessions of 1 hour) · 72 hours of case analysis (e.g., 12 sessions of 6 hours) · 18 hours of assessed in-class case-based discussion (e.g., 12 sessions of 1.5 hours) When this course is delivered during the six weeks of Summer School, the 150 hours, this equates to 25 hours of study per week.",
+    "assessments": [
+      {
+        "type": "Case discussions (Best 10 of 12)",
+        "weight": "80% - Individual Coursework"
+      },
+      {
+        "type": "Quizzes (Best 10 of 12)",
+        "weight": "20% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MGMT%20302",
+    "sourceFetchedAt": "2026-06-16T14:45:42.901Z",
+    "hasFinalExam": false,
+    "hasGroupWork": false
+  },
+  {
+    "id": "mgmt-309",
+    "code": "MGMT 309",
+    "title": "Organisational Ethics and Sustainability",
+    "subject": "MGMT",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Explores ethical principles and the concepts of sustainability and applies these to real-life corporate social responsibility examples. Provides in-depth analysis of the tensions organisations face when trying to operate responsibly within a complex web of stakeholders and further identifies avenues for business to ethically navigate these. Emphasis is placed on 'people and place' and explores how organisations can depart from 'Business as Usual' by adopting a guardianship or kaitiakitanga perspective.",
+    "restrictions": "must not have completed MGMT 331",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in (150 hours in total). For this course, you can expect 36 contact hours including lectures and in-class discussions and 114 self study hours including individual and group study.",
+    "assessments": [
+      {
+        "type": "Individual In-Class Assessment",
+        "weight": "25% - Individual Coursework"
+      },
+      {
+        "type": "Individual Video Presentation",
+        "weight": "25% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MGMT%20309",
+    "sourceFetchedAt": "2026-06-16T14:45:45.813Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "mktg-203",
+    "code": "MKTG 203",
+    "title": "Strategic Marketing",
+    "subject": "MKTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1",
+      "Summer School"
+    ],
+    "description": "A comprehensive overview of the central principles and concepts of marketing strategy and management. Highlights the challenges that marketing managers face in planning and implementing effective marketing mix strategies.",
+    "prerequisites": "must have completed 1 of BUSINESS 103, MGMT 101, BUSINESS 102, BUSINESS 112 / BUSINESS 113",
+    "restrictions": "must not have completed MKTG 201",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 2 hours of lectures, 5-6 hours of reading, watching, and thinking about the content, and 2-3 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Project",
+        "weight": "20% - Group Coursework"
+      },
+      {
+        "type": "Quizzes",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MKTG%20203",
+    "sourceFetchedAt": "2026-06-16T14:45:47.849Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "mktg-302",
+    "code": "MKTG 302",
+    "title": "Advanced Marketing Research",
+    "subject": "MKTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [],
+    "description": "A case-based course in which students conduct live research for a client and work with mentors from industry. Theory and practice are intertwined to provide students with understanding and experience in key aspects of quantitative market research, including advanced questionnaire design skills, online research methods, data analytics and deriving and communicating insights.",
+    "prerequisites": "must have completed MKTG 202 AND must have completed 1 of MKTG 201, MKTG 203",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. During a typical teaching week there will be 2 hours of lectures. Throughout the semester, there will also be 8 hours of laboratories/tutorials and 3 hours of mentor meetings. For the 12 teaching weeks, this totals to 35 hours. Since the course as a whole represents approximately 150 hours of study, that leaves a total of 115 hours across the entire semester for independent study, e.g. reading, reflection, preparing for assessments/exams, etc.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "50% - Group & Individual Coursework"
+      },
+      {
+        "type": "Laboratories",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MKTG%20302",
+    "sourceFetchedAt": "2026-06-16T14:45:48.930Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "mktg-303",
+    "code": "MKTG 303",
+    "title": "Consumer Behaviour",
+    "subject": "MKTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Focuses on understanding customers. Applies psychology to how people make consumption decisions and interpret advertising. Includes a consideration of individual differences and environmental/situational influences on consumers.",
+    "prerequisites": "must have completed 1 of MKTG 201, MKTG 203",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in.",
+    "assessments": [
+      {
+        "type": "Assignment",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Assignments",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "50% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MKTG%20303",
+    "sourceFetchedAt": "2026-06-16T14:45:50.001Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "mktg-304",
+    "code": "MKTG 304",
+    "title": "Digital Marketing",
+    "subject": "MKTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Examines how digital devices and applications are transforming the way organisations engage with consumers and how consumers search for, compare and select products. Develops understanding of how organisations use emerging technologies and how these influence consumer preference and decision-making. Builds skills in online data analytics and conducting research with an industry partner.",
+    "prerequisites": "must have completed MKTG 202 AND must have completed 1 of MKTG 201, MKTG 203",
+    "restrictions": "must not have completed INFOSYS 344",
+    "workload": "This course is a standard 15-point offering, with students expected to dedicate approximately ten hours per week to each 15-point course they enrol in. This course includes attending a mandatory 2-hour tutorial, spending 3 hours reading and reflecting on the provided content, and allocating 5 hours to working on assignments. Before each tutorial, students must review and familiarise themselves with the provided materials to engage effectively in the class discussions and activities. Independent study and coursework are essential for academic success but may not independently ensure a complete understanding of MKTG 304. As the course is highly practical and involves various industry tools, regular attendance in tutorials is essential for grasping the applied aspects of the material. Students who foresee challenges with attendance or managing the course workload should consult an enrollment adviser before the course begins.",
+    "assessments": [
+      {
+        "type": "Professional Development",
+        "weight": "15% - Individual Coursework"
+      },
+      {
+        "type": "Digital Audit",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Campaign proposal",
+        "weight": "15% - Group Coursework"
+      },
+      {
+        "type": "Interactive Oral Assessment",
+        "weight": "40% - Individual Coursework"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MKTG%20304",
+    "sourceFetchedAt": "2026-06-16T14:45:51.142Z",
+    "hasFinalExam": false,
+    "hasGroupWork": true
+  },
+  {
+    "id": "mktg-306",
+    "code": "MKTG 306",
+    "title": "Advertising and Branding",
+    "subject": "MKTG",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1"
+    ],
+    "description": "Focuses on how a business can take an integrated approach to communicating with its customers and with other key stakeholders. Explores traditional tools such as advertising, sales promotion, public relations, personal selling and direct marketing, as well as newer forms of communicating within digital and social media environments.",
+    "prerequisites": "( must have completed MKTG 202 AND must have completed 1 of MKTG 201, MKTG 203 ) OR ( must have completed all of COMMS 100 / COMMS 104 AND ( must have completed MKTG 151 AND must be with a B or higher) AND must have completed 1 of COMMS 204, COMMS 202 )",
+    "workload": "This course is a standard [15] point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. Whilst use of time varies from student to student, for this course, a 'typical' student can expect [2] hours of reading and thinking about the content prior to class, [3] hours of class, and [5] hours of work on assignment and test preparation.",
+    "assessments": [
+      {
+        "type": "Individual Report",
+        "weight": "20% - Individual Coursework"
+      },
+      {
+        "type": "Group Project",
+        "weight": "30% - Group Coursework"
+      },
+      {
+        "type": "Individual Self reflection",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=MKTG%20306",
+    "sourceFetchedAt": "2026-06-16T14:45:53.132Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  },
+  {
+    "id": "opsmgt-258",
+    "code": "OPSMGT 258",
+    "title": "Business Process Design",
+    "subject": "OPSMGT",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 2,
+    "points": 15,
+    "semesters": [
+      "Semester 2",
+      "Semester 1"
+    ],
+    "description": "Introduces the elements of business process management through mapping and design. Emphasis is on how organisations identify, design and improve essential business processes. Includes the use of software tools to model and analyse processes for continuous performance improvements.",
+    "prerequisites": "must have completed 1 of BUSINESS 111 / INFOSYS 110 AND must have completed 1 of ECON 221 / ENGSCI 211 / STATS 101 / STATS 108",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 3 hours of lectures, 1 hour of tutorial, 2 hours of reading and thinking about the content, and 4 hours of work on assignments and/or test preparation in a week.",
+    "assessments": [
+      {
+        "type": "Laboratories",
+        "weight": "8% - Individual Coursework"
+      },
+      {
+        "type": "Assignment 1",
+        "weight": "10% - Individual Coursework"
+      },
+      {
+        "type": "Assignment 2",
+        "weight": "15% - Individual Coursework"
+      },
+      {
+        "type": "Test",
+        "weight": "20% - Individual Test"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "47% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=OPSMGT%20258",
+    "sourceFetchedAt": "2026-06-16T14:45:54.284Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "opsmgt-371",
+    "code": "OPSMGT 371",
+    "title": "Business Logistics",
+    "subject": "OPSMGT",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1",
+      "Semester 2"
+    ],
+    "description": "Focuses on coordinating logistics across supply chains. Topic coverage features modelling using spreadsheets and includes transportation, forecasting, and inventory control models suitable for use in a distribution and supply chain context.",
+    "prerequisites": "must have completed 1 of ENGSCI 255 / OPSMGT 255 / STATS 255",
+    "workload": "This course is a standard 15 point course and students are expected to spend 10 hours per week involved in each 15 point course that they are enrolled in. For this course, you can expect 3 hours of lectures, a 2 hour lab/tutorial, 2 hours of reading and thinking about the content and 3 hours of work on assignments and/or test preparation.",
+    "assessments": [
+      {
+        "type": "Test",
+        "weight": "30% - Individual Test"
+      },
+      {
+        "type": "Assignments",
+        "weight": "30% - Individual Coursework"
+      },
+      {
+        "type": "Exam",
+        "weight": "40% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=OPSMGT%20371",
+    "sourceFetchedAt": "2026-06-16T14:45:55.456Z",
+    "hasFinalExam": true,
+    "hasGroupWork": false
+  },
+  {
+    "id": "opsmgt-376",
+    "code": "OPSMGT 376",
+    "title": "Strategic Procurement",
+    "subject": "OPSMGT",
+    "faculty": "Faculty of Business and Economics",
+    "stage": 3,
+    "points": 15,
+    "semesters": [
+      "Semester 1"
+    ],
+    "description": "Strategic issues in procurement and supply management, covering analysis, planning, and management of supply activities. To enhance understanding of typical situations procurement managers are dealing with and the impact of their decisions on the overall performance of a supply chain the course uses a game-theoretic approach. Note: Students should be aware that several topics of the course make use of basic calculus concepts such as derivatives and maximisation problems.",
+    "workload": "10 hours per week on average are required for your learning activities that include a lecture, (optional) tutoring, and hours of self-study. To promote your learning experience, a variety of teaching approaches will be utilized including lectures, class discussions, written assignments, presentations, and classroom activities. The class typically meets for three hours a week. Lectures are active learning times and therefore recordings, where provided, should only be used as a revision tool. Tutoring provides opportunities to reinforce learning outcomes obtained from lectures. Students are expected to use an average of 4-7 additional self-study hours each week in reading and preparing for the class (split between reading, studying, and assignments). Active participation is essential, and students will be expected to master materials assigned in readings, presented in class lectures, discussions, and presentations.",
+    "assessments": [
+      {
+        "type": "Assignments",
+        "weight": "15% - Individual Coursework"
+      },
+      {
+        "type": "Mid-Semester Test",
+        "weight": "25% - Individual Test"
+      },
+      {
+        "type": "Project",
+        "weight": "20% - Group Coursework"
+      },
+      {
+        "type": "Final Exam",
+        "weight": "40% - Individual Examination"
+      }
+    ],
+    "sourceUrl": "https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=OPSMGT%20376",
+    "sourceFetchedAt": "2026-06-16T14:45:56.534Z",
+    "hasFinalExam": true,
+    "hasGroupWork": true
+  }
+]

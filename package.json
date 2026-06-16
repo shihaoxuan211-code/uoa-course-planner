@@ -1,0 +1,30 @@
+{
+  "name": "uoa-course-planner",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "generate:visual": "node scripts/generate-planner-visual.cjs",
+    "import:uoa": "tsc --target ES2022 --module NodeNext --moduleResolution NodeNext --types node --skipLibCheck --outDir .tmp/importer --rootDir . scripts/import-uoa-courses.ts && node .tmp/importer/scripts/import-uoa-courses.js --bcom",
+    "import:uoa:manual": "tsc --target ES2022 --module NodeNext --moduleResolution NodeNext --types node --skipLibCheck --outDir .tmp/importer --rootDir . scripts/import-uoa-courses.ts && node .tmp/importer/scripts/import-uoa-courses.js --manual",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "next": "16.2.9",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
+  }
+}
