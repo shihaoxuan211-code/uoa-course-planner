@@ -8,7 +8,7 @@ export function CourseIntelligence({ course }: CourseIntelligenceProps) {
 
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-      <h2 className="text-xl font-bold text-ink">Course Intelligence</h2>
+      <h2 className="text-xl font-bold text-ink">Course Insights</h2>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         <div className="rounded-lg bg-slate-50 p-3 text-center">

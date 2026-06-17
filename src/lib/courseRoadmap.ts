@@ -27,7 +27,7 @@ const PATHWAY_LABELS: Record<string, string> = {
 };
 
 function extractCodes(text: string): string[] {
-  if (!text || text === "Not available") return [];
+  if (!text || text === "Information unavailable") return [];
   return [...new Set((text.match(COURSE_RE) || []))];
 }
 

@@ -41,7 +41,7 @@ export function getLatestHistoricalExamMode(exams: HistoricalExam[]) {
 
 export function getHistoricalExamPattern(exams: HistoricalExam[]) {
   if (exams.length === 0) {
-    return "No exam in S1 2026";
+    return "No S1 2026 exam data";
   }
 
   const counts = exams.reduce<Record<ExamMode, number>>(

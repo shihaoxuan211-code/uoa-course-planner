@@ -592,15 +592,28 @@ function normalizeSemesterLabel(rawValue: string | undefined): Semester | undefi
 
 function extractSemesters(html: string) {
   const semesters = new Set<Semester>();
+
+  // Primary: look for <td data-label="Semester"> cells
   const semesterCellPattern = /<td[^>]*data-label=["']Semester["'][^>]*>([\s\S]*?)<\/td>/gi;
   let match = semesterCellPattern.exec(html);
 
   while (match) {
     const semester = normalizeSemesterLabel(htmlToText(match[1]));
-    if (semester) {
-      semesters.add(semester);
-    }
+    if (semester) semesters.add(semester);
     match = semesterCellPattern.exec(html);
+  }
+
+  // Fallback: scan full page text for semester keywords
+  if (semesters.size === 0) {
+    const pageText = htmlToText(html);
+    const keywords: Array<{ pattern: RegExp; label: Semester }> = [
+      { pattern: /semester\s+(one|1)/i, label: "Semester 1" },
+      { pattern: /semester\s+(two|2)/i, label: "Semester 2" },
+      { pattern: /summer\s+(semester|school)/i, label: "Summer School" }
+    ];
+    keywords.forEach(({ pattern, label }) => {
+      if (pattern.test(pageText)) semesters.add(label);
+    });
   }
 
   return [...semesters];
@@ -617,7 +630,23 @@ function extractTableByAriaLabel(html: string, label: string) {
 }
 
 function extractAssessments(html: string) {
-  const assessmentTable = extractTableByAriaLabel(html, "Assessments");
+  // Primary: <table aria-label="Assessments">
+  let assessmentTable = extractTableByAriaLabel(html, "Assessments");
+
+  // Fallback: look for tables with assessment-related aria-labels or headings
+  if (!assessmentTable) {
+    assessmentTable = extractTableByAriaLabel(html, "Assessment");
+  }
+  if (!assessmentTable) {
+    // Try finding a table near "Assessment" text
+    const assessmentHeadingMatch = html.match(/<h[2-4][^>]*>\s*Assessment[s]?\s*<\/h[2-4]>/i);
+    if (assessmentHeadingMatch) {
+      const afterHeading = html.slice(html.indexOf(assessmentHeadingMatch[0]));
+      const tableMatch = afterHeading.match(/<table[^>]*>[\s\S]*?<\/table>/i);
+      if (tableMatch) assessmentTable = tableMatch[0];
+    }
+  }
+
   if (!assessmentTable) {
     return [];
   }

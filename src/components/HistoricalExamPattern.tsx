@@ -14,7 +14,7 @@ export function HistoricalExamPattern({ exams }: HistoricalExamPatternProps) {
     <section className="space-y-5 rounded-lg border border-slate-200 bg-white p-5 shadow-card">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="text-sm font-bold uppercase tracking-normal text-fern">Historical Exam Pattern</p>
+          <p className="text-sm font-bold uppercase tracking-normal text-fern">Exam Mode History</p>
           <h2 className="mt-1 text-2xl font-bold tracking-normal text-ink">{pattern}</h2>
         </div>
         <div className="flex flex-wrap gap-2">

@@ -8,7 +8,7 @@ export type Semester =
   | "Quarter 2"
   | "Quarter 3"
   | "Quarter 4"
-  | "Not available";
+  | "Information unavailable";
 
 export interface AssessmentItem {
   type: string;

@@ -144,7 +144,7 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
                 </div>
               ))
             ) : (
-              <p className="py-3 text-sm font-medium text-slate-600">Not available</p>
+              <p className="py-3 text-sm font-medium text-slate-600">Information unavailable</p>
             )}
           </div>
         </div>

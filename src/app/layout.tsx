@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "UOA Course Planner",
   description:
-    "A sample Next.js MVP for planning University of Auckland courses with mock fallback and optional imported data."
+    "University of Auckland Course Planner — Search courses, compare assessments, check exam modes, and plan your study pathway using public UOA information."
 };
 
 export default function RootLayout({

@@ -108,7 +108,7 @@ function getAssessmentStyle(assessments: AssessmentItem[]): AssessmentInsight["a
 
   return {
     labels: sorted,
-    summary: sorted.length > 0 ? sorted.join(" + ") : "Not available"
+    summary: sorted.length > 0 ? sorted.join(" + ") : "Information unavailable"
   };
 }
 

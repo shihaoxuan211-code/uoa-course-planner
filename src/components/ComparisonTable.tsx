@@ -119,14 +119,14 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
       label: "Difficulty (1-5)",
       render: (course) => {
         const r = getReviewData(course.code);
-        return r ? <StarsInline value={r.ratings.difficulty} /> : <span className="text-xs text-slate-400">No data</span>;
+        return r ? <StarsInline value={r.ratings.difficulty} /> : <span className="text-xs text-slate-400">Information unavailable</span>;
       }
     },
     {
       label: "Workload (1-5)",
       render: (course) => {
         const r = getReviewData(course.code);
-        return r ? <StarsInline value={r.ratings.workload} /> : <span className="text-xs text-slate-400">No data</span>;
+        return r ? <StarsInline value={r.ratings.workload} /> : <span className="text-xs text-slate-400">Information unavailable</span>;
       }
     },
     {

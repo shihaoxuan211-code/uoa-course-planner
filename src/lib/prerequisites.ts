@@ -484,7 +484,7 @@ export function checkPrerequisites(
   const raw = course.prerequisites;
 
   // No prerequisites — met by default
-  if (!raw || raw === "Not available" || raw.trim().length === 0) {
+  if (!raw || raw === "Information unavailable" || raw.trim().length === 0) {
     return {
       status: "met",
       parseable: true,
@@ -506,7 +506,7 @@ export function checkPrerequisites(
       assumedCodes: [],
       metBy: [],
       assumedBy: [],
-      description: "Unknown prerequisite format"
+      description: "Could not parse prerequisite format"
     };
   }
 

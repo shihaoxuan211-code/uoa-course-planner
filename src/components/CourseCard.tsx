@@ -65,7 +65,7 @@ export function CourseCard({ course, difficulty }: CourseCardProps) {
         </div>
         <div>
           <dt className="text-xs text-slate-500">S1 2026 Exam</dt>
-          <dd className="text-sm font-semibold text-ink">{latestMode ? `Mode ${latestMode}` : "Not listed"}</dd>
+          <dd className="text-sm font-semibold text-ink">{latestMode ? `Mode ${latestMode}` : "Information unavailable"}</dd>
         </div>
         {difficulty !== undefined && (
           <div className="col-span-2">

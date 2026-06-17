@@ -1,6 +1,6 @@
 import type { AssessmentItem, Course, ImportedAssessmentItem, ImportedCourse, Semester } from "@/types/course";
 
-export const NOT_AVAILABLE = "Not available";
+export const NOT_AVAILABLE = "Information unavailable";
 
 const validSemesters: Semester[] = [
   "Semester 1",
@@ -10,7 +10,7 @@ const validSemesters: Semester[] = [
   "Quarter 2",
   "Quarter 3",
   "Quarter 4",
-  "Not available"
+  "Information unavailable"
 ];
 
 function isRecord(value: unknown): value is Record<string, unknown> {

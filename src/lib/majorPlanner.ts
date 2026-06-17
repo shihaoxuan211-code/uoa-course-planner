@@ -48,7 +48,7 @@ const MAJOR_PRIORITY: Record<StudentMajor, string[]> = {
 const COURSE_RE = /[A-Z]{2,10}\s\d{3}[A-Z]*/g;
 
 function extractPrereqCodes(text: string): string[] {
-  if (!text || text === "Not available") return [];
+  if (!text || text === "Information unavailable") return [];
   return [...new Set((text.match(COURSE_RE) || []))];
 }
 
@@ -104,7 +104,7 @@ export function generateRecommendations(input: PlannerInput): {
     const { met, missing } = prereqsMet(course, completedCodes, plannedCodes, assumedCodes);
     if (met) {
       score += 20;
-      if (course.prerequisites && course.prerequisites !== "Not available") {
+      if (course.prerequisites && course.prerequisites !== "Information unavailable") {
         reasons.push("Prerequisites satisfied");
       } else {
         reasons.push("No prerequisites required");

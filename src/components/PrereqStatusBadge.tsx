@@ -39,7 +39,7 @@ export function PrereqStatusBadge({ course }: PrereqStatusBadgeProps) {
       </div>
     );
   }
-  if (!course.prerequisites || course.prerequisites === "Not available") return null;
+  if (!course.prerequisites || course.prerequisites === "Information unavailable") return null;
 
   return (
     <div className="rounded-lg bg-slate-50 p-4 text-sm">

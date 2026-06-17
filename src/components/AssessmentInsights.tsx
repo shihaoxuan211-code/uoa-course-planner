@@ -40,7 +40,7 @@ function getWorkloadColor(level: AssessmentInsight["workloadSignal"]["level"]) {
     case "High": return "text-rose-700";
     case "Medium": return "text-amber-700";
     case "Low": return "text-emerald-700";
-    case "Unknown": return "text-slate-500";
+    case "Unknown": return "text-slate-400";
   }
 }
 

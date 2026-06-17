@@ -5,15 +5,15 @@ import { courseDataSource, courses } from "@/data/courses";
 const valueCards = [
   {
     title: "Course Search",
-    body: "Find sample course records by code, title, subject, semester, and stage."
+    body: "Find course records by code, title, subject, semester, and stage."
   },
   {
-    title: "Historical Exam Pattern",
-    body: "Review past sample exam modes and see a simple historical pattern label."
+    title: "Exam Mode History",
+    body: "Review past exam modes and see historical pattern labels."
   },
   {
     title: "Course Plan & Comparison",
-    body: "Save courses locally and compare 2 to 4 options side by side."
+    body: "Save courses locally and compare up to 4 options side by side."
   }
 ];
 
@@ -22,13 +22,12 @@ export default function HomePage() {
     <main>
       <section className="mx-auto grid max-w-6xl gap-8 px-4 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-14">
         <div>
-          <p className="text-sm font-bold uppercase tracking-normal text-fern">Sample MVP for students</p>
+          <p className="text-sm font-bold uppercase tracking-normal text-fern">Planning Tool for Students</p>
           <h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-normal text-ink sm:text-5xl">
-            UOA Course Planner
+            University of Auckland Course Planner
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700">
-            Search sample course information, check historical exam mode patterns, and build a local
-            planning list before confirming details with official UOA sources.
+            Search courses, compare assessment structures, check exam modes, and plan your study pathway using public UOA course information.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
@@ -77,8 +76,8 @@ export default function HomePage() {
               <p className="mt-1 text-2xl font-bold text-ink">{courses.length} courses</p>
             </div>
             <p className="max-w-2xl text-sm leading-6 text-slate-600">
-              This MVP uses {courseDataSource === "imported" ? "imported public catalogue data" : "mock fallback data"}.
-              Imported data may be incomplete or outdated and should be verified with official University of Auckland sources.
+              This tool uses public University of Auckland course information where available.
+              Please verify final enrolment decisions with official university sources.
             </p>
           </div>
         </div>
