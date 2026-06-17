@@ -56,6 +56,20 @@ export interface ImportedAssessmentItem {
   weight?: string;
 }
 
+export interface ReviewRatings {
+  difficulty: number;
+  workload: number;
+  enjoyment: number;
+  usefulness: number;
+}
+
+export interface CourseReview {
+  ratings: ReviewRatings;
+  positiveComments: string[];
+  negativeComments: string[];
+  tipsForFutureStudents: string;
+}
+
 export interface ImportedCourse {
   id?: string;
   code?: string;

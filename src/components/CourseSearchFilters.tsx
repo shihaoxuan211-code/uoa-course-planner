@@ -82,6 +82,73 @@ export function CourseSearchFilters({
           </select>
         </label>
       </div>
+
+      <div className="mt-4 border-t border-slate-100 pt-4">
+        <span className="text-sm font-semibold text-ink">Exam (S1 2026)</span>
+        <div className="mt-2 flex flex-wrap gap-3">
+          {[
+            { value: "all", label: "All" },
+            { value: "has-exam", label: "Has Final Exam" },
+            { value: "no-exam", label: "No Final Exam" },
+            { value: "A", label: "Mode A" },
+            { value: "B", label: "Mode B" },
+            { value: "C", label: "Mode C" },
+            { value: "D", label: "Mode D" }
+          ].map((opt) => (
+            <label
+              key={opt.value}
+              className={`cursor-pointer rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                filters.examMode === opt.value
+                  ? "border-fern bg-fern/10 text-fern"
+                  : "border-slate-200 text-slate-600 hover:border-slate-400"
+              }`}
+            >
+              <input
+                type="radio"
+                name="examMode"
+                value={opt.value}
+                checked={filters.examMode === opt.value}
+                onChange={(event) => update("examMode", event.target.value)}
+                className="sr-only"
+              />
+              {opt.label}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-4 border-t border-slate-100 pt-4">
+        <span className="text-sm font-semibold text-ink">Difficulty</span>
+        <div className="mt-2 flex flex-wrap gap-3">
+          {[
+            { value: "all", label: "All" },
+            { value: "1", label: "★ 1" },
+            { value: "2", label: "★★ 2" },
+            { value: "3", label: "★★★ 3" },
+            { value: "4", label: "★★★★ 4" },
+            { value: "5", label: "★★★★★ 5" }
+          ].map((opt) => (
+            <label
+              key={opt.value}
+              className={`cursor-pointer rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                filters.difficulty === opt.value
+                  ? "border-amber-400 bg-amber-50 text-amber-700"
+                  : "border-slate-200 text-slate-600 hover:border-slate-400"
+              }`}
+            >
+              <input
+                type="radio"
+                name="difficulty"
+                value={opt.value}
+                checked={filters.difficulty === opt.value}
+                onChange={(event) => update("difficulty", event.target.value)}
+                className="sr-only"
+              />
+              {opt.label}
+            </label>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

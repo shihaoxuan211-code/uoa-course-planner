@@ -1,0 +1,348 @@
+{
+  "_note": "SAMPLE DATA — manually maintained exam timetable records for planning reference only. This is NOT official University of Auckland data. Exam mode, date, format, and availability may change in any semester. Always confirm with the official UOA exam timetable.",
+  "_source": "Manually compiled from publicly accessible UOA exam timetable pages. Updated on a best-effort basis.",
+  "_lastUpdated": "2026-06-17",
+  "exams": {
+    "BUSAN 300": [
+      {
+        "year": 2025,
+        "semester": "Semester 2",
+        "date": "2025-11-05",
+        "mode": "D",
+        "format": "Digital exam with mixed short-answer and applied case questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2025,
+        "semester": "Semester 1",
+        "date": "2025-06-12",
+        "mode": "D",
+        "format": "Digital exam with applied analytics questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 2",
+        "date": "2024-11-02",
+        "mode": "D",
+        "format": "Digital exam with applied business scenario questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ],
+    "INTBUS 305": [
+      {
+        "year": 2025,
+        "semester": "Semester 1",
+        "date": "2025-06-18",
+        "mode": "A",
+        "format": "Online non-invigilated essay-style case exam",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 1",
+        "date": "2024-06-20",
+        "mode": "A",
+        "format": "Online non-invigilated applied strategy questions",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2023,
+        "semester": "Semester 1",
+        "date": "2023-06-16",
+        "mode": "A",
+        "format": "Online non-invigilated short essays and case analysis",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ],
+    "INTBUS 333": [
+      {
+        "year": 2025,
+        "semester": "Semester 2",
+        "date": "2025-10-31",
+        "mode": "B",
+        "format": "Online invigilated exam with scenario questions",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Restricted open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 2",
+        "date": "2024-10-29",
+        "mode": "B",
+        "format": "Online invigilated case-based exam",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Restricted open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2023,
+        "semester": "Semester 2",
+        "date": "2023-10-30",
+        "mode": "A",
+        "format": "Online non-invigilated case response exam",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ],
+    "INFOSYS 222": [
+      {
+        "year": 2025,
+        "semester": "Semester 2",
+        "date": "2025-11-03",
+        "mode": "D",
+        "format": "Digital exam with SQL and database design questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 2",
+        "date": "2024-11-04",
+        "mode": "D",
+        "format": "Digital exam with short answer and query writing",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2023,
+        "semester": "Semester 1",
+        "date": "2023-06-21",
+        "mode": "C",
+        "format": "Paper exam with database design and SQL questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ],
+    "COMLAW 201": [
+      {
+        "year": 2025,
+        "semester": "Semester 1",
+        "date": "2025-06-12",
+        "mode": "C",
+        "format": "Paper exam with legal problem questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 2",
+        "date": "2024-10-26",
+        "mode": "C",
+        "format": "Paper exam with essay and problem questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2023,
+        "semester": "Semester 1",
+        "date": "2023-06-14",
+        "mode": "C",
+        "format": "Paper exam with applied legal questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ],
+    "ACCTG 102": [
+      {
+        "year": 2025,
+        "semester": "Semester 1",
+        "date": "2025-06-10",
+        "mode": "C",
+        "format": "Paper exam with calculations and short-answer questions",
+        "locationType": "In-person exam room",
+        "duration": "2.5 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 2",
+        "date": "2024-10-24",
+        "mode": "C",
+        "format": "Paper exam with applied accounting questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2023,
+        "semester": "Summer School",
+        "date": "2023-02-15",
+        "mode": "B",
+        "format": "Online invigilated exam with calculations",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Restricted open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ],
+    "FINANCE 251": [
+      {
+        "year": 2025,
+        "semester": "Semester 2",
+        "date": "2025-10-28",
+        "mode": "D",
+        "format": "Digital exam with financial calculations and short-answer questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Restricted open book (formula sheet provided)",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 1",
+        "date": "2024-06-15",
+        "mode": "D",
+        "format": "Digital exam with applied finance questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Restricted open book (formula sheet provided)",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2023,
+        "semester": "Semester 2",
+        "date": "2023-10-26",
+        "mode": "B",
+        "format": "Online invigilated finance exam",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ],
+    "ECON 152": [
+      {
+        "year": 2025,
+        "semester": "Semester 2",
+        "date": "2025-10-30",
+        "mode": "D",
+        "format": "Digital exam with economics problems and short essays",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 1",
+        "date": "2024-06-17",
+        "mode": "D",
+        "format": "Digital exam with applied economics questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ],
+    "MKTG 202": [
+      {
+        "year": 2025,
+        "semester": "Semester 2",
+        "date": "2025-10-27",
+        "mode": "A",
+        "format": "Online non-invigilated applied research questions",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 2",
+        "date": "2024-10-30",
+        "mode": "B",
+        "format": "Online invigilated exam with short-answer questions",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Restricted open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ],
+    "MGMT 223": [
+      {
+        "year": 2025,
+        "semester": "Semester 1",
+        "date": "2025-06-16",
+        "mode": "A",
+        "format": "Online non-invigilated reflective essay",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 1",
+        "date": "2024-06-19",
+        "mode": "A",
+        "format": "Online non-invigilated short essay questions",
+        "locationType": "Online",
+        "duration": "2 hours",
+        "materials": "Open book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ],
+    "ECON 151": [
+      {
+        "year": 2025,
+        "semester": "Semester 1",
+        "date": "2025-06-09",
+        "mode": "D",
+        "format": "Digital exam with economics problems and multiple-choice questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      },
+      {
+        "year": 2024,
+        "semester": "Semester 2",
+        "date": "2024-11-01",
+        "mode": "D",
+        "format": "Digital exam with applied global economics questions",
+        "locationType": "In-person exam room",
+        "duration": "2 hours",
+        "materials": "Closed book",
+        "sourceNote": "Sample record based on public UOA exam timetable — verify with official sources"
+      }
+    ]
+  }
+}

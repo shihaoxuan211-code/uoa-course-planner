@@ -10,7 +10,7 @@ export function ExamModeBadge({ mode, showDescription = false }: ExamModeBadgePr
   if (!mode) {
     return (
       <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 ring-1 ring-inset ring-slate-200">
-        No exam data
+        Not in S1 2026
       </span>
     );
   }

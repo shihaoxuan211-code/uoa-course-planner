@@ -1,8 +1,18 @@
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { CourseExplorer } from "@/components/CourseExplorer";
 import { courseDataSource, courses } from "@/data/courses";
+import { getCourseReview } from "@/data/reviewData";
 
 export default function CoursesPage() {
+  // Build difficulty map from review data on the server
+  const difficultyMap = new Map<string, number>();
+  for (const course of courses) {
+    const review = getCourseReview(course.code);
+    if (review) {
+      difficultyMap.set(course.code, review.ratings.difficulty);
+    }
+  }
+
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
       <div className="mb-6">
@@ -23,7 +33,7 @@ export default function CoursesPage() {
           </p>
         </DisclaimerBox>
       </div>
-      <CourseExplorer courses={courses} />
+      <CourseExplorer courses={courses} difficultyMap={difficultyMap} />
     </main>
   );
 }

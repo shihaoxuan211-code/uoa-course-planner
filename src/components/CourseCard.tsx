@@ -7,9 +7,20 @@ import { ExamModeBadge } from "@/components/ExamModeBadge";
 
 interface CourseCardProps {
   course: Course;
+  difficulty?: number;
 }
 
-export function CourseCard({ course }: CourseCardProps) {
+function StarsMini({ value }: { value: number }) {
+  return (
+    <span className="inline-flex gap-px text-amber-400 text-xs" aria-label={`Difficulty ${value}/5`}>
+      {Array.from({ length: 5 }, (_, i) => (
+        <span key={i}>{i < value ? "★" : "☆"}</span>
+      ))}
+    </span>
+  );
+}
+
+export function CourseCard({ course, difficulty }: CourseCardProps) {
   const latestMode = getLatestHistoricalExamMode(course.historicalExams);
 
   return (
@@ -46,9 +57,15 @@ export function CourseCard({ course }: CourseCardProps) {
           <dd className="font-semibold text-ink">{course.hasFinalExam ? "Yes" : "No"}</dd>
         </div>
         <div>
-          <dt className="text-slate-500">Latest mode</dt>
-          <dd className="font-semibold text-ink">{latestMode ? `Mode ${latestMode}` : "No data"}</dd>
+          <dt className="text-slate-500">S1 2026 Exam</dt>
+          <dd className="font-semibold text-ink">{latestMode ? `Mode ${latestMode}` : "Not listed"}</dd>
         </div>
+        {difficulty !== undefined && (
+          <div>
+            <dt className="text-slate-500">Difficulty</dt>
+            <dd className="font-semibold text-ink"><StarsMini value={difficulty} /></dd>
+          </div>
+        )}
       </dl>
 
       <div className="mt-5 flex flex-1 flex-col justify-end gap-4">

@@ -69,7 +69,7 @@ export function HistoricalExamPattern({ exams }: HistoricalExamPatternProps) {
         </div>
       ) : (
         <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-5 text-sm text-slate-600">
-          No historical exam data available.
+          No final exam listed in Semester 1 2026 timetable.
         </div>
       )}
 

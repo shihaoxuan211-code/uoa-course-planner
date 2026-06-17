@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { normalizeImportedCourses } from "@/lib/importedCourseValidation";
-import type { Course } from "@/types/course";
+import type { Course, HistoricalExam } from "@/types/course";
 
 const sampleSourceNote =
   "Sample mock data for MVP planning only. This is not official University of Auckland data and may not match current catalogue or exam timetable details.";
@@ -463,10 +463,105 @@ function readGeneratedCourseData() {
   }
 }
 
+function readExamTimetableData() {
+  const timetablePath = path.join(process.cwd(), "src", "data", "exam-data-s1-2026.json");
+
+  if (!fs.existsSync(timetablePath)) {
+    console.warn("exam-data-s1-2026.json not found. No exam timetable data will be shown.");
+    return new Map<string, HistoricalExam[]>();
+  }
+
+  try {
+    const raw = JSON.parse(fs.readFileSync(timetablePath, "utf8")) as Record<string, unknown>;
+
+    const records = raw.records;
+    if (!Array.isArray(records)) {
+      console.warn("exam-data-s1-2026.json: missing or invalid 'records' array.");
+      return new Map<string, HistoricalExam[]>();
+    }
+
+    const result = new Map<string, HistoricalExam[]>();
+
+    for (const record of records) {
+      if (!record || typeof record !== "object") continue;
+      const r = record as Record<string, unknown>;
+
+      const courseCode = typeof r.courseCode === "string" ? r.courseCode : undefined;
+      if (!courseCode) continue;
+
+      const mode = typeof r.mode === "string" && ["A", "B", "C", "D"].includes(r.mode)
+        ? (r.mode as HistoricalExam["mode"])
+        : undefined;
+      if (!mode) continue;
+
+      const exam: HistoricalExam = {
+        year: typeof r.year === "number" ? r.year : 2026,
+        semester: typeof r.semester === "string"
+          ? (r.semester as HistoricalExam["semester"])
+          : "Semester 1",
+        date: typeof r.examDate === "string" ? r.examDate : "Unknown",
+        mode,
+        format: typeof r.modeDescription === "string"
+          ? r.modeDescription
+          : mode === "A" ? "Remote online non-invigilated"
+          : mode === "B" ? "Remote online invigilated"
+          : mode === "C" ? "In-person paper-based"
+          : "In-person digital",
+        locationType: typeof r.examCampus === "string" ? r.examCampus : "Unknown",
+        duration: typeof r.duration === "string" ? r.duration : "Unknown",
+        materials: typeof r.bookType === "string"
+          ? r.bookType
+          : typeof r.materials === "string"
+            ? r.materials
+            : "Unknown",
+        sourceNote: typeof r.source === "string"
+          ? r.source
+          : "University of Auckland Semester 1 2026 Examination Timetable"
+      };
+
+      const existing = result.get(courseCode);
+      if (existing) {
+        existing.push(exam);
+      } else {
+        result.set(courseCode, [exam]);
+      }
+    }
+
+    return result;
+  } catch (error) {
+    console.warn(
+      `Could not read exam-data-s1-2026.json. No exam timetable data will be shown. ${
+        error instanceof Error ? error.message : ""
+      }`
+    );
+    return new Map<string, HistoricalExam[]>();
+  }
+}
+
+function mergeExamTimetable(
+  courses: Course[],
+  timetable: Map<string, HistoricalExam[]>
+): Course[] {
+  if (timetable.size === 0) return courses;
+
+  return courses.map((course) => {
+    const exams = timetable.get(course.code);
+    if (exams && exams.length > 0) {
+      return { ...course, historicalExams: exams };
+    }
+    return course;
+  });
+}
+
 const importedCourses = normalizeImportedCourses(readGeneratedCourseData());
+const examTimetable = readExamTimetableData();
+
+const coursesWithExams = importedCourses.length > 0
+  ? mergeExamTimetable(importedCourses, examTimetable)
+  : mockCourses;
 
 export const courseDataSource = importedCourses.length > 0 ? "imported" : "mock";
-export const courses: Course[] = importedCourses.length > 0 ? importedCourses : mockCourses;
+export const courses: Course[] = coursesWithExams;
 
 export function getCourseById(id: string) {
   return courses.find((course) => course.id === id);

@@ -14,22 +14,29 @@ import { CourseSearchFilters } from "@/components/CourseSearchFilters";
 
 interface CourseExplorerProps {
   courses: Course[];
+  difficultyMap?: Map<string, number>;
 }
 
 const defaultFilters: CourseFilters = {
   query: "",
   subject: "all",
   semester: "all",
-  stage: "all"
+  stage: "all",
+  examMode: "all",
+  difficulty: "all"
 };
 
-export function CourseExplorer({ courses }: CourseExplorerProps) {
+export function CourseExplorer({ courses, difficultyMap }: CourseExplorerProps) {
   const [filters, setFilters] = useState(defaultFilters);
 
   const subjects = useMemo(() => uniqueSubjects(courses), [courses]);
   const semesters = useMemo(() => uniqueSemesters(courses), [courses]);
   const stages = useMemo(() => uniqueStages(courses), [courses]);
-  const filteredCourses = useMemo(() => filterCourses(courses, filters), [courses, filters]);
+
+  const filteredCourses = useMemo(
+    () => filterCourses(courses, filters, difficultyMap),
+    [courses, filters, difficultyMap]
+  );
 
   return (
     <div className="space-y-6">
@@ -57,7 +64,7 @@ export function CourseExplorer({ courses }: CourseExplorerProps) {
       {filteredCourses.length > 0 ? (
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {filteredCourses.map((course) => (
-            <CourseCard key={course.id} course={course} />
+            <CourseCard key={course.id} course={course} difficulty={difficultyMap?.get(course.code)} />
           ))}
         </div>
       ) : (

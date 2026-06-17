@@ -1,0 +1,292 @@
+{
+  "_note": "SAMPLE DATA — manually maintained student review summaries for planning reference only. This is NOT official UOA data. Reviews are compiled from publicly shared student experiences and are representative samples only.",
+  "_lastUpdated": "2026-06-18",
+  "reviews": {
+    "ACCTG 102": {
+      "ratings": { "difficulty": 3, "workload": 4, "enjoyment": 3, "usefulness": 4 },
+      "positiveComments": [
+        "Well-structured lectures with clear examples",
+        "Good foundation for accounting majors",
+        "Helpful weekly practice tasks"
+      ],
+      "negativeComments": [
+        "Content can feel dry at times",
+        "Mid-semester test comes up quickly"
+      ],
+      "tipsForFutureStudents": "Practice questions every week — don't leave them until exam time. The textbook is actually useful for this one."
+    },
+    "ACCTG 211": {
+      "ratings": { "difficulty": 4, "workload": 4, "enjoyment": 3, "usefulness": 5 },
+      "positiveComments": [
+        "Essential for accounting career",
+        "Builds directly on ACCTG 102",
+        "Good prep for CA/CPA"
+      ],
+      "negativeComments": [
+        "Challenging concepts in second half of semester",
+        "Group presentation can be stressful with a bad group"
+      ],
+      "tipsForFutureStudents": "Form a study group early. The financial accounting standards take time to sink in — review weekly."
+    },
+    "ACCTG 221": {
+      "ratings": { "difficulty": 4, "workload": 4, "enjoyment": 4, "usefulness": 5 },
+      "positiveComments": [
+        "Very practical and applicable to real work",
+        "Lecturer explains complex topics clearly",
+        "Assignments are well-designed"
+      ],
+      "negativeComments": [
+        "Heavy quantitative content",
+        "Requires consistent weekly effort"
+      ],
+      "tipsForFutureStudents": "Don't skip the workshops — they're where the concepts click. The Excel skills you learn are valuable for internships."
+    },
+    "BUSAN 200": {
+      "ratings": { "difficulty": 3, "workload": 3, "enjoyment": 4, "usefulness": 4 },
+      "positiveComments": [
+        "Great introduction to data analytics",
+        "Practical tools you can use immediately",
+        "Supportive teaching team"
+      ],
+      "negativeComments": [
+        "Some topics feel rushed",
+        "Stats background helps a lot"
+      ],
+      "tipsForFutureStudents": "If you haven't done STATS 108, brush up on basic statistics before the semester starts."
+    },
+    "BUSAN 300": {
+      "ratings": { "difficulty": 4, "workload": 4, "enjoyment": 4, "usefulness": 5 },
+      "positiveComments": [
+        "Cutting-edge topics in big data",
+        "Hands-on with real datasets",
+        "Excellent for data-focused careers"
+      ],
+      "negativeComments": [
+        "Group project workload is uneven",
+        "Some labs can be time-consuming"
+      ],
+      "tipsForFutureStudents": "Start the group project as early as possible. The data wrangling toolkit is the most valuable part — don't skip labs."
+    },
+    "BUSINESS 111": {
+      "ratings": { "difficulty": 2, "workload": 3, "enjoyment": 4, "usefulness": 3 },
+      "positiveComments": [
+        "Fun and engaging course",
+        "Great introduction to university",
+        "Team project is enjoyable"
+      ],
+      "negativeComments": [
+        "Some topics are very basic",
+        "Group dynamics can be challenging"
+      ],
+      "tipsForFutureStudents": "This is a great first-semester course. Participate actively in workshops and choose your group members carefully."
+    },
+    "BUSINESS 112": {
+      "ratings": { "difficulty": 3, "workload": 4, "enjoyment": 4, "usefulness": 4 },
+      "positiveComments": [
+        "Creative and hands-on learning",
+        "Maker Space sessions are brilliant",
+        "Develops presentation skills"
+      ],
+      "negativeComments": [
+        "Higher workload than BUSINESS 111",
+        "Team project can dominate your schedule"
+      ],
+      "tipsForFutureStudents": "Block out regular Maker Space time. The presentation skills you develop here are valuable for every other BCom course."
+    },
+    "COMLAW 101": {
+      "ratings": { "difficulty": 3, "workload": 3, "enjoyment": 3, "usefulness": 4 },
+      "positiveComments": [
+        "Relevant to everyday business life",
+        "Good mix of theory and cases",
+        "Approachable lecturers"
+      ],
+      "negativeComments": [
+        "Some legal concepts can be dense",
+        "Mid-semester test is heavily weighted"
+      ],
+      "tipsForFutureStudents": "Read the cases before lectures. The workshops are where you learn to apply the law — attendance is essential."
+    },
+    "COMLAW 201": {
+      "ratings": { "difficulty": 4, "workload": 4, "enjoyment": 3, "usefulness": 5 },
+      "positiveComments": [
+        "Very practical contract law knowledge",
+        "Excellent for business careers",
+        "Well-organized course materials"
+      ],
+      "negativeComments": [
+        "Final exam is worth 50% — high pressure",
+        "Some topics require multiple readings to understand"
+      ],
+      "tipsForFutureStudents": "Don't leave the problem question assignment to the last week. Practice past exam questions — the format is consistent."
+    },
+    "ECON 151": {
+      "ratings": { "difficulty": 2, "workload": 2, "enjoyment": 4, "usefulness": 3 },
+      "positiveComments": [
+        "Interesting global perspective",
+        "Light workload compared to other BCom courses",
+        "Engaging current events discussions"
+      ],
+      "negativeComments": [
+        "Can feel like common sense at times",
+        "Not as quantitative as some students want"
+      ],
+      "tipsForFutureStudents": "Keep up with the news — it makes the course much more interesting. A good choice for your first semester."
+    },
+    "ECON 152": {
+      "ratings": { "difficulty": 3, "workload": 3, "enjoyment": 4, "usefulness": 4 },
+      "positiveComments": [
+        "More analytical than ECON 151",
+        "Good foundation for economics majors",
+        "Clear and well-paced lectures"
+      ],
+      "negativeComments": [
+        "Mid-term test can be tricky",
+        "Some graph-heavy topics"
+      ],
+      "tipsForFutureStudents": "Do the tutorial problem sets every week. The lab worksheets are excellent exam preparation."
+    },
+    "ECON 201": {
+      "ratings": { "difficulty": 4, "workload": 4, "enjoyment": 3, "usefulness": 4 },
+      "positiveComments": [
+        "Rigorous microeconomic theory",
+        "Develops strong analytical skills",
+        "Good for economics majors"
+      ],
+      "negativeComments": [
+        "Very mathematical — not for everyone",
+        "Lectures can be fast-paced"
+      ],
+      "tipsForFutureStudents": "Make sure you're comfortable with calculus and algebra. The textbook is essential reading — don't rely on lectures alone."
+    },
+    "FINANCE 251": {
+      "ratings": { "difficulty": 4, "workload": 3, "enjoyment": 4, "usefulness": 5 },
+      "positiveComments": [
+        "Very practical for personal and professional life",
+        "Well-structured with clear learning objectives",
+        "Excellent lecturer explanations"
+      ],
+      "negativeComments": [
+        "Financial calculator can be expensive",
+        "Some formulas take practice to master"
+      ],
+      "tipsForFutureStudents": "Get the financial calculator early and practice with it. Do ALL the practice problems — the exam follows a similar format."
+    },
+    "FINANCE 261": {
+      "ratings": { "difficulty": 4, "workload": 3, "enjoyment": 4, "usefulness": 5 },
+      "positiveComments": [
+        "Introduction to investments and markets",
+        "Practical stock trading simulation",
+        "Engaging real-world examples"
+      ],
+      "negativeComments": [
+        "Requires FINANCE 251 knowledge",
+        "Some quantitative sections are challenging"
+      ],
+      "tipsForFutureStudents": "Take FINANCE 251 first or concurrently. The stock simulation is fun but don't let it distract from the theory."
+    },
+    "INFOSYS 110": {
+      "ratings": { "difficulty": 2, "workload": 3, "enjoyment": 4, "usefulness": 4 },
+      "positiveComments": [
+        "Great introduction to digital business",
+        "No coding experience required",
+        "Practical Excel and database skills"
+      ],
+      "negativeComments": [
+        "Can feel basic if you're tech-savvy",
+        "Group assignments depend heavily on team"
+      ],
+      "tipsForFutureStudents": "Don't underestimate the Excel sections — they're tested in the final. The database module is a good preview of INFOSYS 222."
+    },
+    "INFOSYS 222": {
+      "ratings": { "difficulty": 4, "workload": 4, "enjoyment": 4, "usefulness": 5 },
+      "positiveComments": [
+        "Essential database and SQL skills",
+        "Well-organized labs and assignments",
+        "Highly valued by employers"
+      ],
+      "negativeComments": [
+        "SQL can be challenging at first",
+        "Database design assignment is time-consuming"
+      ],
+      "tipsForFutureStudents": "Practice SQL every week — it's like learning a language. The ERD design skills are just as important as the coding."
+    },
+    "INTBUS 201": {
+      "ratings": { "difficulty": 3, "workload": 3, "enjoyment": 4, "usefulness": 4 },
+      "positiveComments": [
+        "Broad introduction to international business",
+        "Interesting case studies",
+        "Good foundation for INTBUS major"
+      ],
+      "negativeComments": [
+        "Some theory-heavy weeks",
+        "Group work quality varies"
+      ],
+      "tipsForFutureStudents": "Read the case studies before tutorials. The international perspective is valuable even if you don't major in INTBUS."
+    },
+    "INTBUS 305": {
+      "ratings": { "difficulty": 4, "workload": 4, "enjoyment": 4, "usefulness": 4 },
+      "positiveComments": [
+        "Fascinating look at government-business relations",
+        "Current and relevant content",
+        "Develops critical thinking about global markets"
+      ],
+      "negativeComments": [
+        "Essay-based assessment doesn't suit everyone",
+        "Some readings are very dense"
+      ],
+      "tipsForFutureStudents": "Stay on top of the readings — they're essential for the essays. Follow international business news throughout the semester."
+    },
+    "MGMT 223": {
+      "ratings": { "difficulty": 2, "workload": 3, "enjoyment": 5, "usefulness": 3 },
+      "positiveComments": [
+        "Really interesting content about work and people",
+        "Engaging and relatable topics",
+        "Excellent lecturers who care"
+      ],
+      "negativeComments": [
+        "No final exam — relies heavily on written assessments",
+        "Content can feel subjective"
+      ],
+      "tipsForFutureStudents": "This is a great course if you enjoy writing and reflection. The team report is a major component — choose your topic carefully."
+    },
+    "MKTG 202": {
+      "ratings": { "difficulty": 3, "workload": 4, "enjoyment": 4, "usefulness": 5 },
+      "positiveComments": [
+        "Very practical research skills",
+        "Group project is hands-on and realistic",
+        "Great for anyone interested in consumer insights"
+      ],
+      "negativeComments": [
+        "Group research report is a big commitment",
+        "Some statistics knowledge assumed"
+      ],
+      "tipsForFutureStudents": "Start thinking about your research topic early. The survey design phase takes longer than you think."
+    },
+    "MKTG 301": {
+      "ratings": { "difficulty": 4, "workload": 4, "enjoyment": 4, "usefulness": 4 },
+      "positiveComments": [
+        "Strategic-level marketing thinking",
+        "Real-world case applications",
+        "Good senior-level course"
+      ],
+      "negativeComments": [
+        "Requires MKTG 202 knowledge",
+        "AI-integrated journal is a new assessment format"
+      ],
+      "tipsForFutureStudents": "Take MKTG 202 first. The journal assessment rewards consistent work — don't leave it to the end."
+    },
+    "OPSMGT 255": {
+      "ratings": { "difficulty": 3, "workload": 3, "enjoyment": 3, "usefulness": 4 },
+      "positiveComments": [
+        "Good overview of operations management",
+        "Practical Excel modelling skills",
+        "Relevant to many industries"
+      ],
+      "negativeComments": [
+        "Some mathematical topics can be dry",
+        "Lectures can feel long"
+      ],
+      "tipsForFutureStudents": "The Excel skills are very practical — practice them. This course pairs well with BUSAN 200."
+    }
+  }
+}

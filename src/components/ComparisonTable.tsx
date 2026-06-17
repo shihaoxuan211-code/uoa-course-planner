@@ -8,6 +8,7 @@ import { COMPARE_STORAGE_KEY } from "@/lib/storageKeys";
 import { getHistoricalExamPattern, getLatestHistoricalExamMode } from "@/lib/exam";
 import { useLocalStorageList } from "@/lib/useLocalStorageList";
 import { ExamModeBadge } from "@/components/ExamModeBadge";
+import reviewsRaw from "@/data/course-reviews.json";
 
 interface ComparisonTableProps {
   courses: Course[];
@@ -16,6 +17,21 @@ interface ComparisonTableProps {
 interface Row {
   label: string;
   render: (course: Course) => ReactNode;
+}
+
+function getReviewData(code: string) {
+  const data = reviewsRaw as { reviews?: Record<string, { ratings: { difficulty: number; workload: number; enjoyment: number; usefulness: number } }> };
+  return data.reviews?.[code];
+}
+
+function StarsInline({ value, max = 5 }: { value: number; max?: number }) {
+  return (
+    <span className="inline-flex gap-px text-amber-400">
+      {Array.from({ length: max }, (_, i) => (
+        <span key={i}>{i < value ? "★" : "☆"}</span>
+      ))}
+    </span>
+  );
 }
 
 export function ComparisonTable({ courses }: ComparisonTableProps) {
@@ -50,6 +66,55 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
       }
     },
     { label: "Group work status", render: (course) => (course.hasGroupWork ? "Includes group work" : "No group work listed") },
+    {
+      label: "Difficulty (1-5)",
+      render: (course) => {
+        const r = getReviewData(course.code);
+        return r ? <StarsInline value={r.ratings.difficulty} /> : <span className="text-xs text-slate-400">No data</span>;
+      }
+    },
+    {
+      label: "Workload (1-5)",
+      render: (course) => {
+        const r = getReviewData(course.code);
+        return r ? <StarsInline value={r.ratings.workload} /> : <span className="text-xs text-slate-400">No data</span>;
+      }
+    },
+    {
+      label: "S1 2026 Exam Mode",
+      render: (course) => {
+        const s1 = course.historicalExams.length > 0 ? course.historicalExams[0] : null;
+        return s1 ? (
+          <div className="space-y-2">
+            <ExamModeBadge mode={s1.mode} />
+            <p className="text-xs text-slate-600">{s1.format}</p>
+          </div>
+        ) : (
+          <span className="text-xs text-slate-500">Not in S1 2026</span>
+        );
+      }
+    },
+    {
+      label: "S1 2026 Duration",
+      render: (course) => {
+        const s1 = course.historicalExams.length > 0 ? course.historicalExams[0] : null;
+        return s1 ? s1.duration : <span className="text-xs text-slate-500">—</span>;
+      }
+    },
+    {
+      label: "S1 2026 Materials",
+      render: (course) => {
+        const s1 = course.historicalExams.length > 0 ? course.historicalExams[0] : null;
+        return s1 ? s1.materials : <span className="text-xs text-slate-500">—</span>;
+      }
+    },
+    {
+      label: "S1 2026 Campus",
+      render: (course) => {
+        const s1 = course.historicalExams.length > 0 ? course.historicalExams[0] : null;
+        return s1 ? s1.locationType : <span className="text-xs text-slate-500">—</span>;
+      }
+    },
     { label: "Notes", render: (course) => course.notes }
   ];
 

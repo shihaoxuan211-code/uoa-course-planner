@@ -2,10 +2,15 @@ import type { Course } from "@/types/course";
 
 // ── Types ──────────────────────────────────────────────────────────
 
+export type PrerequisiteStatus = "met" | "assumed" | "missing";
+
 export interface PrerequisiteCheck {
-  met: boolean | null; // null = prerequisite text exists but unparseable
+  status: PrerequisiteStatus;
   parseable: boolean;
   missingCodes: string[];
+  assumedCodes: string[];
+  metBy: string[];           // which courses (from completed/plan) satisfy prereqs
+  assumedBy: string[];       // which assumed courses satisfy prereqs
   description: string;
 }
 
@@ -19,7 +24,7 @@ interface Requirement {
 
 // ── Course code extraction ─────────────────────────────────────────
 
-const COURSE_CODE_RE = /[A-Z]{2,10}\s\d{3}[A-Z]?/g;
+const COURSE_CODE_RE = /[A-Z]{2,10}\s\d{3}[A-Z]*/g;
 
 function extractAllCodes(text: string): string[] {
   const matches = text.match(COURSE_CODE_RE);
@@ -132,7 +137,7 @@ function tokenize(raw: string): Token[] {
     }
 
     // Course code
-    const codeMatch = remaining.match(/^[A-Z]{2,10}\s\d{3}[A-Z]?\b/i);
+    const codeMatch = remaining.match(/^[A-Z]{2,10}\s\d{3}[A-Z]*\b/i);
     if (codeMatch) {
       tokens.push({ type: "CODE", value: codeMatch[0].toUpperCase() });
       remaining = remaining.slice(codeMatch[0].length);
@@ -288,17 +293,37 @@ class Parser {
     const codes: string[] = [];
     this.skipNoise();
 
-    while (this.peek()?.type === "CODE") {
-      const token = this.advance()!;
-      if (token.type === "CODE") {
-        codes.push(token.value);
-      }
-      this.skipNoise();
+    while (this.peek()) {
+      const token = this.peek()!;
 
-      if (this.peek()?.type === "SLASH") {
+      if (token.type === "CODE") {
         this.advance();
+        codes.push(token.value);
         this.skipNoise();
+        // After a CODE, expect SLASH or a delimiter
+        if (this.peek()?.type === "SLASH") {
+          this.advance();
+          this.skipNoise();
+          // Continue — next should be another CODE
+          continue;
+        }
+        // No slash — end of code list
+        break;
       }
+
+      // Delimiters end the code list
+      if (
+        token.type === "OR" ||
+        token.type === "AND" ||
+        token.type === "RPAREN" ||
+        token.type === "LPAREN"
+      ) {
+        break;
+      }
+
+      // Skip stray tokens (SLASH without preceding CODE, junk characters, etc.)
+      this.advance();
+      this.skipNoise();
     }
 
     return codes;
