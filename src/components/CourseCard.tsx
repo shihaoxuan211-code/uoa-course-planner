@@ -25,50 +25,61 @@ export function CourseCard({ course, difficulty }: CourseCardProps) {
 
   return (
     <article className="flex h-full flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <p className="text-sm font-bold text-fern">{course.code}</p>
-          <h2 className="mt-1 text-xl font-bold tracking-normal text-ink">{course.title}</h2>
-        </div>
+      {/* Top row: code + badge — fixed height */}
+      <div className="flex items-start justify-between gap-2 min-h-[28px]">
+        <p className="text-sm font-bold text-fern">{course.code}</p>
         <ExamModeBadge mode={latestMode} />
       </div>
 
-      <p className="mt-4 line-clamp-3 text-sm leading-6 text-slate-600">{course.description}</p>
+      {/* Title — max 2 lines, consistent height */}
+      <h2 className="mt-1 text-lg font-bold tracking-normal text-ink line-clamp-2 min-h-[3.5rem]">
+        {course.title}
+      </h2>
 
-      <dl className="mt-5 grid grid-cols-2 gap-3 text-sm">
+      {/* Description — max 3 lines, consistent height */}
+      <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600 min-h-[4.5rem]">
+        {course.description}
+      </p>
+
+      {/* Info grid — 3x2, consistent layout */}
+      <dl className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2.5 text-sm min-h-[7.5rem]">
         <div>
-          <dt className="text-slate-500">Points</dt>
-          <dd className="font-semibold text-ink">{formatPoints(course.points)}</dd>
+          <dt className="text-xs text-slate-500">Points</dt>
+          <dd className="text-sm font-semibold text-ink">{formatPoints(course.points)}</dd>
         </div>
         <div>
-          <dt className="text-slate-500">Semester</dt>
-          <dd className="font-semibold text-ink">{formatSemesters(course)}</dd>
+          <dt className="text-xs text-slate-500">Semester</dt>
+          <dd className="text-sm font-semibold text-ink line-clamp-1">{formatSemesters(course)}</dd>
         </div>
         <div>
-          <dt className="text-slate-500">Stage</dt>
-          <dd className="font-semibold text-ink">Stage {course.stage}</dd>
+          <dt className="text-xs text-slate-500">Stage</dt>
+          <dd className="text-sm font-semibold text-ink">Stage {course.stage}</dd>
         </div>
         <div>
-          <dt className="text-slate-500">Subject</dt>
-          <dd className="font-semibold text-ink">{course.subject}</dd>
+          <dt className="text-xs text-slate-500">Subject</dt>
+          <dd className="text-sm font-semibold text-ink">{course.subject}</dd>
         </div>
         <div>
-          <dt className="text-slate-500">Final exam</dt>
-          <dd className="font-semibold text-ink">{course.hasFinalExam ? "Yes" : "No"}</dd>
+          <dt className="text-xs text-slate-500">Final exam</dt>
+          <dd className="text-sm font-semibold text-ink">{course.hasFinalExam ? "Yes" : "No"}</dd>
         </div>
         <div>
-          <dt className="text-slate-500">S1 2026 Exam</dt>
-          <dd className="font-semibold text-ink">{latestMode ? `Mode ${latestMode}` : "Not listed"}</dd>
+          <dt className="text-xs text-slate-500">S1 2026 Exam</dt>
+          <dd className="text-sm font-semibold text-ink">{latestMode ? `Mode ${latestMode}` : "Not listed"}</dd>
         </div>
         {difficulty !== undefined && (
-          <div>
-            <dt className="text-slate-500">Difficulty</dt>
-            <dd className="font-semibold text-ink"><StarsMini value={difficulty} /></dd>
+          <div className="col-span-2">
+            <dt className="text-xs text-slate-500">Difficulty</dt>
+            <dd className="text-sm font-semibold text-ink"><StarsMini value={difficulty} /></dd>
           </div>
         )}
       </dl>
 
-      <div className="mt-5 flex flex-1 flex-col justify-end gap-4">
+      {/* Spacer pushes buttons to card bottom */}
+      <div className="flex-1" />
+
+      {/* Buttons — always at bottom */}
+      <div className="flex flex-col gap-2 pt-3">
         <AddCourseActions course={course} compact />
         <Link
           href={`/courses/${course.id}`}
