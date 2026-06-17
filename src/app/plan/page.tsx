@@ -1,5 +1,6 @@
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { PlanSummary } from "@/components/PlanSummary";
+import { StudentProfilePanel } from "@/components/StudentProfilePanel";
 import { courses } from "@/data/courses";
 
 export default function PlanPage() {
@@ -20,6 +21,8 @@ export default function PlanPage() {
           University of Auckland sources before making enrolment decisions.
         </p>
       </DisclaimerBox>
+
+      <StudentProfilePanel />
 
       <PlanSummary courses={courses} />
     </main>

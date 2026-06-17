@@ -23,7 +23,9 @@ const defaultFilters: CourseFilters = {
   semester: "all",
   stage: "all",
   examMode: "all",
-  difficulty: "all"
+  difficulty: "all",
+  groupWork: "all",
+  workload: "all"
 };
 
 export function CourseExplorer({ courses, difficultyMap }: CourseExplorerProps) {

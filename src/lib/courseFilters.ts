@@ -9,6 +9,8 @@ export interface CourseFilters {
   stage: string;
   examMode: string;
   difficulty: string;
+  groupWork: string;
+  workload: string;
 }
 
 export function filterCourses(
@@ -50,7 +52,31 @@ export function filterCourses(
       }
     }
 
-    return matchesQuery && matchesSubject && matchesSemester && matchesStage && matchesExamMode && matchesDifficulty;
+    // Group work filter
+    let matchesGroupWork = true;
+    if (filters.groupWork === "has-group") matchesGroupWork = course.hasGroupWork;
+    else if (filters.groupWork === "no-group") matchesGroupWork = !course.hasGroupWork;
+
+    // Workload filter
+    let matchesWorkload = true;
+    if (filters.workload === "low") {
+      const n = course.assessments.length;
+      const examW = course.assessments
+        .filter((a) => /final\s+(exam|assessment|examination)\b|^\s*exam\b/i.test(`${a.type} ${a.weight}`))
+        .reduce((s, a) => { const m = a.weight.match(/(\d+(?:\.\d+)?)\s*%/); return s + (m ? parseFloat(m[1]) : 0); }, 0);
+      matchesWorkload = n <= 2 && examW < 50;
+    } else if (filters.workload === "medium") {
+      const n = course.assessments.length;
+      matchesWorkload = n >= 3 && n <= 4;
+    } else if (filters.workload === "high") {
+      const n = course.assessments.length;
+      const examW = course.assessments
+        .filter((a) => /final\s+(exam|assessment|examination)\b|^\s*exam\b/i.test(`${a.type} ${a.weight}`))
+        .reduce((s, a) => { const m = a.weight.match(/(\d+(?:\.\d+)?)\s*%/); return s + (m ? parseFloat(m[1]) : 0); }, 0);
+      matchesWorkload = examW >= 50 || n >= 5 || (course.hasGroupWork && course.hasFinalExam);
+    }
+
+    return matchesQuery && matchesSubject && matchesSemester && matchesStage && matchesExamMode && matchesDifficulty && matchesGroupWork && matchesWorkload;
   });
 }
 

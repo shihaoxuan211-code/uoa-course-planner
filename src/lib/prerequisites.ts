@@ -477,6 +477,8 @@ function evaluateRequirement(
 
 export function checkPrerequisites(
   course: Course,
+  completedCodes: Set<string>,
+  assumedCodes: Set<string>,
   plannedCodes: Set<string>
 ): PrerequisiteCheck {
   const raw = course.prerequisites;
@@ -484,10 +486,13 @@ export function checkPrerequisites(
   // No prerequisites — met by default
   if (!raw || raw === "Not available" || raw.trim().length === 0) {
     return {
-      met: true,
+      status: "met",
       parseable: true,
       missingCodes: [],
-      description: "No prerequisites",
+      assumedCodes: [],
+      metBy: [],
+      assumedBy: [],
+      description: "No prerequisites"
     };
   }
 
@@ -495,23 +500,104 @@ export function checkPrerequisites(
 
   if (!parseable || !req) {
     return {
-      met: null,
+      status: "missing",
       parseable: false,
       missingCodes: [],
-      description: "Unknown prerequisite format",
+      assumedCodes: [],
+      metBy: [],
+      assumedBy: [],
+      description: "Unknown prerequisite format"
     };
   }
 
-  // Check the course itself — skip self-reference
-  const filteredCompleted = new Set(plannedCodes);
+  // Self-reference filter
+  const filteredCompleted = new Set(completedCodes);
   filteredCompleted.delete(course.code);
+  const filteredAssumed = new Set(assumedCodes);
+  filteredAssumed.delete(course.code);
+  const filteredPlanned = new Set(plannedCodes);
+  filteredPlanned.delete(course.code);
 
-  const { met, missing } = evaluateRequirement(req, filteredCompleted);
+  // Check with confirmed only
+  const confirmedResult = evaluateRequirement(req, filteredCompleted);
+  if (confirmedResult.met) {
+    const allCodes = collectAllCodes(req);
+    const metBy = allCodes.filter((c) => filteredCompleted.has(c));
+    return {
+      status: "met",
+      parseable: true,
+      missingCodes: [],
+      assumedCodes: [],
+      metBy: [...new Set(metBy)],
+      assumedBy: [],
+      description: "✓ Prerequisites met"
+    };
+  }
+
+  // Check with confirmed + planned
+  const plannedCombined = new Set([...filteredCompleted, ...filteredPlanned]);
+  const plannedResult = evaluateRequirement(req, plannedCombined);
+  if (plannedResult.met) {
+    const allCodes = collectAllCodes(req);
+    const metBy = allCodes.filter((c) => plannedCombined.has(c));
+    return {
+      status: "met",
+      parseable: true,
+      missingCodes: [],
+      assumedCodes: [],
+      metBy: [...new Set(metBy)],
+      assumedBy: [],
+      description: "✓ Prerequisites met (includes planned courses)"
+    };
+  }
+
+  // Check with confirmed + planned + assumed
+  const assumedCombined = new Set([...filteredCompleted, ...filteredPlanned, ...filteredAssumed]);
+  const assumedResult = evaluateRequirement(req, assumedCombined);
+  if (assumedResult.met) {
+    const allCodes = collectAllCodes(req);
+    const metByConfirmedOrPlanned = allCodes.filter((c) => plannedCombined.has(c));
+    const metByAssumedOnly = allCodes.filter(
+      (c) => filteredAssumed.has(c) && !plannedCombined.has(c)
+    );
+    return {
+      status: "assumed",
+      parseable: true,
+      missingCodes: [],
+      assumedCodes: [...new Set(metByAssumedOnly)],
+      metBy: [...new Set(metByConfirmedOrPlanned)],
+      assumedBy: [...new Set(metByAssumedOnly)],
+      description: "⚠ Assumed from student profile"
+    };
+  }
+
+  // Not met by any source
+  const allCodes = collectAllCodes(req);
+  const metByConfirmedOrPlanned = allCodes.filter((c) => plannedCombined.has(c));
+  // Show what's still missing
+  const combined = new Set([...filteredCompleted, ...filteredPlanned, ...filteredAssumed]);
+  const stillMissing = allCodes.filter((c) => !combined.has(c));
 
   return {
-    met,
+    status: "missing",
     parseable: true,
-    missingCodes: missing,
-    description: met ? "✓ Prerequisites met" : "⚠ Missing prerequisites",
+    missingCodes: stillMissing,
+    assumedCodes: allCodes.filter((c) => filteredAssumed.has(c) && !plannedCombined.has(c)),
+    metBy: [...new Set(metByConfirmedOrPlanned)],
+    assumedBy: allCodes.filter((c) => filteredAssumed.has(c) && !plannedCombined.has(c)),
+    description: "✗ Missing prerequisites"
   };
+}
+
+/** Extract all unique course codes from a parsed requirement tree */
+function collectAllCodes(req: Requirement): string[] {
+  const codes: string[] = [];
+  collectCodes(req, codes);
+  return [...new Set(codes)];
+}
+
+function collectCodes(req: Requirement, out: string[]) {
+  if (req.code) out.push(req.code);
+  if (req.codes) out.push(...req.codes);
+  if (req.children) req.children.forEach((c) => collectCodes(c, out));
 }

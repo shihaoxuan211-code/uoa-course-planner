@@ -149,6 +149,67 @@ export function CourseSearchFilters({
           ))}
         </div>
       </div>
+
+      <div className="mt-4 border-t border-slate-100 pt-4">
+        <span className="text-sm font-semibold text-ink">Group Work</span>
+        <div className="mt-2 flex flex-wrap gap-3">
+          {[
+            { value: "all", label: "All" },
+            { value: "has-group", label: "👥 Has Group Work" },
+            { value: "no-group", label: "🚫 No Group Work" }
+          ].map((opt) => (
+            <label
+              key={opt.value}
+              className={`cursor-pointer rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                filters.groupWork === opt.value
+                  ? "border-fern bg-fern/10 text-fern"
+                  : "border-slate-200 text-slate-600 hover:border-slate-400"
+              }`}
+            >
+              <input
+                type="radio"
+                name="groupWork"
+                value={opt.value}
+                checked={filters.groupWork === opt.value}
+                onChange={(event) => update("groupWork", event.target.value)}
+                className="sr-only"
+              />
+              {opt.label}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-4 border-t border-slate-100 pt-4">
+        <span className="text-sm font-semibold text-ink">Workload</span>
+        <div className="mt-2 flex flex-wrap gap-3">
+          {[
+            { value: "all", label: "All" },
+            { value: "low", label: "🟢 Low" },
+            { value: "medium", label: "🟡 Medium" },
+            { value: "high", label: "🔴 High" }
+          ].map((opt) => (
+            <label
+              key={opt.value}
+              className={`cursor-pointer rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                filters.workload === opt.value
+                  ? "border-fern bg-fern/10 text-fern"
+                  : "border-slate-200 text-slate-600 hover:border-slate-400"
+              }`}
+            >
+              <input
+                type="radio"
+                name="workload"
+                value={opt.value}
+                checked={filters.workload === opt.value}
+                onChange={(event) => update("workload", event.target.value)}
+                className="sr-only"
+              />
+              {opt.label}
+            </label>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

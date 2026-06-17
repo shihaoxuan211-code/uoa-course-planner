@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import type { Course } from "@/types/course";
 import { formatPoints, formatSemesters } from "@/lib/courseDisplay";
-import { PLAN_STORAGE_KEY } from "@/lib/storageKeys";
+import { PLAN_STORAGE_KEY, COMPLETED_COURSES_KEY, ASSUMED_COURSES_KEY, STUDENT_YEAR_KEY, STUDENT_MAJOR_KEY } from "@/lib/storageKeys";
+import { getAssumedReason, YEAR_LABELS, MAJOR_LABELS } from "@/lib/studentProfile";
+import type { StudentYear, StudentMajor } from "@/lib/studentProfile";
 import { useLocalStorageList } from "@/lib/useLocalStorageList";
 import { checkPrerequisites } from "@/lib/prerequisites";
-import type { PrerequisiteCheck } from "@/lib/prerequisites";
+import type { PrerequisiteCheck, PrerequisiteStatus } from "@/lib/prerequisites";
 
 interface PlanSummaryProps {
   courses: Course[];
@@ -26,26 +28,35 @@ function groupCourses(courses: Course[], getKey: (course: Course) => string) {
   }, {});
 }
 
-function PrereqBadge({ check }: { check: PrerequisiteCheck }) {
-  if (check.met === true) {
+function readLocalStorageSet(key: string): Set<string> {
+  if (typeof window === "undefined") return new Set();
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw);
+    if (!Array.isArray(arr)) return new Set();
+    return new Set(arr.filter((s): s is string => typeof s === "string"));
+  } catch { return new Set(); }
+}
+
+function PrereqBadge({ status }: { status: PrerequisiteStatus }) {
+  if (status === "met") {
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">
         ✓ Met
       </span>
     );
   }
-
-  if (check.met === false) {
+  if (status === "assumed") {
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-700">
-        ⚠ Missing
+        ⚠ Assumed
       </span>
     );
   }
-
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-500">
-      ? Unknown format
+    <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 px-2.5 py-0.5 text-xs font-semibold text-rose-700">
+      ✗ Missing
     </span>
   );
 }
@@ -61,7 +72,7 @@ function PrereqDetail({
   expanded: boolean;
   onToggle: () => void;
 }) {
-  if (check.met === true && check.description === "No prerequisites") return null;
+  if (check.status === "met" && check.description === "No prerequisites") return null;
 
   return (
     <div className="mt-2">
@@ -74,20 +85,59 @@ function PrereqDetail({
       </button>
       {expanded && (
         <div className="mt-2 rounded-lg bg-slate-50 p-3 text-xs">
-          {check.met === true && (
-            <p className="text-emerald-700">{check.description}</p>
-          )}
-          {check.met === false && (
+          {check.status === "met" && check.metBy.length > 0 && (
             <div>
-              <p className="font-semibold text-amber-800">Missing:</p>
-              <ul className="mt-1 list-inside list-disc space-y-0.5 text-amber-700">
-                {check.missingCodes.map((code) => (
+              <p className="font-semibold text-emerald-700">Met by (confirmed or planned):</p>
+              <ul className="mt-1 list-inside list-disc space-y-0.5 text-emerald-700">
+                {check.metBy.map((code) => (
                   <li key={code}>{code}</li>
                 ))}
               </ul>
             </div>
           )}
-          {check.met === null && (
+          {check.status === "assumed" && (
+            <div>
+              {check.metBy.length > 0 && (
+                <div className="mb-2">
+                  <p className="font-semibold text-emerald-700">Already satisfied:</p>
+                  <ul className="mt-1 list-inside list-disc space-y-0.5 text-emerald-700">
+                    {check.metBy.map((code) => (
+                      <li key={code}>{code}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              <p className="font-semibold text-amber-800">Assumed from student profile:</p>
+              <ul className="mt-1 list-inside list-disc space-y-0.5 text-amber-700">
+                {check.assumedBy.map((code) => {
+                  const storedYear = (typeof window !== "undefined"
+                    ? (localStorage.getItem(STUDENT_YEAR_KEY) as StudentYear) || "first"
+                    : "first") as StudentYear;
+                  const storedMajor = (typeof window !== "undefined"
+                    ? (localStorage.getItem(STUDENT_MAJOR_KEY) as StudentMajor) || "undecided"
+                    : "undecided") as StudentMajor;
+                  const reason = getAssumedReason(code, storedYear, storedMajor);
+                  return (
+                    <li key={code}>{code} — {reason}</li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+          {check.status === "missing" && (
+            <div>
+              <p className="font-semibold text-rose-800">Not satisfied by Completed, Assumed, or Plan:</p>
+              <ul className="mt-1 list-inside list-disc space-y-0.5 text-rose-700">
+                {check.missingCodes.map((code) => (
+                  <li key={code}>{code}</li>
+                ))}
+              </ul>
+              {check.metBy.length > 0 && (
+                <p className="mt-2 text-xs text-slate-500">Partially satisfied: {check.metBy.join(", ")}</p>
+              )}
+            </div>
+          )}
+          {!check.parseable && (
             <p className="text-slate-500">{check.description}</p>
           )}
           <p className="mt-2 text-slate-400">Source: {course.prerequisites}</p>
@@ -105,6 +155,10 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
   const byStage = groupCourses(plannedCourses, (course) => `Stage ${course.stage}`);
 
   const [expandedPrereqs, setExpandedPrereqs] = useState<Set<string>>(new Set());
+  const [profileReady, setProfileReady] = useState(false);
+
+  // Read profile from localStorage only after mount (avoids SSR flash)
+  useEffect(() => { setProfileReady(true); }, []);
 
   const togglePrereq = (courseId: string) => {
     setExpandedPrereqs((prev) => {
@@ -118,23 +172,31 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
     });
   };
 
-  // Compute prerequisite checks for all planned courses
+  // Defer prerequisite checks until client-side profile is loaded
+  const completedCodes = profileReady ? readLocalStorageSet(COMPLETED_COURSES_KEY) : new Set<string>();
+  const assumedCodes = profileReady ? readLocalStorageSet(ASSUMED_COURSES_KEY) : new Set<string>();
   const plannedCodes = new Set(plannedCourses.map((c) => c.code));
-  const prereqChecks = new Map<string, PrerequisiteCheck>();
-  plannedCourses.forEach((course) => {
-    prereqChecks.set(course.id, checkPrerequisites(course, plannedCodes));
-  });
 
-  // Statistics
-  const prereqMet = plannedCourses.filter(
-    (c) => prereqChecks.get(c.id)?.met === true
-  ).length;
-  const prereqMissing = plannedCourses.filter(
-    (c) => prereqChecks.get(c.id)?.met === false
-  ).length;
-  const prereqUnknown = plannedCourses.filter(
-    (c) => prereqChecks.get(c.id)?.met === null
-  ).length;
+  const prereqChecks = new Map<string, PrerequisiteCheck>();
+  if (profileReady) {
+    plannedCourses.forEach((course) => {
+      prereqChecks.set(
+        course.id,
+        checkPrerequisites(course, completedCodes, assumedCodes, plannedCodes)
+      );
+    });
+  }
+
+  // Statistics (three-state)
+  const prereqMet = profileReady ? plannedCourses.filter(
+    (c) => prereqChecks.get(c.id)?.status === "met"
+  ).length : 0;
+  const prereqAssumed = profileReady ? plannedCourses.filter(
+    (c) => prereqChecks.get(c.id)?.status === "assumed"
+  ).length : 0;
+  const prereqMissing = profileReady ? plannedCourses.filter(
+    (c) => prereqChecks.get(c.id)?.status === "missing"
+  ).length : 0;
 
   // Per-semester points
   const semesterPoints = Object.entries(bySemester).map(([semester, group]) => ({
@@ -253,15 +315,15 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
         </div>
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
           <p className="text-sm font-semibold text-slate-500">Prerequisites</p>
-          <div className="mt-2 flex items-center gap-3">
+          <div className="mt-2 flex flex-wrap items-center gap-3">
             {prereqMet > 0 && (
               <span className="text-sm font-bold text-emerald-700">✓ {prereqMet}</span>
             )}
-            {prereqMissing > 0 && (
-              <span className="text-sm font-bold text-amber-700">⚠ {prereqMissing}</span>
+            {prereqAssumed > 0 && (
+              <span className="text-sm font-bold text-amber-700">⚠ {prereqAssumed}</span>
             )}
-            {prereqUnknown > 0 && (
-              <span className="text-sm font-bold text-slate-500">? {prereqUnknown}</span>
+            {prereqMissing > 0 && (
+              <span className="text-sm font-bold text-rose-700">✗ {prereqMissing}</span>
             )}
             {prereqMet === plannedCourses.length && (
               <span className="text-sm font-bold text-emerald-700">All met</span>
@@ -285,7 +347,13 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="font-bold text-ink">{course.code}</p>
-                    {check && <PrereqBadge check={check} />}
+                    {profileReady && check ? (
+                      <PrereqBadge status={check.status} />
+                    ) : !profileReady ? (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-400">
+                        Loading...
+                      </span>
+                    ) : null}
                   </div>
                   <p className="text-sm text-slate-600">{course.title}</p>
                   <p className="mt-1 text-xs text-slate-500">

@@ -7,7 +7,12 @@ import { courses, getCourseById } from "@/data/courses";
 import { formatPoints, formatSemesters } from "@/lib/courseDisplay";
 import { ExamModeBadge } from "@/components/ExamModeBadge";
 import { AssessmentInsights } from "@/components/AssessmentInsights";
+import { CourseIntelligence } from "@/components/CourseIntelligence";
+import { GradeOutlook } from "@/components/GradeOutlook";
+import { CourseRoadmap } from "@/components/CourseRoadmap";
+import { getRecommendTags } from "@/lib/recommendedFor";
 import { ReviewSection } from "@/components/ReviewSection";
+import { PrereqStatusBadge } from "@/components/PrereqStatusBadge";
 import { getCourseReview } from "@/data/reviewData";
 
 interface CourseDetailPageProps {
@@ -57,6 +62,8 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
           </div>
         </div>
       </section>
+
+      <CourseIntelligence course={course} />
 
       {/* S1 2026 Exam Information */}
       <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
@@ -110,6 +117,9 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
             <InfoRow label="Subject" value={course.subject} />
             <InfoRow label="Faculty" value={course.faculty} />
             <InfoRow label="Prerequisite" value={course.prerequisites} />
+            <div className="border-b border-slate-100 pb-3">
+              <PrereqStatusBadge course={course} />
+            </div>
             <InfoRow label="Restriction" value={course.restrictions} />
             <InfoRow label="Workload" value={course.workload} />
             <InfoRow label="Final exam status" value={course.hasFinalExam ? "Has final exam" : "No final exam listed"} />
@@ -140,7 +150,36 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
         </div>
       </section>
 
+      <CourseRoadmap course={course} allCourses={courses} />
+
       <AssessmentInsights course={course} />
+
+      <GradeOutlook
+        course={course}
+        review={(() => { const r = getCourseReview(course.code); return r?.ratings; })()}
+      />
+
+      {(() => {
+        const r = getCourseReview(course.code);
+        const tags = getRecommendTags(course, r?.ratings);
+        if (tags.length === 0) return null;
+        return (
+          <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
+            <h2 className="text-xl font-bold text-ink">Recommended For</h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <span
+                  key={tag.label}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-700 ring-1 ring-inset ring-slate-200"
+                >
+                  <span>{tag.icon}</span>
+                  <span>{tag.label}</span>
+                </span>
+              ))}
+            </div>
+          </section>
+        );
+      })()}
 
       {(() => {
         const review = getCourseReview(course.code);

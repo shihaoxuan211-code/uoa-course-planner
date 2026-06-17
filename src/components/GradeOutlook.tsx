@@ -1,0 +1,92 @@
+import type { Course, ReviewRatings } from "@/types/course";
+import { computeGradeOutlook } from "@/lib/gradeOutlook";
+import type { EasyAIndex, PotentialLevel, WorkloadLevel, RiskLevel } from "@/lib/gradeOutlook";
+
+interface GradeOutlookProps {
+  course: Course;
+  review?: ReviewRatings;
+}
+
+function EasyABadge({ level }: { level: EasyAIndex }) {
+  const colors: Record<EasyAIndex, string> = {
+    Easy: "bg-emerald-50 text-emerald-800 ring-emerald-200",
+    Moderate: "bg-sky-50 text-sky-800 ring-sky-200",
+    Hard: "bg-amber-50 text-amber-800 ring-amber-200",
+    "Very Hard": "bg-rose-50 text-rose-800 ring-rose-200"
+  };
+  return (
+    <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ring-1 ring-inset ${colors[level]}`}>
+      {level}
+    </span>
+  );
+}
+
+function LevelBadge({ level, type }: { level: string; type: "potential" | "workload" | "risk" }) {
+  const colors: Record<string, Record<string, string>> = {
+    potential: {
+      High: "bg-emerald-50 text-emerald-800 ring-emerald-200",
+      Medium: "bg-sky-50 text-sky-800 ring-sky-200",
+      Low: "bg-amber-50 text-amber-800 ring-amber-200"
+    },
+    workload: {
+      Low: "bg-emerald-50 text-emerald-800 ring-emerald-200",
+      Medium: "bg-sky-50 text-sky-800 ring-sky-200",
+      High: "bg-rose-50 text-rose-800 ring-rose-200"
+    },
+    risk: {
+      Low: "bg-emerald-50 text-emerald-800 ring-emerald-200",
+      Medium: "bg-amber-50 text-amber-800 ring-amber-200",
+      High: "bg-rose-50 text-rose-800 ring-rose-200"
+    }
+  };
+  return (
+    <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ring-1 ring-inset ${colors[type]?.[level] ?? ""}`}>
+      {level}
+    </span>
+  );
+}
+
+export function GradeOutlook({ course, review }: GradeOutlookProps) {
+  const outlook = computeGradeOutlook(course, review);
+
+  return (
+    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
+      <h2 className="text-xl font-bold text-ink">Easy A Index & Grade Outlook</h2>
+
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="rounded-lg bg-slate-50 p-3 text-center">
+          <p className="text-xs font-semibold uppercase tracking-normal text-slate-500">Easy A Index</p>
+          <p className="mt-2"><EasyABadge level={outlook.easyAIndex} /></p>
+        </div>
+        <div className="rounded-lg bg-slate-50 p-3 text-center">
+          <p className="text-xs font-semibold uppercase tracking-normal text-slate-500">A Range Potential</p>
+          <p className="mt-2"><LevelBadge level={outlook.aRangePotential} type="potential" /></p>
+        </div>
+        <div className="rounded-lg bg-slate-50 p-3 text-center">
+          <p className="text-xs font-semibold uppercase tracking-normal text-slate-500">Workload Level</p>
+          <p className="mt-2"><LevelBadge level={outlook.workloadLevel} type="workload" /></p>
+        </div>
+        <div className="rounded-lg bg-slate-50 p-3 text-center">
+          <p className="text-xs font-semibold uppercase tracking-normal text-slate-500">Risk Level</p>
+          <p className="mt-2"><LevelBadge level={outlook.riskLevel} type="risk" /></p>
+        </div>
+      </div>
+
+      {outlook.reasons.length > 0 && (
+        <div className="mt-4 rounded-lg bg-slate-50 p-4">
+          <p className="text-xs font-semibold uppercase tracking-normal text-slate-500">Why</p>
+          <ul className="mt-2 space-y-1">
+            {outlook.reasons.map((r, i) => (
+              <li key={i} className="flex gap-2 text-sm text-slate-700">
+                <span className="mt-0.5 shrink-0 text-slate-400">•</span>
+                <span>{r}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <p className="mt-4 text-xs text-slate-400">{outlook.disclaimer}</p>
+    </section>
+  );
+}

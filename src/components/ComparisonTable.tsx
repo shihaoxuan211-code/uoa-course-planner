@@ -8,6 +8,8 @@ import { COMPARE_STORAGE_KEY } from "@/lib/storageKeys";
 import { getHistoricalExamPattern, getLatestHistoricalExamMode } from "@/lib/exam";
 import { useLocalStorageList } from "@/lib/useLocalStorageList";
 import { ExamModeBadge } from "@/components/ExamModeBadge";
+import { computeGradeOutlook } from "@/lib/gradeOutlook";
+import { computeCourseIntelligence } from "@/lib/courseIntelligence";
 import reviewsRaw from "@/data/course-reviews.json";
 
 interface ComparisonTableProps {
@@ -66,6 +68,53 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
       }
     },
     { label: "Group work status", render: (course) => (course.hasGroupWork ? "Includes group work" : "No group work listed") },
+    {
+      label: "Workload",
+      render: (course) => {
+        const ci = computeCourseIntelligence(course);
+        const colors: Record<string,string>={High:"text-rose-700",Medium:"text-amber-700",Low:"text-emerald-700"};
+        return <span className={`text-sm font-semibold ${colors[ci.workload.level]??""}`}>{ci.workload.icon} {ci.workload.level}</span>;
+      }
+    },
+    {
+      label: "Group Work",
+      render: (course) => (course.hasGroupWork ? "👥 Yes" : "🚫 No")
+    },
+    {
+      label: "Final Exam",
+      render: (course) => (course.hasFinalExam ? "📝 Yes" : "🚫 No")
+    },
+    {
+      label: "Assessment Focus",
+      render: (course) => <span className="text-xs text-slate-600">{computeCourseIntelligence(course).assessmentFocus}</span>
+    },
+    {
+      label: "Easy A Index",
+      render: (course) => {
+        const r = getReviewData(course.code);
+        const o = computeGradeOutlook(course, r?.ratings);
+        const colors: Record<string,string>={Easy:"text-emerald-700",Moderate:"text-sky-700",Hard:"text-amber-700","Very Hard":"text-rose-700"};
+        return <span className={`text-sm font-semibold ${colors[o.easyAIndex]??""}`}>{o.easyAIndex}</span>;
+      }
+    },
+    {
+      label: "A Range Potential",
+      render: (course) => {
+        const r = getReviewData(course.code);
+        const o = computeGradeOutlook(course, r?.ratings);
+        const colors: Record<string,string>={High:"text-emerald-700",Medium:"text-sky-700",Low:"text-amber-700"};
+        return <span className={`text-sm font-semibold ${colors[o.aRangePotential]??""}`}>{o.aRangePotential}</span>;
+      }
+    },
+    {
+      label: "Risk Level",
+      render: (course) => {
+        const r = getReviewData(course.code);
+        const o = computeGradeOutlook(course, r?.ratings);
+        const colors: Record<string,string>={Low:"text-emerald-700",Medium:"text-amber-700",High:"text-rose-700"};
+        return <span className={`text-sm font-semibold ${colors[o.riskLevel]??""}`}>{o.riskLevel}</span>;
+      }
+    },
     {
       label: "Difficulty (1-5)",
       render: (course) => {
