@@ -13,13 +13,13 @@ export function DisclaimerBox({ children, title = "Planning reference only" }: D
         {children ?? (
           <div className="space-y-2">
             <p>
-              This information is for planning reference only. Please confirm details with the official
-              University of Auckland course catalogue and exam timetable.
+              UOA Course Planner is an independent student-created platform. This website is not
+              affiliated with, endorsed by, or operated by the University of Auckland.
             </p>
             <p>
-              Imported course data is based on public catalogue information and may be incomplete or outdated.
-              Please verify all information with official University of Auckland sources before making enrolment
-              decisions.
+              Course information is sourced from publicly available university catalogues and may
+              be incomplete or outdated. Please verify important information using official
+              University of Auckland sources.
             </p>
           </div>
         )}

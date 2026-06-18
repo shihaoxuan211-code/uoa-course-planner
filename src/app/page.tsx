@@ -76,8 +76,9 @@ export default function HomePage() {
               <p className="mt-1 text-2xl font-bold text-ink">{courses.length} courses</p>
             </div>
             <p className="max-w-2xl text-sm leading-6 text-slate-600">
-              This tool uses public University of Auckland course information where available.
-              Please verify final enrolment decisions with official university sources.
+              UOA Course Planner is an independent student-created platform. This website is not
+              affiliated with the University of Auckland. Course data is sourced from public catalogues.
+              Verify all information with official university sources.
             </p>
           </div>
         </div>

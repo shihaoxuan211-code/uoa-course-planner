@@ -2,14 +2,16 @@ import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { CourseExplorer } from "@/components/CourseExplorer";
 import { courseDataSource, courses } from "@/data/courses";
 import { getCourseReview } from "@/data/reviewData";
+import { getDifficulty } from "@/lib/difficultyEstimator";
 
 export default function CoursesPage() {
-  // Build difficulty map from review data on the server
+  // Build difficulty map for ALL courses (real review data or estimated)
   const difficultyMap = new Map<string, number>();
   for (const course of courses) {
     const review = getCourseReview(course.code);
-    if (review) {
-      difficultyMap.set(course.code, review.ratings.difficulty);
+    const info = getDifficulty(course, review?.ratings);
+    if (info.level > 0) {
+      difficultyMap.set(course.code, info.level);
     }
   }
 
