@@ -69,7 +69,7 @@ export function CourseCard({ course, difficulty }: CourseCardProps) {
         </div>
         {difficulty !== undefined && (
           <div className="col-span-2">
-            <dt className="text-xs text-slate-500">Difficulty (estimated)</dt>
+            <dt className="text-xs text-slate-500">Estimated Difficulty</dt>
             <dd className="text-sm font-semibold text-ink"><StarsMini value={difficulty} /></dd>
           </div>
         )}

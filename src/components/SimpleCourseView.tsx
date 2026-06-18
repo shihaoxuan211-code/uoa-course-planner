@@ -31,7 +31,7 @@ export function SimpleCourseView({ course, review, onViewDetails }: SimpleCourse
   const verdict = generateQuickVerdict(course, diffInfo.level, review);
 
   return (
-    <div className="space-y-4">
+    <div className="mx-auto max-w-3xl space-y-4 lg:max-w-4xl">
       {/* 1. Header */}
       <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-card">
         <p className="text-sm font-bold text-fern">{course.code}</p>
@@ -44,12 +44,12 @@ export function SimpleCourseView({ course, review, onViewDetails }: SimpleCourse
         <p className="mt-3 text-sm leading-6 text-slate-600 line-clamp-2">{course.description}</p>
       </section>
 
-      {/* 2. Quick Summary */}
+      {/* 2. Quick Summary — 2-col mobile, 3-col desktop */}
       <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-card">
         <h2 className="text-base font-bold text-ink">Quick Summary</h2>
-        <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
+        <div className="mt-3 grid grid-cols-2 gap-3 text-sm lg:grid-cols-3">
           <div className="rounded-lg bg-slate-50 p-3">
-            <p className="text-xs text-slate-500">Difficulty</p>
+            <p className="text-xs text-slate-500">Estimated Difficulty</p>
             <p className="mt-1"><Stars value={diffInfo.level} /></p>
             {diffInfo.source === "real" ? null : (
               <p className="mt-0.5 text-[10px] text-slate-400">Estimated</p>

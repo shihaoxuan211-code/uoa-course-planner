@@ -18,7 +18,7 @@ export function Navigation() {
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
         <Link href="/" className="text-lg font-bold tracking-normal text-ink">
-          UOA Course Planner
+          Course Planner
         </Link>
         <div className="flex flex-wrap gap-2">
           {navItems.map((item) => {

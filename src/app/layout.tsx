@@ -4,7 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "UOA Course Planner",
+  title: "Course Planner",
   description:
     "University of Auckland Course Planner — Search courses, compare assessments, check exam modes, and plan your study pathway using public UOA information."
 };
