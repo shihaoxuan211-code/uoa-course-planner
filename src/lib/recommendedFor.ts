@@ -1,11 +1,38 @@
 import type { Course, ReviewRatings } from "@/types/course";
+import type { Lang } from "@/lib/i18n";
 
 export interface RecommendTag {
   label: string;
   icon: string;
 }
 
-export function getRecommendTags(course: Course, review?: ReviewRatings): RecommendTag[] {
+const recommendations: Record<Lang, Record<string, string>> = {
+  en: {
+    manageableWorkload: "Suitable if you want a manageable workload",
+    courseworkOverExams: "Suitable if you prefer coursework over exams",
+    dislikeExams: "Good choice if you dislike final exams",
+    exchangeStudents: "Good option for exchange or visiting students",
+    intbus: "Recommended for International Business students",
+    acctg: "Recommended for Accounting students",
+    finance: "Recommended for Finance students",
+    mktg: "Recommended for Marketing students",
+    moderateHighWorkload: "Expect a moderate to high workload",
+  },
+  zh: {
+    manageableWorkload: "适合希望学习负担可控的学生",
+    courseworkOverExams: "适合作业考核偏多的学生",
+    dislikeExams: "适合不喜欢期末考试的学生",
+    exchangeStudents: "适合交换或访学学生",
+    intbus: "推荐给国际商务专业学生",
+    acctg: "推荐给会计专业学生",
+    finance: "推荐给金融专业学生",
+    mktg: "推荐给市场营销专业学生",
+    moderateHighWorkload: "预计学习压力中等偏高",
+  }
+};
+
+export function getRecommendTags(course: Course, review?: ReviewRatings, lang: Lang = "en"): RecommendTag[] {
+  const t = recommendations[lang] ?? recommendations.en;
   const tags: RecommendTag[] = [];
 
   const examWeight = getExamWeightPct(course);
@@ -22,36 +49,36 @@ export function getRecommendTags(course: Course, review?: ReviewRatings): Recomm
                   (hasGroup ? 1 : 0) + (hasPres ? 1 : 0);
 
   if (easyScore <= 2) {
-    tags.push({ label: "Suitable if you want a manageable workload", icon: "📈" });
+    tags.push({ label: t.manageableWorkload, icon: "📈" });
   }
 
   if (noExam || (examWeight > 0 && examWeight < 25)) {
-    tags.push({ label: "Suitable if you prefer coursework over exams", icon: "📝" });
+    tags.push({ label: t.courseworkOverExams, icon: "📝" });
   }
 
   if (noExam) {
-    tags.push({ label: "Good choice if you dislike final exams", icon: "🚫" });
+    tags.push({ label: t.dislikeExams, icon: "🚫" });
   }
 
   if (easyScore <= 3 && reviewWork <= 3 && numAssessments <= 4) {
-    tags.push({ label: "Good option for exchange or visiting students", icon: "🌏" });
+    tags.push({ label: t.exchangeStudents, icon: "🌏" });
   }
 
   if (course.subject === "INTBUS") {
-    tags.push({ label: "Recommended for International Business students", icon: "🌐" });
+    tags.push({ label: t.intbus, icon: "🌐" });
   }
   if (course.subject === "ACCTG") {
-    tags.push({ label: "Recommended for Accounting students", icon: "📊" });
+    tags.push({ label: t.acctg, icon: "📊" });
   }
   if (course.subject === "FINANCE") {
-    tags.push({ label: "Recommended for Finance students", icon: "💰" });
+    tags.push({ label: t.finance, icon: "💰" });
   }
   if (course.subject === "MKTG") {
-    tags.push({ label: "Recommended for Marketing students", icon: "📢" });
+    tags.push({ label: t.mktg, icon: "📢" });
   }
 
   if (wlScore >= 4) {
-    tags.push({ label: "Expect a moderate to high workload", icon: "⚠️" });
+    tags.push({ label: t.moderateHighWorkload, icon: "⚠️" });
   }
 
   return tags;

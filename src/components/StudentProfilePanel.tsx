@@ -14,6 +14,7 @@ import {
   MAJOR_LABELS
 } from "@/lib/studentProfile";
 import type { StudentYear, StudentMajor } from "@/lib/studentProfile";
+import { useT } from "@/lib/i18n";
 
 function readSet(key: string): Set<string> {
   if (typeof window === "undefined") return new Set();
@@ -34,6 +35,7 @@ interface StudentProfilePanelProps {
 }
 
 export function StudentProfilePanel({ onChanged }: StudentProfilePanelProps) {
+  const t = useT();
   const [year, setYear] = useState<StudentYear>("first");
   const [major, setMajor] = useState<StudentMajor>("undecided");
   const [completed, setCompleted] = useState<Set<string>>(new Set());
@@ -106,7 +108,6 @@ export function StudentProfilePanel({ onChanged }: StudentProfilePanelProps) {
     (code: string) => {
       const n = new Set(completed); n.delete(code);
       setCompleted(n); writeSet(COMPLETED_COURSES_KEY, n);
-      // Re-add to assumed if it was originally from profile
       const profileAssumed = getAssumedCourses(year, major);
       if (profileAssumed.includes(code)) {
         const a = new Set(assumed); a.add(code);
@@ -129,16 +130,16 @@ export function StudentProfilePanel({ onChanged }: StudentProfilePanelProps) {
   }, [addInput, completed, assumed, onChanged]);
 
   if (!loaded) {
-    return <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">Loading profile...</div>;
+    return <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">{t.profile.loading}</div>;
   }
 
   return (
     <section className="space-y-4 rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-      <h2 className="text-xl font-bold text-ink">Student Profile</h2>
+      <h2 className="text-xl font-bold text-ink">{t.profile.heading}</h2>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="text-sm font-semibold text-slate-600">Year</label>
+          <label className="text-sm font-semibold text-slate-600">{t.profile.year}</label>
           <select value={year} onChange={(e) => updateYear(e.target.value as StudentYear)}
             className="mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none transition focus:border-fern focus:ring-2 focus:ring-emerald-100">
             {(Object.entries(YEAR_LABELS) as [StudentYear, string][]).map(([v, l]) => (
@@ -147,7 +148,7 @@ export function StudentProfilePanel({ onChanged }: StudentProfilePanelProps) {
           </select>
         </div>
         <div>
-          <label className="text-sm font-semibold text-slate-600">Major</label>
+          <label className="text-sm font-semibold text-slate-600">{t.profile.major}</label>
           <select value={major} onChange={(e) => updateMajor(e.target.value as StudentMajor)}
             className="mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none transition focus:border-fern focus:ring-2 focus:ring-emerald-100">
             {(Object.entries(MAJOR_LABELS) as [StudentMajor, string][]).map(([v, l]) => (
@@ -158,12 +159,12 @@ export function StudentProfilePanel({ onChanged }: StudentProfilePanelProps) {
       </div>
 
       <p className="text-xs text-slate-500">
-        Assumed courses are generated from your year + major. Confirm each when completed.
+        {t.profile.assumedNote}
       </p>
 
       {/* Completed */}
       <div>
-        <h3 className="text-sm font-bold text-emerald-700">✓ Completed Courses ({completed.size})</h3>
+        <h3 className="text-sm font-bold text-emerald-700">{t.profile.completedHeading} ({completed.size})</h3>
         {completed.size > 0 ? (
           <div className="mt-2 flex flex-wrap gap-2">
             {[...completed].sort().map((code) => (
@@ -174,23 +175,23 @@ export function StudentProfilePanel({ onChanged }: StudentProfilePanelProps) {
             ))}
           </div>
         ) : (
-          <p className="mt-1 text-xs text-slate-400">No completed courses recorded.</p>
+          <p className="mt-1 text-xs text-slate-400">{t.profile.noCompleted}</p>
         )}
         <div className="mt-3 flex gap-2">
           <input value={addInput} onChange={(e) => setAddInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && addCompleted()}
-            placeholder="e.g. ACCTG 102"
+            placeholder={t.profile.addPlaceholder}
             className="flex-1 rounded-lg border border-slate-300 px-3 py-1.5 text-sm outline-none transition focus:border-fern" />
           <button type="button" onClick={addCompleted}
-            className="rounded-lg bg-fern px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-emerald-700">Add</button>
+            className="rounded-lg bg-fern px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-emerald-700">{t.profile.add}</button>
         </div>
       </div>
 
       {/* Assumed */}
       <div>
-        <h3 className="text-sm font-bold text-amber-700">⚠ Assumed Completed ({assumed.size})</h3>
+        <h3 className="text-sm font-bold text-amber-700">{t.profile.assumedHeading} ({assumed.size})</h3>
         <p className="text-xs text-slate-500">
-          Based on {YEAR_LABELS[year]} + {MAJOR_LABELS[major]}. Confirm or remove each.
+          {t.profile.basedOn} {YEAR_LABELS[year]} + {MAJOR_LABELS[major]}. {t.profile.confirm} or {t.profile.remove.toLowerCase()} each.
         </p>
         {assumed.size > 0 ? (
           <div className="mt-2 flex flex-wrap gap-2">
@@ -198,13 +199,13 @@ export function StudentProfilePanel({ onChanged }: StudentProfilePanelProps) {
               <span key={code} title={getAssumedReason(code, year, major)}
                 className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 ring-1 ring-inset ring-amber-200">
                 {code}
-                <button type="button" onClick={() => confirmCourse(code)} className="ml-1 text-emerald-500 hover:text-emerald-700" title="Confirm">✓</button>
-                <button type="button" onClick={() => removeAssumed(code)} className="text-amber-400 hover:text-rose-600" title="Remove">×</button>
+                <button type="button" onClick={() => confirmCourse(code)} className="ml-1 text-emerald-500 hover:text-emerald-700" title={t.profile.confirm}>✓</button>
+                <button type="button" onClick={() => removeAssumed(code)} className="text-amber-400 hover:text-rose-600" title={t.profile.remove}>×</button>
               </span>
             ))}
           </div>
         ) : (
-          <p className="mt-1 text-xs text-slate-400">No assumed courses for {YEAR_LABELS[year]} {MAJOR_LABELS[major]}.</p>
+          <p className="mt-1 text-xs text-slate-400">{t.profile.noAssumed} {YEAR_LABELS[year]} {MAJOR_LABELS[major]}.</p>
         )}
       </div>
     </section>

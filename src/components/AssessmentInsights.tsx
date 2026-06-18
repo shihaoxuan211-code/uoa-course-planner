@@ -1,6 +1,9 @@
+"use client";
+
 import type { Course } from "@/types/course";
 import { computeAssessmentInsights } from "@/lib/assessmentInsights";
 import type { AssessmentInsight } from "@/lib/assessmentInsights";
+import { useT } from "@/lib/i18n";
 
 interface AssessmentInsightsProps {
   course: Course;
@@ -46,22 +49,23 @@ function getWorkloadColor(level: AssessmentInsight["workloadSignal"]["level"]) {
 
 export function AssessmentInsights({ course }: AssessmentInsightsProps) {
   const insights = computeAssessmentInsights(course);
+  const t = useT();
 
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-      <h2 className="text-xl font-bold text-ink">Assessment Insights</h2>
+      <h2 className="text-xl font-bold text-ink">{t.assessmentInsights.heading}</h2>
 
       <dl className="mt-4 divide-y-0">
         {/* Final Exam */}
         <InsightRow
-          label="Final Exam"
+          label={t.assessmentInsights.finalExam}
           value={insights.finalExam.label}
           emphasis
         />
 
         {/* Exam Weight */}
         <div className="flex items-center justify-between gap-3 border-b border-slate-100 py-3 text-sm">
-          <dt className="font-medium text-slate-600">Exam Weight</dt>
+          <dt className="font-medium text-slate-600">{t.assessmentInsights.examWeight}</dt>
           <dd className={`font-semibold ${getExamWeightColor(insights.examWeight.level)}`}>
             {insights.examWeight.label}
           </dd>
@@ -69,13 +73,13 @@ export function AssessmentInsights({ course }: AssessmentInsightsProps) {
 
         {/* Continuous Assessment */}
         <InsightRow
-          label="Continuous Assessment"
+          label={t.assessmentInsights.continuousAssessment}
           value={insights.continuousAssessment.label}
         />
 
         {/* Assessment Balance */}
         <div className="flex items-center justify-between gap-3 border-b border-slate-100 py-3 text-sm">
-          <dt className="font-medium text-slate-600">Assessment Balance</dt>
+          <dt className="font-medium text-slate-600">{t.assessmentInsights.assessmentBalance}</dt>
           <dd className={`font-semibold ${getBalanceColor(insights.assessmentBalance.type)}`}>
             {insights.assessmentBalance.label}
           </dd>
@@ -83,19 +87,19 @@ export function AssessmentInsights({ course }: AssessmentInsightsProps) {
 
         {/* Assessment Style */}
         <InsightRow
-          label="Assessment Style"
+          label={t.assessmentInsights.assessmentStyle}
           value={insights.assessmentStyle.summary}
         />
 
         {/* Number of Assessments */}
         <InsightRow
-          label="Number of Assessments"
+          label={t.assessmentInsights.numberOfAssessments}
           value={String(course.assessments.length)}
         />
 
         {/* Group Work */}
         <div className="flex items-center justify-between gap-3 border-b border-slate-100 py-3 text-sm">
-          <dt className="font-medium text-slate-600">Group Work</dt>
+          <dt className="font-medium text-slate-600">{t.assessmentInsights.groupWork}</dt>
           <dd className={`font-semibold ${insights.groupWork.hasGroup ? "text-emerald-700" : "text-slate-500"}`}>
             {insights.groupWork.label}
           </dd>
@@ -103,7 +107,7 @@ export function AssessmentInsights({ course }: AssessmentInsightsProps) {
 
         {/* Presentation */}
         <div className="flex items-center justify-between gap-3 border-b border-slate-100 py-3 text-sm">
-          <dt className="font-medium text-slate-600">Presentation</dt>
+          <dt className="font-medium text-slate-600">{t.assessmentInsights.presentation}</dt>
           <dd className={`font-semibold ${insights.presentation.hasPresentation ? "text-emerald-700" : "text-slate-500"}`}>
             {insights.presentation.label}
           </dd>
@@ -111,7 +115,7 @@ export function AssessmentInsights({ course }: AssessmentInsightsProps) {
 
         {/* Workload Signal */}
         <div className="flex items-center justify-between gap-3 py-3 text-sm">
-          <dt className="font-medium text-slate-600">Workload Signal</dt>
+          <dt className="font-medium text-slate-600">{t.assessmentInsights.workloadSignal}</dt>
           <dd className={`font-semibold ${getWorkloadColor(insights.workloadSignal.level)}`}>
             {insights.workloadSignal.label} ({insights.workloadSignal.count} items)
           </dd>

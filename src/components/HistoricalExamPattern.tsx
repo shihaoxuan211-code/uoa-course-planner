@@ -1,20 +1,24 @@
+"use client";
+
 import type { HistoricalExam } from "@/types/course";
 import { examModeDetails, getHistoricalExamPattern } from "@/lib/exam";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { ExamModeBadge } from "@/components/ExamModeBadge";
+import { useT } from "@/lib/i18n";
 
 interface HistoricalExamPatternProps {
   exams: HistoricalExam[];
 }
 
 export function HistoricalExamPattern({ exams }: HistoricalExamPatternProps) {
+  const t = useT();
   const pattern = getHistoricalExamPattern(exams);
 
   return (
     <section className="space-y-5 rounded-lg border border-slate-200 bg-white p-5 shadow-card">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="text-sm font-bold uppercase tracking-normal text-fern">Exam Mode History</p>
+          <p className="text-sm font-bold uppercase tracking-normal text-fern">{t.examHistory.heading}</p>
           <h2 className="mt-1 text-2xl font-bold tracking-normal text-ink">{pattern}</h2>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -37,15 +41,15 @@ export function HistoricalExamPattern({ exams }: HistoricalExamPatternProps) {
           <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
             <thead className="bg-slate-50 text-xs uppercase tracking-normal text-slate-500">
               <tr>
-                <th className="px-3 py-3 font-semibold">Year</th>
-                <th className="px-3 py-3 font-semibold">Semester</th>
-                <th className="px-3 py-3 font-semibold">Exam date</th>
-                <th className="px-3 py-3 font-semibold">Exam mode</th>
-                <th className="px-3 py-3 font-semibold">Format</th>
-                <th className="px-3 py-3 font-semibold">Location</th>
-                <th className="px-3 py-3 font-semibold">Duration</th>
-                <th className="px-3 py-3 font-semibold">Materials</th>
-                <th className="px-3 py-3 font-semibold">Source note</th>
+                <th className="px-3 py-3 font-semibold">{t.examHistory.year}</th>
+                <th className="px-3 py-3 font-semibold">{t.examHistory.semester}</th>
+                <th className="px-3 py-3 font-semibold">{t.examHistory.examDate}</th>
+                <th className="px-3 py-3 font-semibold">{t.examHistory.examMode}</th>
+                <th className="px-3 py-3 font-semibold">{t.examHistory.format}</th>
+                <th className="px-3 py-3 font-semibold">{t.examHistory.location}</th>
+                <th className="px-3 py-3 font-semibold">{t.examHistory.duration}</th>
+                <th className="px-3 py-3 font-semibold">{t.examHistory.materials}</th>
+                <th className="px-3 py-3 font-semibold">{t.examHistory.sourceNote}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
@@ -69,15 +73,12 @@ export function HistoricalExamPattern({ exams }: HistoricalExamPatternProps) {
         </div>
       ) : (
         <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-5 text-sm text-slate-600">
-          No final exam listed in Semester 1 2026 timetable.
+          {t.examHistory.noExamInS1}
         </div>
       )}
 
-      <DisclaimerBox title="Historical exam pattern warning">
-        <p>
-          Historical exam patterns are not official predictions. UOA may change exam mode, date, format,
-          or assessment structure in any semester.
-        </p>
+      <DisclaimerBox title={t.examHistory.warningTitle}>
+        <p>{t.examHistory.warningBody}</p>
       </DisclaimerBox>
     </section>
   );

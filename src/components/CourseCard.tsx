@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Course } from "@/types/course";
 import { formatPoints, formatSemesters } from "@/lib/courseDisplay";
 import { getLatestHistoricalExamMode } from "@/lib/exam";
+import { useT } from "@/lib/i18n";
 import { AddCourseActions } from "@/components/AddCourseActions";
 import { ExamModeBadge } from "@/components/ExamModeBadge";
 
@@ -21,6 +22,7 @@ function StarsMini({ value }: { value: number }) {
 }
 
 export function CourseCard({ course, difficulty }: CourseCardProps) {
+  const t = useT();
   const latestMode = getLatestHistoricalExamMode(course.historicalExams);
 
   return (
@@ -44,32 +46,32 @@ export function CourseCard({ course, difficulty }: CourseCardProps) {
       {/* Info grid — 3x2, consistent layout */}
       <dl className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2.5 text-sm min-h-[7.5rem]">
         <div>
-          <dt className="text-xs text-slate-500">Points</dt>
+          <dt className="text-xs text-slate-500">{t.courseCard.points}</dt>
           <dd className="text-sm font-semibold text-ink">{formatPoints(course.points)}</dd>
         </div>
         <div>
-          <dt className="text-xs text-slate-500">Semester</dt>
+          <dt className="text-xs text-slate-500">{t.courseCard.semester}</dt>
           <dd className="text-sm font-semibold text-ink line-clamp-1">{formatSemesters(course)}</dd>
         </div>
         <div>
-          <dt className="text-xs text-slate-500">Stage</dt>
+          <dt className="text-xs text-slate-500">{t.courseCard.stage}</dt>
           <dd className="text-sm font-semibold text-ink">Stage {course.stage}</dd>
         </div>
         <div>
-          <dt className="text-xs text-slate-500">Subject</dt>
+          <dt className="text-xs text-slate-500">{t.courseCard.subject}</dt>
           <dd className="text-sm font-semibold text-ink">{course.subject}</dd>
         </div>
         <div>
-          <dt className="text-xs text-slate-500">Final exam</dt>
-          <dd className="text-sm font-semibold text-ink">{course.hasFinalExam ? "Yes" : "No"}</dd>
+          <dt className="text-xs text-slate-500">{t.courseCard.finalExam}</dt>
+          <dd className="text-sm font-semibold text-ink">{course.hasFinalExam ? t.courseCard.yes : t.courseCard.no}</dd>
         </div>
         <div>
-          <dt className="text-xs text-slate-500">S1 2026 Exam</dt>
-          <dd className="text-sm font-semibold text-ink">{latestMode ? `Mode ${latestMode}` : "Information unavailable"}</dd>
+          <dt className="text-xs text-slate-500">{t.courseCard.s1Exam}</dt>
+          <dd className="text-sm font-semibold text-ink">{latestMode ? `Mode ${latestMode}` : t.courseCard.infoUnavailable}</dd>
         </div>
         {difficulty !== undefined && (
           <div className="col-span-2">
-            <dt className="text-xs text-slate-500">Estimated Difficulty</dt>
+            <dt className="text-xs text-slate-500">{t.courseCard.estimatedDifficulty}</dt>
             <dd className="text-sm font-semibold text-ink"><StarsMini value={difficulty} /></dd>
           </div>
         )}
@@ -85,7 +87,7 @@ export function CourseCard({ course, difficulty }: CourseCardProps) {
           href={`/courses/${course.id}`}
           className="inline-flex justify-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-ink transition hover:border-ink hover:bg-slate-50"
         >
-          View details
+          {t.courseCard.viewDetails}
         </Link>
       </div>
     </article>

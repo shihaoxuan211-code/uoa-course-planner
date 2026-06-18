@@ -9,6 +9,7 @@ import {
   uniqueStages,
   uniqueSubjects
 } from "@/lib/courseFilters";
+import { useT } from "@/lib/i18n";
 import { CourseCard } from "@/components/CourseCard";
 import { CourseSearchFilters } from "@/components/CourseSearchFilters";
 
@@ -31,6 +32,8 @@ const defaultFilters: CourseFilters = {
 export function CourseExplorer({ courses, difficultyMap }: CourseExplorerProps) {
   const [filters, setFilters] = useState(defaultFilters);
 
+  const t = useT();
+
   const subjects = useMemo(() => uniqueSubjects(courses), [courses]);
   const semesters = useMemo(() => uniqueSemesters(courses), [courses]);
   const stages = useMemo(() => uniqueStages(courses), [courses]);
@@ -52,14 +55,14 @@ export function CourseExplorer({ courses, difficultyMap }: CourseExplorerProps) 
 
       <div className="flex items-center justify-between gap-3">
         <p className="text-sm font-semibold text-slate-600">
-          Showing {filteredCourses.length} of {courses.length} courses
+          {t.courses.showing} {filteredCourses.length} {t.courses.of} {courses.length} courses
         </p>
         <button
           type="button"
           onClick={() => setFilters(defaultFilters)}
           className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-ink transition hover:border-ink hover:bg-white"
         >
-          Reset filters
+          {t.courses.resetFilters}
         </button>
       </div>
 
@@ -71,7 +74,7 @@ export function CourseExplorer({ courses, difficultyMap }: CourseExplorerProps) 
         </div>
       ) : (
         <div className="rounded-lg border border-dashed border-slate-300 bg-white p-8 text-center text-slate-600">
-          No sample courses match your current search and filters.
+          {t.courses.noResults}
         </div>
       )}
     </div>

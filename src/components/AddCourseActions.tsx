@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Course } from "@/types/course";
 import { COMPARE_STORAGE_KEY, PLAN_STORAGE_KEY } from "@/lib/storageKeys";
 import { useLocalStorageList } from "@/lib/useLocalStorageList";
+import { useT } from "@/lib/i18n";
 
 interface AddCourseActionsProps {
   course: Pick<Course, "id" | "code">;
@@ -11,24 +12,25 @@ interface AddCourseActionsProps {
 }
 
 export function AddCourseActions({ course, compact = false }: AddCourseActionsProps) {
+  const t = useT();
   const plan = useLocalStorageList(PLAN_STORAGE_KEY);
   const compare = useLocalStorageList(COMPARE_STORAGE_KEY, { maxItems: 4 });
   const [notice, setNotice] = useState("");
 
   const addToPlan = () => {
     const result = plan.add(course.id);
-    setNotice(result === "exists" ? `${course.code} is already in My Plan.` : `${course.code} added to My Plan.`);
+    setNotice(result === "exists" ? `${course.code} ${t.addActions.alreadyInPlan}` : `${course.code} ${t.addActions.addedToPlan}`);
   };
 
   const addToCompare = () => {
     const result = compare.add(course.id);
     if (result === "max") {
-      setNotice("You can compare up to 4 courses. Remove one before adding another.");
+      setNotice(t.addActions.compareLimit);
       return;
     }
 
     setNotice(
-      result === "exists" ? `${course.code} is already in Compare.` : `${course.code} added to Compare.`
+      result === "exists" ? `${course.code} ${t.addActions.alreadyInCompare}` : `${course.code} ${t.addActions.addedToCompare}`
     );
   };
 
@@ -44,7 +46,7 @@ export function AddCourseActions({ course, compact = false }: AddCourseActionsPr
           disabled={!plan.isReady || plan.contains(course.id)}
           className={`${buttonClass} bg-fern text-white hover:bg-emerald-700`}
         >
-          {plan.contains(course.id) ? "In Plan" : "Add to Plan"}
+          {plan.contains(course.id) ? t.addActions.inPlan : t.addActions.addToPlan}
         </button>
         <button
           type="button"
@@ -52,7 +54,7 @@ export function AddCourseActions({ course, compact = false }: AddCourseActionsPr
           disabled={!compare.isReady || compare.contains(course.id)}
           className={`${buttonClass} bg-ink text-white hover:bg-slate-800`}
         >
-          {compare.contains(course.id) ? "In Compare" : "Add to Compare"}
+          {compare.contains(course.id) ? t.addActions.inCompare : t.addActions.addToCompare}
         </button>
       </div>
       {notice ? (

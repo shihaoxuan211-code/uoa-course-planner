@@ -10,6 +10,7 @@ import type { StudentYear, StudentMajor } from "@/lib/studentProfile";
 import { useLocalStorageList } from "@/lib/useLocalStorageList";
 import { checkPrerequisites } from "@/lib/prerequisites";
 import type { PrerequisiteCheck, PrerequisiteStatus } from "@/lib/prerequisites";
+import { useT } from "@/lib/i18n";
 
 interface PlanSummaryProps {
   courses: Course[];
@@ -39,24 +40,24 @@ function readLocalStorageSet(key: string): Set<string> {
   } catch { return new Set(); }
 }
 
-function PrereqBadge({ status }: { status: PrerequisiteStatus }) {
+function PrereqBadge({ status, t }: { status: PrerequisiteStatus; t: { met: string; assumed: string; missing: string } }) {
   if (status === "met") {
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">
-        ✓ Met
+        ✓ {t.met}
       </span>
     );
   }
   if (status === "assumed") {
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-700">
-        ⚠ Assumed
+        ⚠ {t.assumed}
       </span>
     );
   }
   return (
     <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 px-2.5 py-0.5 text-xs font-semibold text-rose-700">
-      ✗ Missing
+      ✗ {t.missing}
     </span>
   );
 }
@@ -66,11 +67,13 @@ function PrereqDetail({
   course,
   expanded,
   onToggle,
+  t,
 }: {
   check: PrerequisiteCheck;
   course: Course;
   expanded: boolean;
   onToggle: () => void;
+  t: ReturnType<typeof useT>["plan"] & ReturnType<typeof useT>["prereq"];
 }) {
   if (check.status === "met" && check.description === "No prerequisites") return null;
 
@@ -87,7 +90,7 @@ function PrereqDetail({
         <div className="mt-2 rounded-lg bg-slate-50 p-3 text-xs">
           {check.status === "met" && check.metBy.length > 0 && (
             <div>
-              <p className="font-semibold text-emerald-700">Met by (confirmed or planned):</p>
+              <p className="font-semibold text-emerald-700">{t.metBy}</p>
               <ul className="mt-1 list-inside list-disc space-y-0.5 text-emerald-700">
                 {check.metBy.map((code) => (
                   <li key={code}>{code}</li>
@@ -107,7 +110,7 @@ function PrereqDetail({
                   </ul>
                 </div>
               )}
-              <p className="font-semibold text-amber-800">Assumed from student profile:</p>
+              <p className="font-semibold text-amber-800">{t.assumedFromProfile}</p>
               <ul className="mt-1 list-inside list-disc space-y-0.5 text-amber-700">
                 {check.assumedBy.map((code) => {
                   const storedYear = (typeof window !== "undefined"
@@ -126,21 +129,21 @@ function PrereqDetail({
           )}
           {check.status === "missing" && (
             <div>
-              <p className="font-semibold text-rose-800">Not satisfied by Completed, Assumed, or Plan:</p>
+              <p className="font-semibold text-rose-800">{t.notSatisfied}</p>
               <ul className="mt-1 list-inside list-disc space-y-0.5 text-rose-700">
                 {check.missingCodes.map((code) => (
                   <li key={code}>{code}</li>
                 ))}
               </ul>
               {check.metBy.length > 0 && (
-                <p className="mt-2 text-xs text-slate-500">Partially satisfied: {check.metBy.join(", ")}</p>
+                <p className="mt-2 text-xs text-slate-500">{t.partiallySatisfied} {check.metBy.join(", ")}</p>
               )}
             </div>
           )}
           {!check.parseable && (
             <p className="text-slate-500">{check.description}</p>
           )}
-          <p className="mt-2 text-slate-400">Source: {course.prerequisites}</p>
+          <p className="mt-2 text-slate-400">{t.source} {course.prerequisites}</p>
         </div>
       )}
     </div>
@@ -148,6 +151,7 @@ function PrereqDetail({
 }
 
 export function PlanSummary({ courses }: PlanSummaryProps) {
+  const t = useT();
   const plan = useLocalStorageList(PLAN_STORAGE_KEY);
   const plannedCourses = courses.filter((course) => plan.items.includes(course.id));
   const totalPoints = plannedCourses.reduce((sum, course) => sum + course.points, 0);
@@ -157,7 +161,6 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
   const [expandedPrereqs, setExpandedPrereqs] = useState<Set<string>>(new Set());
   const [profileReady, setProfileReady] = useState(false);
 
-  // Read profile from localStorage only after mount (avoids SSR flash)
   useEffect(() => { setProfileReady(true); }, []);
 
   const togglePrereq = (courseId: string) => {
@@ -172,7 +175,6 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
     });
   };
 
-  // Defer prerequisite checks until client-side profile is loaded
   const completedCodes = profileReady ? readLocalStorageSet(COMPLETED_COURSES_KEY) : new Set<string>();
   const assumedCodes = profileReady ? readLocalStorageSet(ASSUMED_COURSES_KEY) : new Set<string>();
   const plannedCodes = new Set(plannedCourses.map((c) => c.code));
@@ -187,7 +189,6 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
     });
   }
 
-  // Statistics (three-state)
   const prereqMet = profileReady ? plannedCourses.filter(
     (c) => prereqChecks.get(c.id)?.status === "met"
   ).length : 0;
@@ -198,7 +199,6 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
     (c) => prereqChecks.get(c.id)?.status === "missing"
   ).length : 0;
 
-  // Per-semester points
   const semesterPoints = Object.entries(bySemester).map(([semester, group]) => ({
     semester,
     points: group.reduce((sum, c) => sum + c.points, 0),
@@ -208,23 +208,25 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
   const FULL_TIME_THRESHOLD = 60;
 
   if (!plan.isReady) {
-    return <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-card">Loading plan...</div>;
+    return <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-card">{t.plan.loading}</div>;
   }
 
   if (plannedCourses.length === 0) {
     return (
       <section className="rounded-lg border border-dashed border-slate-300 bg-white p-8 text-center shadow-card">
-        <h2 className="text-xl font-bold text-ink">Your plan is empty</h2>
-        <p className="mt-2 text-sm text-slate-600">Add courses from the Courses page to build a local plan.</p>
+        <h2 className="text-xl font-bold text-ink">{t.plan.empty}</h2>
+        <p className="mt-2 text-sm text-slate-600">{t.plan.emptyDesc}</p>
         <Link
           href="/courses"
           className="mt-5 inline-flex rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
         >
-          Browse courses
+          {t.plan.browseCourses}
         </Link>
       </section>
     );
   }
+
+  const detailT = { ...t.plan, ...t.prereq };
 
   return (
     <div className="space-y-6">
@@ -238,7 +240,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
       >
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm font-semibold text-slate-600">Current Points</p>
+            <p className="text-sm font-semibold text-slate-600">{t.plan.currentPoints}</p>
             <p
               className={`mt-1 text-4xl font-bold ${
                 totalPoints >= FULL_TIME_THRESHOLD ? "text-emerald-700" : "text-amber-700"
@@ -250,15 +252,15 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
           <div className="text-right">
             {totalPoints >= FULL_TIME_THRESHOLD ? (
               <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-sm font-semibold text-emerald-800">
-                ✓ Full-time load met
+                ✓ {t.plan.fullTimeMet}
               </span>
             ) : (
               <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-800">
-                ⚠ {FULL_TIME_THRESHOLD - totalPoints} points below full-time ({FULL_TIME_THRESHOLD})
+                ⚠ {FULL_TIME_THRESHOLD - totalPoints} {t.plan.pointsBelow} ({FULL_TIME_THRESHOLD})
               </span>
             )}
             <p className="mt-2 text-xs text-slate-500">
-              {plannedCourses.length} course{plannedCourses.length !== 1 ? "s" : ""} selected
+              {plannedCourses.length} course{plannedCourses.length !== 1 ? "s" : ""} {t.plan.coursesSelected}
             </p>
           </div>
         </div>
@@ -267,7 +269,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
       {/* Semester points breakdown */}
       {semesterPoints.length > 0 && (
         <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-          <h2 className="text-lg font-bold text-ink">Points by semester</h2>
+          <h2 className="text-lg font-bold text-ink">{t.plan.pointsBySemester}</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {semesterPoints.map(({ semester, points, count }) => {
               const pct = totalPoints > 0 ? Math.round((points / totalPoints) * 100) : 0;
@@ -294,7 +296,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
       {/* Stat cards */}
       <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-          <p className="text-sm font-semibold text-slate-500">Planned courses</p>
+          <p className="text-sm font-semibold text-slate-500">{t.plan.plannedCourses}</p>
           <p className="mt-2 text-3xl font-bold text-ink">{plannedCourses.length}</p>
         </div>
         <div
@@ -304,7 +306,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
               : "border-amber-200 bg-amber-50/50"
           }`}
         >
-          <p className="text-sm font-semibold text-slate-500">Total points</p>
+          <p className="text-sm font-semibold text-slate-500">{t.plan.totalPoints}</p>
           <p
             className={`mt-2 text-3xl font-bold ${
               totalPoints >= FULL_TIME_THRESHOLD ? "text-emerald-700" : "text-amber-700"
@@ -314,7 +316,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
           </p>
         </div>
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-          <p className="text-sm font-semibold text-slate-500">Prerequisites</p>
+          <p className="text-sm font-semibold text-slate-500">{t.plan.prerequisites}</p>
           <div className="mt-2 flex flex-wrap items-center gap-3">
             {prereqMet > 0 && (
               <span className="text-sm font-bold text-emerald-700">✓ {prereqMet}</span>
@@ -326,19 +328,19 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
               <span className="text-sm font-bold text-rose-700">✗ {prereqMissing}</span>
             )}
             {prereqMet === plannedCourses.length && (
-              <span className="text-sm font-bold text-emerald-700">All met</span>
+              <span className="text-sm font-bold text-emerald-700">{t.plan.allMet}</span>
             )}
           </div>
         </div>
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-          <p className="text-sm font-semibold text-slate-500">Storage</p>
-          <p className="mt-2 text-base font-bold text-ink">Saved in this browser</p>
+          <p className="text-sm font-semibold text-slate-500">{t.plan.storage}</p>
+          <p className="mt-2 text-base font-bold text-ink">{t.plan.storageBrowser}</p>
         </div>
       </section>
 
       {/* Course list */}
       <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-        <h2 className="text-xl font-bold text-ink">Selected courses</h2>
+        <h2 className="text-xl font-bold text-ink">{t.plan.selectedCourses}</h2>
         <div className="mt-4 divide-y divide-slate-100">
           {plannedCourses.map((course) => {
             const check = prereqChecks.get(course.id);
@@ -348,10 +350,10 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="font-bold text-ink">{course.code}</p>
                     {profileReady && check ? (
-                      <PrereqBadge status={check.status} />
+                      <PrereqBadge status={check.status} t={t.prereq} />
                     ) : !profileReady ? (
                       <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-400">
-                        Loading...
+                        {t.plan.loadingStatus}
                       </span>
                     ) : null}
                   </div>
@@ -365,6 +367,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
                       course={course}
                       expanded={expandedPrereqs.has(course.id)}
                       onToggle={() => togglePrereq(course.id)}
+                      t={detailT}
                     />
                   )}
                 </div>
@@ -373,7 +376,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
                   onClick={() => plan.remove(course.id)}
                   className="rounded-lg border border-rose-200 px-3 py-2 text-sm font-semibold text-rose-700 transition hover:bg-rose-50"
                 >
-                  Remove
+                  {t.plan.remove}
                 </button>
               </div>
             );
@@ -384,7 +387,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
       {/* Semester & Stage groups */}
       <section className="grid gap-6 lg:grid-cols-2">
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-          <h2 className="text-xl font-bold text-ink">Grouped by semester offered</h2>
+          <h2 className="text-xl font-bold text-ink">{t.plan.groupedBySemester}</h2>
           <div className="mt-4 space-y-4">
             {Object.entries(bySemester).map(([semester, group]) => {
               const groupPoints = group.reduce((sum, c) => sum + c.points, 0);
@@ -404,7 +407,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
         </div>
 
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-          <h2 className="text-xl font-bold text-ink">Grouped by stage</h2>
+          <h2 className="text-xl font-bold text-ink">{t.plan.groupedByStage}</h2>
           <div className="mt-4 space-y-4">
             {Object.entries(byStage).map(([stage, group]) => {
               const stagePoints = group.reduce((sum, c) => sum + c.points, 0);

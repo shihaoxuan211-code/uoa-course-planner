@@ -1,6 +1,7 @@
 "use client";
 
 import type { CourseFilters } from "@/lib/courseFilters";
+import { useT } from "@/lib/i18n";
 
 interface CourseSearchFiltersProps {
   filters: CourseFilters;
@@ -17,6 +18,8 @@ export function CourseSearchFilters({
   stages,
   onChange
 }: CourseSearchFiltersProps) {
+  const t = useT();
+
   const update = (key: keyof CourseFilters, value: string) => {
     onChange({ ...filters, [key]: value });
   };
@@ -25,7 +28,7 @@ export function CourseSearchFilters({
     <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-card">
       <div className="grid gap-4 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <label className="block">
-          <span className="text-sm font-semibold text-ink">Search course code or title</span>
+          <span className="text-sm font-semibold text-ink">{t.courses.search}</span>
           <input
             value={filters.query}
             onChange={(event) => update("query", event.target.value)}
@@ -35,13 +38,13 @@ export function CourseSearchFilters({
         </label>
 
         <label className="block">
-          <span className="text-sm font-semibold text-ink">Subject</span>
+          <span className="text-sm font-semibold text-ink">{t.courses.subject}</span>
           <select
             value={filters.subject}
             onChange={(event) => update("subject", event.target.value)}
             className="mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none transition focus:border-fern focus:ring-2 focus:ring-emerald-100"
           >
-            <option value="all">All subjects</option>
+            <option value="all">{t.courses.allSubjects}</option>
             {subjects.map((subject) => (
               <option key={subject} value={subject}>
                 {subject}
@@ -51,13 +54,13 @@ export function CourseSearchFilters({
         </label>
 
         <label className="block">
-          <span className="text-sm font-semibold text-ink">Semester</span>
+          <span className="text-sm font-semibold text-ink">{t.courses.semester}</span>
           <select
             value={filters.semester}
             onChange={(event) => update("semester", event.target.value)}
             className="mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none transition focus:border-fern focus:ring-2 focus:ring-emerald-100"
           >
-            <option value="all">All semesters</option>
+            <option value="all">{t.courses.allSemesters}</option>
             {semesters.map((semester) => (
               <option key={semester} value={semester}>
                 {semester}
@@ -67,13 +70,13 @@ export function CourseSearchFilters({
         </label>
 
         <label className="block">
-          <span className="text-sm font-semibold text-ink">Stage</span>
+          <span className="text-sm font-semibold text-ink">{t.courses.stage}</span>
           <select
             value={filters.stage}
             onChange={(event) => update("stage", event.target.value)}
             className="mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none transition focus:border-fern focus:ring-2 focus:ring-emerald-100"
           >
-            <option value="all">All stages</option>
+            <option value="all">{t.courses.allStages}</option>
             {stages.map((stage) => (
               <option key={stage} value={String(stage)}>
                 Stage {stage}
@@ -84,12 +87,12 @@ export function CourseSearchFilters({
       </div>
 
       <div className="mt-4 border-t border-slate-100 pt-4">
-        <span className="text-sm font-semibold text-ink">Exam (S1 2026)</span>
+        <span className="text-sm font-semibold text-ink">{t.courses.examS1}</span>
         <div className="mt-2 flex flex-wrap gap-3">
           {[
-            { value: "all", label: "All" },
-            { value: "has-exam", label: "Has Final Exam" },
-            { value: "no-exam", label: "No Final Exam" },
+            { value: "all", label: t.courses.all },
+            { value: "has-exam", label: t.courses.hasFinalExam },
+            { value: "no-exam", label: t.courses.noFinalExam },
             { value: "A", label: "Mode A" },
             { value: "B", label: "Mode B" },
             { value: "C", label: "Mode C" },
@@ -118,10 +121,10 @@ export function CourseSearchFilters({
       </div>
 
       <div className="mt-4 border-t border-slate-100 pt-4">
-        <span className="text-sm font-semibold text-ink">Difficulty</span>
+        <span className="text-sm font-semibold text-ink">{t.courses.difficulty}</span>
         <div className="mt-2 flex flex-wrap gap-3">
           {[
-            { value: "all", label: "All" },
+            { value: "all", label: t.courses.all },
             { value: "1", label: "★ 1" },
             { value: "2", label: "★★ 2" },
             { value: "3", label: "★★★ 3" },
@@ -151,12 +154,12 @@ export function CourseSearchFilters({
       </div>
 
       <div className="mt-4 border-t border-slate-100 pt-4">
-        <span className="text-sm font-semibold text-ink">Group Work</span>
+        <span className="text-sm font-semibold text-ink">{t.courses.groupWork}</span>
         <div className="mt-2 flex flex-wrap gap-3">
           {[
-            { value: "all", label: "All" },
-            { value: "has-group", label: "👥 Has Group Work" },
-            { value: "no-group", label: "🚫 No Group Work" }
+            { value: "all", label: t.courses.all },
+            { value: "has-group", label: `👥 ${t.courses.hasGroupWork}` },
+            { value: "no-group", label: `🚫 ${t.courses.noGroupWork}` }
           ].map((opt) => (
             <label
               key={opt.value}
@@ -181,13 +184,13 @@ export function CourseSearchFilters({
       </div>
 
       <div className="mt-4 border-t border-slate-100 pt-4">
-        <span className="text-sm font-semibold text-ink">Workload</span>
+        <span className="text-sm font-semibold text-ink">{t.courses.workload}</span>
         <div className="mt-2 flex flex-wrap gap-3">
           {[
-            { value: "all", label: "All" },
-            { value: "low", label: "🟢 Low" },
-            { value: "medium", label: "🟡 Medium" },
-            { value: "high", label: "🔴 High" }
+            { value: "all", label: t.courses.all },
+            { value: "low", label: `🟢 ${t.courses.low}` },
+            { value: "medium", label: `🟡 ${t.courses.medium}` },
+            { value: "high", label: `🔴 ${t.courses.high}` }
           ].map((opt) => (
             <label
               key={opt.value}

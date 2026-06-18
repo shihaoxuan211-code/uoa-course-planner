@@ -14,6 +14,7 @@ import { HistoricalExamPattern } from "@/components/HistoricalExamPattern";
 import { AddCourseActions } from "@/components/AddCourseActions";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { CourseIntelligence } from "@/components/CourseIntelligence";
+import { useT } from "@/lib/i18n";
 
 interface CourseDetailViewProps {
   course: Course;
@@ -24,6 +25,7 @@ interface CourseDetailViewProps {
 export function CourseDetailView({ course, allCourses, reviewData }: CourseDetailViewProps) {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const reviewRatings = reviewData?.ratings;
+  const t = useT();
 
   if (!showAdvanced) {
     return (
@@ -55,7 +57,7 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
         onClick={() => setShowAdvanced(false)}
         className="flex items-center gap-1 text-sm font-medium text-fern hover:underline"
       >
-        ← Back to Simple View
+        {t.courseDetail.backToSimple}
       </button>
 
       {/* Header */}
@@ -74,39 +76,39 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
 
       {/* S1 Exam */}
       <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-        <h2 className="text-lg font-bold text-ink">S1 2026 Exam Information</h2>
+        <h2 className="text-lg font-bold text-ink">{t.courseDetail.s1ExamInfo}</h2>
         {s1Exam ? (
           <dl className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <ExamInfo label="Exam Mode"><ExamModeBadge mode={s1Exam.mode} showDescription /></ExamInfo>
-            <ExamInfo label="Exam Date" value={s1Exam.date} />
-            <ExamInfo label="Duration" value={s1Exam.duration} />
-            <ExamInfo label="Campus" value={s1Exam.locationType} />
-            <ExamInfo label="Materials" value={s1Exam.materials} />
-            <ExamInfo label="Mode" value={s1Exam.format} />
+            <ExamInfo label={t.courseDetail.examMode}><ExamModeBadge mode={s1Exam.mode} showDescription /></ExamInfo>
+            <ExamInfo label={t.courseDetail.examDate} value={s1Exam.date} />
+            <ExamInfo label={t.courseDetail.duration} value={s1Exam.duration} />
+            <ExamInfo label={t.courseDetail.campus} value={s1Exam.locationType} />
+            <ExamInfo label={t.courseDetail.materials} value={s1Exam.materials} />
+            <ExamInfo label={t.courseDetail.mode} value={s1Exam.format} />
           </dl>
         ) : (
-          <p className="mt-3 text-sm text-slate-400">No final exam listed in Semester 1 2026 timetable.</p>
+          <p className="mt-3 text-sm text-slate-400">{t.courseDetail.noExamInS1}</p>
         )}
       </section>
 
       {/* Course Info + Assessments */}
       <section className="grid gap-6 lg:grid-cols-2">
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-          <h2 className="text-lg font-bold text-ink">Course Information</h2>
+          <h2 className="text-lg font-bold text-ink">{t.courseDetail.courseInformation}</h2>
           <dl className="mt-4 grid gap-3 text-sm">
-            <Info label="Points" value={formatPoints(course.points)} />
-            <Info label="Semester" value={formatSemesters(course)} />
-            <Info label="Stage" value={`Stage ${course.stage}`} />
-            <Info label="Subject" value={course.subject} />
-            <Info label="Faculty" value={course.faculty} />
-            <Info label="Prerequisite" value={course.prerequisites} />
+            <Info label={t.courseDetail.points} value={formatPoints(course.points)} />
+            <Info label={t.courseDetail.semester} value={formatSemesters(course)} />
+            <Info label={t.courseDetail.stage} value={`Stage ${course.stage}`} />
+            <Info label={t.courseDetail.subject} value={course.subject} />
+            <Info label={t.courseDetail.faculty} value={course.faculty} />
+            <Info label={t.courseDetail.prerequisite} value={course.prerequisites} />
             <div className="border-b border-slate-100 pb-3"><PrereqStatusBadge course={course} /></div>
-            <Info label="Restriction" value={course.restrictions} />
-            <Info label="Workload" value={course.workload} />
+            <Info label={t.courseDetail.restriction} value={course.restrictions} />
+            <Info label={t.courseDetail.workload} value={course.workload} />
           </dl>
         </div>
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-          <h2 className="text-lg font-bold text-ink">Assessment Structure</h2>
+          <h2 className="text-lg font-bold text-ink">{t.courseDetail.assessmentStructure}</h2>
           {course.assessments.length > 0 ? (
             <div className="mt-4 divide-y divide-slate-100">
               {course.assessments.map((a) => (
@@ -117,9 +119,9 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
               ))}
             </div>
           ) : (
-            <p className="mt-4 text-sm text-slate-400">Information unavailable</p>
+            <p className="mt-4 text-sm text-slate-400">{t.courseDetail.infoUnavailable}</p>
           )}
-          <p className="mt-3 text-xs text-slate-400">May vary between semesters.</p>
+          <p className="mt-3 text-xs text-slate-400">{t.courseDetail.mayVary}</p>
         </div>
       </section>
 

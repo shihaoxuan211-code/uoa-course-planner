@@ -10,6 +10,7 @@ import { useLocalStorageList } from "@/lib/useLocalStorageList";
 import { ExamModeBadge } from "@/components/ExamModeBadge";
 import { computeGradeOutlook } from "@/lib/gradeOutlook";
 import { computeCourseIntelligence } from "@/lib/courseIntelligence";
+import { useT } from "@/lib/i18n";
 import reviewsRaw from "@/data/course-reviews.json";
 
 interface ComparisonTableProps {
@@ -37,26 +38,27 @@ function StarsInline({ value, max = 5 }: { value: number; max?: number }) {
 }
 
 export function ComparisonTable({ courses }: ComparisonTableProps) {
+  const t = useT();
   const compare = useLocalStorageList(COMPARE_STORAGE_KEY, { maxItems: 4 });
   const comparedCourses = compare.items
     .map((id) => courses.find((course) => course.id === id))
     .filter((course): course is Course => Boolean(course));
 
   const rows: Row[] = [
-    { label: "Course code", render: (course) => course.code },
-    { label: "Course title", render: (course) => course.title },
-    { label: "Points", render: (course) => formatPoints(course.points) },
-    { label: "Semester", render: (course) => formatSemesters(course) },
-    { label: "Stage", render: (course) => `Stage ${course.stage}` },
-    { label: "Prerequisite", render: (course) => course.prerequisites },
-    { label: "Workload", render: (course) => course.workload },
+    { label: t.compare.courseCode, render: (course) => course.code },
+    { label: t.compare.courseTitle, render: (course) => course.title },
+    { label: t.compare.points, render: (course) => formatPoints(course.points) },
+    { label: t.compare.semester, render: (course) => formatSemesters(course) },
+    { label: t.compare.stage, render: (course) => `Stage ${course.stage}` },
+    { label: t.compare.prerequisite, render: (course) => course.prerequisites },
+    { label: t.compare.workloadRow, render: (course) => course.workload },
     {
-      label: "Assessment",
+      label: t.compare.assessment,
       render: (course) => formatAssessmentSummary(course)
     },
-    { label: "Final exam status", render: (course) => (course.hasFinalExam ? "Has final exam" : "No final exam") },
+    { label: t.compare.finalExamStatus, render: (course) => (course.hasFinalExam ? t.compare.hasExam : t.compare.noExam) },
     {
-      label: "Historical exam mode",
+      label: t.compare.historicalExamMode,
       render: (course) => {
         const latestMode = getLatestHistoricalExamMode(course.historicalExams);
         return (
@@ -67,9 +69,9 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
         );
       }
     },
-    { label: "Group work status", render: (course) => (course.hasGroupWork ? "Includes group work" : "No group work listed") },
+    { label: t.compare.groupWorkStatus, render: (course) => (course.hasGroupWork ? t.compare.hasGroup : t.compare.noGroup) },
     {
-      label: "Workload",
+      label: t.compare.workloadRow,
       render: (course) => {
         const ci = computeCourseIntelligence(course);
         const colors: Record<string,string>={High:"text-rose-700",Medium:"text-amber-700",Low:"text-emerald-700"};
@@ -77,11 +79,11 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
       }
     },
     {
-      label: "Group Work",
+      label: t.compare.groupWorkStatus,
       render: (course) => (course.hasGroupWork ? "👥 Yes" : "🚫 No")
     },
     {
-      label: "Final Exam",
+      label: t.compare.finalExamStatus,
       render: (course) => (course.hasFinalExam ? "📝 Yes" : "🚫 No")
     },
     {
@@ -89,7 +91,7 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
       render: (course) => <span className="text-xs text-slate-600">{computeCourseIntelligence(course).assessmentFocus}</span>
     },
     {
-      label: "Easy A Index",
+      label: t.compare.easyAIndex,
       render: (course) => {
         const r = getReviewData(course.code);
         const o = computeGradeOutlook(course, r?.ratings);
@@ -98,7 +100,7 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
       }
     },
     {
-      label: "A Range Potential",
+      label: t.compare.aRangePotential,
       render: (course) => {
         const r = getReviewData(course.code);
         const o = computeGradeOutlook(course, r?.ratings);
@@ -107,7 +109,7 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
       }
     },
     {
-      label: "Risk Level",
+      label: t.compare.riskLevel,
       render: (course) => {
         const r = getReviewData(course.code);
         const o = computeGradeOutlook(course, r?.ratings);
@@ -116,17 +118,17 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
       }
     },
     {
-      label: "Difficulty (1-5)",
+      label: t.compare.difficultyStars,
       render: (course) => {
         const r = getReviewData(course.code);
-        return r ? <StarsInline value={r.ratings.difficulty} /> : <span className="text-xs text-slate-400">Information unavailable</span>;
+        return r ? <StarsInline value={r.ratings.difficulty} /> : <span className="text-xs text-slate-400">{t.compare.infoUnavailable}</span>;
       }
     },
     {
-      label: "Workload (1-5)",
+      label: t.compare.workloadStars,
       render: (course) => {
         const r = getReviewData(course.code);
-        return r ? <StarsInline value={r.ratings.workload} /> : <span className="text-xs text-slate-400">Information unavailable</span>;
+        return r ? <StarsInline value={r.ratings.workload} /> : <span className="text-xs text-slate-400">{t.compare.infoUnavailable}</span>;
       }
     },
     {
@@ -139,7 +141,7 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
             <p className="text-xs text-slate-600">{s1.format}</p>
           </div>
         ) : (
-          <span className="text-xs text-slate-500">Not in S1 2026</span>
+          <span className="text-xs text-slate-500">{t.compare.notInS1}</span>
         );
       }
     },
@@ -164,23 +166,23 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
         return s1 ? s1.locationType : <span className="text-xs text-slate-500">—</span>;
       }
     },
-    { label: "Notes", render: (course) => course.notes }
+    { label: t.compare.notes, render: (course) => course.notes }
   ];
 
   if (!compare.isReady) {
-    return <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-card">Loading comparison...</div>;
+    return <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-card">{t.compare.loading}</div>;
   }
 
   if (comparedCourses.length === 0) {
     return (
       <section className="rounded-lg border border-dashed border-slate-300 bg-white p-8 text-center shadow-card">
-        <h2 className="text-xl font-bold text-ink">No courses selected for comparison</h2>
-        <p className="mt-2 text-sm text-slate-600">Add 2 to 4 courses from the Courses page.</p>
+        <h2 className="text-xl font-bold text-ink">{t.compare.empty}</h2>
+        <p className="mt-2 text-sm text-slate-600">{t.compare.emptyDesc}</p>
         <Link
           href="/courses"
           className="mt-5 inline-flex rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
         >
-          Browse courses
+          {t.compare.browseCourses}
         </Link>
       </section>
     );
@@ -190,9 +192,9 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
     <section className="space-y-4">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm font-semibold text-slate-600">{comparedCourses.length} of 4 courses selected</p>
+          <p className="text-sm font-semibold text-slate-600">{comparedCourses.length} {t.compare.coursesSelected}</p>
           {comparedCourses.length < 2 ? (
-            <p className="mt-1 text-sm text-amber-800">Add at least one more course for a useful comparison.</p>
+            <p className="mt-1 text-sm text-amber-800">{t.compare.addMore}</p>
           ) : null}
         </div>
         <button
@@ -200,7 +202,7 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
           onClick={compare.clear}
           className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-ink transition hover:border-ink hover:bg-white"
         >
-          Clear comparison
+          {t.compare.clearComparison}
         </button>
       </div>
 
@@ -208,7 +210,7 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
         <table className="min-w-[760px] w-full border-collapse text-left text-sm">
           <thead>
             <tr className="bg-slate-50">
-              <th className="w-44 border-b border-slate-200 px-4 py-3 font-semibold text-slate-600">Field</th>
+              <th className="w-44 border-b border-slate-200 px-4 py-3 font-semibold text-slate-600">{t.compare.field}</th>
               {comparedCourses.map((course) => (
                 <th key={course.id} className="border-b border-slate-200 px-4 py-3 align-top">
                   <div className="space-y-2">
@@ -220,7 +222,7 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
                       onClick={() => compare.remove(course.id)}
                       className="block rounded-lg border border-rose-200 px-3 py-1 text-xs font-semibold text-rose-700 transition hover:bg-rose-50"
                     >
-                      Remove
+                      {t.compare.remove}
                     </button>
                   </div>
                 </th>
