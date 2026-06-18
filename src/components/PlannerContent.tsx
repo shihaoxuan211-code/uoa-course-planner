@@ -6,9 +6,10 @@ import type { Course } from "@/types/course";
 import { generateRecommendations } from "@/lib/majorPlanner";
 import type { StudentYear, StudentMajor } from "@/lib/studentProfile";
 import { YEAR_LABELS, MAJOR_LABELS } from "@/lib/studentProfile";
-import { formatPoints, formatSemesters } from "@/lib/courseDisplay";
+import { formatPoints, translateSemesters, translateStage } from "@/lib/courseDisplay";
 import type { GoalType, WorkloadPref, PrefSemester, Recommendation } from "@/lib/majorPlanner";
 import { useT, useLang } from "@/lib/i18n";
+import { PrerequisiteWarningModal } from "@/components/PrerequisiteWarningModal";
 
 function readSet(key: string): Set<string> {
   if (typeof window === "undefined") return new Set();
@@ -36,6 +37,9 @@ export function PlannerContent({ allCourses }: PlannerContentProps) {
   const [workload, setWorkload] = useState<WorkloadPref>("balanced");
   const [goal, setGoal] = useState<GoalType>("major-progression");
   const [refreshKey, setRefreshKey] = useState(0);
+
+  // Warning modal state
+  const [modalCourse, setModalCourse] = useState<{ id: string; code: string; missing: string[] } | null>(null);
 
   const completedCodes = useMemo(() => readSet("uoa-course-planner:completed-courses"), [refreshKey]);
   const plannedCodes = useMemo(() => readSet("uoa-course-planner:plan"), [refreshKey]);
@@ -120,9 +124,9 @@ export function PlannerContent({ allCourses }: PlannerContentProps) {
                     <Link href={`/courses/${rec.course.id}`} className="text-sm font-bold text-fern hover:underline">{rec.course.code}</Link>
                     <p className="text-sm font-semibold text-ink line-clamp-1">{rec.course.title}</p>
                   </div>
-                  <span className="shrink-0 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">Stage {rec.course.stage}</span>
+                  <span className="shrink-0 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">{translateStage(rec.course.stage, lang)}</span>
                 </div>
-                <p className="mt-2 text-xs text-slate-500">{formatPoints(rec.course.points)} pts | {formatSemesters(rec.course)}</p>
+                <p className="mt-2 text-xs text-slate-500">{formatPoints(rec.course.points)} pts | {translateSemesters(rec.course.semesters, lang)}</p>
                 {rec.reasons.length > 0 && (
                   <ul className="mt-2 space-y-0.5 border-t border-slate-100 pt-2">
                     {rec.reasons.map((r, i) => (<li key={i} className="text-xs text-slate-600">• {r}</li>))}
@@ -158,18 +162,38 @@ export function PlannerContent({ allCourses }: PlannerContentProps) {
                     <Link href={`/courses/${rec.course.id}`} className="text-sm font-bold text-amber-800 hover:underline">{rec.course.code}</Link>
                     <p className="text-sm font-semibold text-ink line-clamp-1">{rec.course.title}</p>
                   </div>
-                  <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">Stage {rec.course.stage}</span>
+                  <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">{translateStage(rec.course.stage, lang)}</span>
                 </div>
-                <p className="mt-2 text-xs text-slate-500">{formatPoints(rec.course.points)} pts | {formatSemesters(rec.course)}</p>
+                <p className="mt-2 text-xs text-slate-500">{formatPoints(rec.course.points)} pts | {translateSemesters(rec.course.semesters, lang)}</p>
                 <div className="mt-2 rounded bg-white p-2 text-xs">
                   <p className="font-semibold text-amber-800">{t.planner.missing}</p>
                   <p className="mt-0.5 text-amber-700">{rec.missingPrereqs.join(", ")}</p>
                   {rec.missingPrereqs.length > 0 && <p className="mt-1 text-amber-600">Take {rec.missingPrereqs[0]} {t.planner.takeFirst}</p>}
                 </div>
+                <button
+                  type="button"
+                  onClick={() => setModalCourse({ id: rec.course.id, code: rec.course.code, missing: rec.missingPrereqs })}
+                  className="mt-3 w-full rounded-lg bg-amber-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-amber-700"
+                >
+                  {t.planner.addToMyPlan}
+                </button>
               </div>
             ))}
           </div>
         </section>
+      )}
+
+      {/* Prerequisite Warning Modal */}
+      {modalCourse && (
+        <PrerequisiteWarningModal
+          courseCode={modalCourse.code}
+          missingCodes={modalCourse.missing}
+          onCancel={() => setModalCourse(null)}
+          onConfirm={() => {
+            addToPlan(modalCourse.id);
+            setModalCourse(null);
+          }}
+        />
       )}
     </main>
   );

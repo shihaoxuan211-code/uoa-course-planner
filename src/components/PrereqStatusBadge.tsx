@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import type { Course } from "@/types/course";
 import { checkPrerequisites } from "@/lib/prerequisites";
 import type { PrerequisiteCheck } from "@/lib/prerequisites";
@@ -24,6 +24,7 @@ interface PrereqStatusBadgeProps {
 export function PrereqStatusBadge({ course }: PrereqStatusBadgeProps) {
   const t = useT();
   const [check, setCheck] = useState<PrerequisiteCheck | null>(null);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     const completed = readSet(COMPLETED_COURSES_KEY);
@@ -31,7 +32,16 @@ export function PrereqStatusBadge({ course }: PrereqStatusBadgeProps) {
     const planned = readSet(PLAN_STORAGE_KEY);
     const result = checkPrerequisites(course, completed, assumed, planned);
     setCheck(result);
-  }, [course]);
+  }, [course, refreshKey]);
+
+  const markCompleted = useCallback((code: string) => {
+    const current = readSet(COMPLETED_COURSES_KEY);
+    current.add(code);
+    try {
+      localStorage.setItem(COMPLETED_COURSES_KEY, JSON.stringify([...current]));
+    } catch { /* ignore */ }
+    setRefreshKey((k) => k + 1);
+  }, []);
 
   if (!check) {
     return (
@@ -81,6 +91,27 @@ export function PrereqStatusBadge({ course }: PrereqStatusBadgeProps) {
         )}
         {check.status === "missing" && (
           <div>
+            <div className="rounded-lg border border-rose-200 bg-rose-50 p-3 mb-3">
+              <p className="text-xs font-semibold text-rose-800">
+                ⚠️ {t.prereqWarning.mayNeed}
+              </p>
+              {check.missingCodes.length > 0 && (
+                <ul className="mt-1.5 space-y-1.5">
+                  {check.missingCodes.map((code) => (
+                    <li key={code} className="flex items-center justify-between gap-2">
+                      <span className="text-sm font-medium text-rose-700">{code}</span>
+                      <button
+                        type="button"
+                        onClick={() => markCompleted(code)}
+                        className="shrink-0 rounded-full border border-emerald-300 bg-white px-2 py-0.5 text-xs font-semibold text-emerald-700 transition hover:bg-emerald-50 hover:border-emerald-400"
+                      >
+                        ✓ {t.prereqWarning.markCompleted}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
             <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 px-2.5 py-0.5 text-xs font-semibold text-rose-700 ring-1 ring-inset ring-rose-200">
               ✗ {t.prereq.missing}
             </span>

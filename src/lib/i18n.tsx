@@ -56,6 +56,7 @@ export interface Translations {
     showing: string;
     of: string;
     resetFilters: string;
+    loadMore: string;
     noResults: string;
     viewDetails: string;
     search: string;
@@ -371,6 +372,30 @@ export interface Translations {
     terms: string;
     disclaimer: string;
   };
+  // Prerequisite warning modal
+  prereqWarning: {
+    title: string;
+    message: string;
+    missingPrereqs: string;
+    canStillAdd: string;
+    cancel: string;
+    addAnyway: string;
+    missingBadge: string;
+    warningBox: string;
+    mayNeed: string;
+    markCompleted: string;
+    completedCourses: string;
+  };
+  // Shared platform-generated labels
+  shared: {
+    semesters: Record<string, string>;
+    stages: Record<string, string>;
+    workloadLabels: Record<string, string>;
+    difficultyLabels: Record<string, string>;
+    groupWorkLabels: Record<string, string>;
+    finalExamLabels: Record<string, string>;
+    assessmentFocusLabels: Record<string, string>;
+  };
 }
 
 // ── Translation data ──────────────────────────────────────────────────────
@@ -392,17 +417,17 @@ const en: Translations = {
   home: {
     badge: "Independent Student Planning Tool",
     heroTitle: "Plan Your Degree Smarter",
-    heroSubtitle: "Compare workload, difficulty, assessments and exam styles across 490+ UOA courses.",
+    heroSubtitle: "Compare workload, difficulty, assessments and exam styles across 1000+ courses.",
     browseCourses: "Browse courses",
     smartPlanner: "Smart Planner",
     card1Title: "Search Courses",
-    card1Body: "Browse 490+ courses by subject, stage, semester, difficulty, and exam mode.",
+    card1Body: "Browse 1000+ courses by subject, stage, semester, difficulty, and exam mode.",
     card2Title: "Compare Difficulty",
     card2Body: "See difficulty estimates, workload levels, assessment styles, and student reviews side by side.",
     card3Title: "Assessment Breakdown",
     card3Body: "Understand exam weights, group work, presentation requirements, and continuous assessment ratios.",
     coursesAvailable: "Courses available",
-    courseCount: "490+ Courses",
+    courseCount: "1000+ Courses",
     disclaimer: "Course Planner is an independent student-created platform. This website is not affiliated with the University of Auckland. Course data is sourced from public catalogues. Verify all information with official university sources."
   },
   courses: {
@@ -414,6 +439,7 @@ const en: Translations = {
     showing: "Showing",
     of: "of",
     resetFilters: "Reset filters",
+    loadMore: "Load More Courses",
     noResults: "No sample courses match your current search and filters.",
     viewDetails: "View details",
     search: "Search course code or title",
@@ -554,6 +580,19 @@ const en: Translations = {
     notSatisfied: "Not satisfied by Completed, Assumed, or Plan:",
     partiallySatisfied: "Partially satisfied:",
     source: "Source:"
+  },
+  prereqWarning: {
+    title: "Prerequisite Warning",
+    message: "This course may require prerequisites you have not completed yet.",
+    missingPrereqs: "Missing prerequisites:",
+    canStillAdd: "You can still add this course to your study plan.",
+    cancel: "Cancel",
+    addAnyway: "Add Anyway",
+    missingBadge: "Missing prerequisites",
+    warningBox: "Warning: prerequisite requirements may not yet be satisfied.",
+    mayNeed: "You may need to complete the following courses first.",
+    markCompleted: "Mark as Completed",
+    completedCourses: "Completed Courses"
   },
   profile: {
     heading: "Student Profile",
@@ -710,6 +749,38 @@ const en: Translations = {
     privacy: "Privacy Policy",
     terms: "Terms of Use",
     disclaimer: "Disclaimer"
+  },
+  shared: {
+    semesters: {
+      "Semester 1": "Semester 1",
+      "Semester 2": "Semester 2",
+      "Summer School": "Summer School"
+    },
+    stages: {
+      "1": "Stage 1",
+      "2": "Stage 2",
+      "3": "Stage 3",
+      "4": "Stage 4"
+    },
+    workloadLabels: {
+      "High workload": "High workload",
+      "Medium workload": "Medium workload",
+      "Low workload": "Low workload"
+    },
+    difficultyLabels: {
+      "Intensive": "Intensive",
+      "Moderate": "Moderate",
+      "Light": "Light"
+    },
+    groupWorkLabels: {
+      "Group Work Present": "Group Work Present",
+      "No Group Work": "No Group Work"
+    },
+    finalExamLabels: {
+      "Final Exam": "Final Exam",
+      "No Final Exam": "No Final Exam"
+    },
+    assessmentFocusLabels: {}
   }
 };
 
@@ -730,17 +801,17 @@ const zh: Translations = {
   home: {
     badge: "学生独立选课规划工具",
     heroTitle: "更聪明地规划你的课程",
-    heroSubtitle: "对比 490+ 门 UOA 课程的学习负担、难度、考核方式和考试形式。",
+    heroSubtitle: "比较1000+门课程的学习负担、难度、考核方式和考试形式。",
     browseCourses: "浏览课程",
     smartPlanner: "智能规划",
     card1Title: "搜索课程",
-    card1Body: "按学科、阶段、学期、难度和考试模式浏览 490+ 门课程。",
+    card1Body: "按学科、阶段、学期、难度和考试模式浏览 1000+ 门课程。",
     card2Title: "难度对比",
     card2Body: "并排查看难度预估、学习负担水平、考核风格和学生评价。",
     card3Title: "考核分析",
     card3Body: "了解考试权重、小组作业、演讲要求和持续性考核比例。",
     coursesAvailable: "可用课程",
-    courseCount: "490+ 门课程",
+    courseCount: "1000+ 门课程",
     disclaimer: "课程规划助手是一个学生独立创建的平台。本网站与奥克兰大学无关。课程数据来源于公开目录。请以官方大学信息为准。"
   },
   courses: {
@@ -752,6 +823,7 @@ const zh: Translations = {
     showing: "显示",
     of: "/",
     resetFilters: "重置筛选",
+    loadMore: "加载更多课程",
     noResults: "没有符合当前搜索和筛选条件的课程。",
     viewDetails: "查看详情",
     search: "搜索课程代码或标题",
@@ -786,11 +858,11 @@ const zh: Translations = {
     estimatedDifficulty: "预估难度",
     infoUnavailable: "暂无信息",
     viewDetails: "查看详情",
-    yes: "是",
-    no: "否"
+    yes: "有",
+    no: "无"
   },
   simpleView: {
-    quickSummary: "课程速览",
+    quickSummary: "课程概览",
     estimatedDifficulty: "预估难度",
     estimated: "预估",
     workload: "学习负担",
@@ -892,6 +964,19 @@ const zh: Translations = {
     notSatisfied: "未满足（已完成 + 推断 + 规划中）:",
     partiallySatisfied: "部分满足:",
     source: "来源:"
+  },
+  prereqWarning: {
+    title: "先修课程提醒",
+    message: "这门课程可能需要你先完成部分先修课程。",
+    missingPrereqs: "缺少的先修课程：",
+    canStillAdd: "你仍然可以将其加入学习规划。",
+    cancel: "取消",
+    addAnyway: "仍然加入",
+    missingBadge: "缺少先修课程",
+    warningBox: "提醒：先修课程要求可能尚未满足。",
+    mayNeed: "你可能需要先完成以下课程。",
+    markCompleted: "标记为已完成",
+    completedCourses: "已完成课程"
   },
   profile: {
     heading: "学生档案",
@@ -1048,6 +1133,38 @@ const zh: Translations = {
     privacy: "隐私政策",
     terms: "使用条款",
     disclaimer: "免责声明"
+  },
+  shared: {
+    semesters: {
+      "Semester 1": "第一学期",
+      "Semester 2": "第二学期",
+      "Summer School": "暑期课程"
+    },
+    stages: {
+      "1": "一阶段课程",
+      "2": "二阶段课程",
+      "3": "三阶段课程",
+      "4": "四阶段课程"
+    },
+    workloadLabels: {
+      "High workload": "高学习负担",
+      "Medium workload": "中等学习负担",
+      "Low workload": "较低学习负担"
+    },
+    difficultyLabels: {
+      "Intensive": "高强度",
+      "Moderate": "中等",
+      "Light": "轻松"
+    },
+    groupWorkLabels: {
+      "Group Work Present": "有小组作业",
+      "No Group Work": "无小组作业"
+    },
+    finalExamLabels: {
+      "Final Exam": "期末考试",
+      "No Final Exam": "无期末考试"
+    },
+    assessmentFocusLabels: {}
   }
 };
 

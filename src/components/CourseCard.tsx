@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { Course } from "@/types/course";
-import { formatPoints, formatSemesters } from "@/lib/courseDisplay";
+import { formatPoints, formatSemesters, translateSemesters, translateStage } from "@/lib/courseDisplay";
 import { getLatestHistoricalExamMode } from "@/lib/exam";
-import { useT } from "@/lib/i18n";
+import { useT, useLang } from "@/lib/i18n";
 import { AddCourseActions } from "@/components/AddCourseActions";
 import { ExamModeBadge } from "@/components/ExamModeBadge";
 
@@ -23,6 +23,7 @@ function StarsMini({ value }: { value: number }) {
 
 export function CourseCard({ course, difficulty }: CourseCardProps) {
   const t = useT();
+  const { lang } = useLang();
   const latestMode = getLatestHistoricalExamMode(course.historicalExams);
 
   return (
@@ -51,11 +52,11 @@ export function CourseCard({ course, difficulty }: CourseCardProps) {
         </div>
         <div>
           <dt className="text-xs text-slate-500">{t.courseCard.semester}</dt>
-          <dd className="text-sm font-semibold text-ink line-clamp-1">{formatSemesters(course)}</dd>
+          <dd className="text-sm font-semibold text-ink line-clamp-1">{translateSemesters(course.semesters, lang)}</dd>
         </div>
         <div>
           <dt className="text-xs text-slate-500">{t.courseCard.stage}</dt>
-          <dd className="text-sm font-semibold text-ink">Stage {course.stage}</dd>
+          <dd className="text-sm font-semibold text-ink">{translateStage(course.stage, lang)}</dd>
         </div>
         <div>
           <dt className="text-xs text-slate-500">{t.courseCard.subject}</dt>

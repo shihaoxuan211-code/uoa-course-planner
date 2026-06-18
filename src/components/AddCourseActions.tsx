@@ -1,13 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type { Course } from "@/types/course";
-import { COMPARE_STORAGE_KEY, PLAN_STORAGE_KEY } from "@/lib/storageKeys";
+import { COMPARE_STORAGE_KEY, PLAN_STORAGE_KEY, COMPLETED_COURSES_KEY, ASSUMED_COURSES_KEY } from "@/lib/storageKeys";
 import { useLocalStorageList } from "@/lib/useLocalStorageList";
+import { checkPrerequisites } from "@/lib/prerequisites";
+import type { PrerequisiteCheck } from "@/lib/prerequisites";
 import { useT } from "@/lib/i18n";
+import { PrerequisiteWarningModal } from "@/components/PrerequisiteWarningModal";
+
+function readSet(key: string): Set<string> {
+  if (typeof window === "undefined") return new Set();
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw);
+    return new Set(Array.isArray(arr) ? arr.filter((s): s is string => typeof s === "string") : []);
+  } catch { return new Set(); }
+}
 
 interface AddCourseActionsProps {
-  course: Pick<Course, "id" | "code">;
+  course: Pick<Course, "id" | "code" | "prerequisites">;
   compact?: boolean;
 }
 
@@ -17,10 +30,52 @@ export function AddCourseActions({ course, compact = false }: AddCourseActionsPr
   const compare = useLocalStorageList(COMPARE_STORAGE_KEY, { maxItems: 4 });
   const [notice, setNotice] = useState("");
 
-  const addToPlan = () => {
-    const result = plan.add(course.id);
-    setNotice(result === "exists" ? `${course.code} ${t.addActions.alreadyInPlan}` : `${course.code} ${t.addActions.addedToPlan}`);
-  };
+  // Modal state
+  const [showModal, setShowModal] = useState(false);
+  const [missingPrereqs, setMissingPrereqs] = useState<string[]>([]);
+
+  // Pre-compute prerequisite check
+  const [prereqCheck, setPrereqCheck] = useState<PrerequisiteCheck | null>(null);
+  useEffect(() => {
+    const completed = readSet(COMPLETED_COURSES_KEY);
+    const assumed = readSet(ASSUMED_COURSES_KEY);
+    const planned = readSet(PLAN_STORAGE_KEY);
+    const result = checkPrerequisites(
+      { prerequisites: course.prerequisites } as Course,
+      completed,
+      assumed,
+      planned
+    );
+    setPrereqCheck(result);
+  }, [course.prerequisites]);
+
+  const handleAddToPlan = useCallback(() => {
+    if (plan.contains(course.id)) {
+      setNotice(`${course.code} ${t.addActions.alreadyInPlan}`);
+      return;
+    }
+
+    // Check prerequisites
+    if (prereqCheck && prereqCheck.status === "missing" && prereqCheck.missingCodes.length > 0) {
+      setMissingPrereqs(prereqCheck.missingCodes);
+      setShowModal(true);
+      return;
+    }
+
+    // No missing prereqs — add directly
+    plan.add(course.id);
+    setNotice(`${course.code} ${t.addActions.addedToPlan}`);
+  }, [course, plan, prereqCheck, t]);
+
+  const handleConfirmAddAnyway = useCallback(() => {
+    setShowModal(false);
+    plan.add(course.id);
+    setNotice(`${course.code} ${t.addActions.addedToPlan} — ${t.prereqWarning.missingBadge}`);
+  }, [course, plan, t]);
+
+  const handleCancelModal = useCallback(() => {
+    setShowModal(false);
+  }, []);
 
   const addToCompare = () => {
     const result = compare.add(course.id);
@@ -28,7 +83,6 @@ export function AddCourseActions({ course, compact = false }: AddCourseActionsPr
       setNotice(t.addActions.compareLimit);
       return;
     }
-
     setNotice(
       result === "exists" ? `${course.code} ${t.addActions.alreadyInCompare}` : `${course.code} ${t.addActions.addedToCompare}`
     );
@@ -42,9 +96,9 @@ export function AddCourseActions({ course, compact = false }: AddCourseActionsPr
       <div className="flex flex-wrap gap-2">
         <button
           type="button"
-          onClick={addToPlan}
-          disabled={!plan.isReady || plan.contains(course.id)}
-          className={`${buttonClass} bg-fern text-white hover:bg-emerald-700`}
+          onClick={handleAddToPlan}
+          disabled={!plan.isReady}
+          className={`${buttonClass} ${plan.contains(course.id) ? "bg-slate-300 text-slate-600" : "bg-fern text-white hover:bg-emerald-700"}`}
         >
           {plan.contains(course.id) ? t.addActions.inPlan : t.addActions.addToPlan}
         </button>
@@ -62,6 +116,16 @@ export function AddCourseActions({ course, compact = false }: AddCourseActionsPr
           {notice}
         </p>
       ) : null}
+
+      {/* Prerequisite Warning Modal */}
+      {showModal && (
+        <PrerequisiteWarningModal
+          courseCode={course.code}
+          missingCodes={missingPrereqs}
+          onCancel={handleCancelModal}
+          onConfirm={handleConfirmAddAnyway}
+        />
+      )}
     </div>
   );
 }

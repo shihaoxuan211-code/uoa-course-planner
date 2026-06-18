@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: CourseDetailPageProps): Promi
   const { id } = await params;
   const course = getCourseById(id);
   return {
-    title: course ? `${course.code} | UOA Course Planner` : "Course not found | UOA Course Planner"
+    title: course ? `${course.code} | Course Planner` : "Course not found | Course Planner"
   };
 }
 

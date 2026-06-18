@@ -3,14 +3,14 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Course } from "@/types/course";
-import { formatAssessmentSummary, formatPoints, formatSemesters } from "@/lib/courseDisplay";
+import { formatAssessmentSummary, formatPoints, translateSemesters, translateStage } from "@/lib/courseDisplay";
 import { COMPARE_STORAGE_KEY } from "@/lib/storageKeys";
 import { getHistoricalExamPattern, getLatestHistoricalExamMode } from "@/lib/exam";
 import { useLocalStorageList } from "@/lib/useLocalStorageList";
 import { ExamModeBadge } from "@/components/ExamModeBadge";
 import { computeGradeOutlook } from "@/lib/gradeOutlook";
 import { computeCourseIntelligence } from "@/lib/courseIntelligence";
-import { useT } from "@/lib/i18n";
+import { useT, useLang } from "@/lib/i18n";
 import reviewsRaw from "@/data/course-reviews.json";
 
 interface ComparisonTableProps {
@@ -39,6 +39,7 @@ function StarsInline({ value, max = 5 }: { value: number; max?: number }) {
 
 export function ComparisonTable({ courses }: ComparisonTableProps) {
   const t = useT();
+  const { lang } = useLang();
   const compare = useLocalStorageList(COMPARE_STORAGE_KEY, { maxItems: 4 });
   const comparedCourses = compare.items
     .map((id) => courses.find((course) => course.id === id))
@@ -48,8 +49,8 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
     { label: t.compare.courseCode, render: (course) => course.code },
     { label: t.compare.courseTitle, render: (course) => course.title },
     { label: t.compare.points, render: (course) => formatPoints(course.points) },
-    { label: t.compare.semester, render: (course) => formatSemesters(course) },
-    { label: t.compare.stage, render: (course) => `Stage ${course.stage}` },
+    { label: t.compare.semester, render: (course) => translateSemesters(course.semesters, lang) },
+    { label: t.compare.stage, render: (course) => translateStage(course.stage, lang) },
     { label: t.compare.prerequisite, render: (course) => course.prerequisites },
     { label: t.compare.workloadRow, render: (course) => course.workload },
     {

@@ -22,8 +22,9 @@ export function filterCourses(
 
   return courses.filter((course) => {
     const code = course.code.toLowerCase();
+    const codeCompact = code.replace(/\s+/g, ""); // "BUSAN300" to match "BUSAN 300"
     const title = course.title.toLowerCase();
-    const matchesQuery = query.length === 0 || code.includes(query) || title.includes(query);
+    const matchesQuery = query.length === 0 || code.includes(query) || codeCompact.includes(query) || title.includes(query);
     const matchesSubject = filters.subject === "all" || course.subject === filters.subject;
     const matchesSemester =
       filters.semester === "all" || course.semesters.length === 0 || course.semesters.includes(filters.semester as Semester);

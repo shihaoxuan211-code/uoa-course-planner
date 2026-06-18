@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import type { Course } from "@/types/course";
-import { formatPoints, formatSemesters } from "@/lib/courseDisplay";
+import { formatPoints, formatSemesters, translateSemesters, translateStage } from "@/lib/courseDisplay";
 import { PLAN_STORAGE_KEY, COMPLETED_COURSES_KEY, ASSUMED_COURSES_KEY, STUDENT_YEAR_KEY, STUDENT_MAJOR_KEY } from "@/lib/storageKeys";
 import { getAssumedReason, YEAR_LABELS, MAJOR_LABELS } from "@/lib/studentProfile";
 import type { StudentYear, StudentMajor } from "@/lib/studentProfile";
 import { useLocalStorageList } from "@/lib/useLocalStorageList";
 import { checkPrerequisites } from "@/lib/prerequisites";
 import type { PrerequisiteCheck, PrerequisiteStatus } from "@/lib/prerequisites";
-import { useT } from "@/lib/i18n";
+import { useT, useLang } from "@/lib/i18n";
 
 interface PlanSummaryProps {
   courses: Course[];
@@ -152,6 +152,7 @@ function PrereqDetail({
 
 export function PlanSummary({ courses }: PlanSummaryProps) {
   const t = useT();
+  const { lang } = useLang();
   const plan = useLocalStorageList(PLAN_STORAGE_KEY);
   const plannedCourses = courses.filter((course) => plan.items.includes(course.id));
   const totalPoints = plannedCourses.reduce((sum, course) => sum + course.points, 0);
@@ -160,6 +161,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
 
   const [expandedPrereqs, setExpandedPrereqs] = useState<Set<string>>(new Set());
   const [profileReady, setProfileReady] = useState(false);
+  const [prereqRefreshKey, setPrereqRefreshKey] = useState(0);
 
   useEffect(() => { setProfileReady(true); }, []);
 
@@ -173,6 +175,16 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
       }
       return next;
     });
+  };
+
+  // Quick-confirm: mark a course code as completed
+  const markCompleted = (code: string) => {
+    const current = readLocalStorageSet(COMPLETED_COURSES_KEY);
+    current.add(code);
+    try {
+      localStorage.setItem(COMPLETED_COURSES_KEY, JSON.stringify([...current]));
+    } catch { /* ignore */ }
+    setPrereqRefreshKey((k) => k + 1);
   };
 
   const completedCodes = profileReady ? readLocalStorageSet(COMPLETED_COURSES_KEY) : new Set<string>();
@@ -265,6 +277,49 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
           </div>
         </div>
       </section>
+
+      {/* Prerequisite Warning Box */}
+      {profileReady && prereqMissing > 0 && (
+        <section className="rounded-lg border-2 border-rose-300 bg-rose-50 p-5 shadow-card">
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 text-lg">⚠️</span>
+            <div className="flex-1">
+              <p className="text-sm font-bold text-rose-800">{t.prereqWarning.warningBox}</p>
+              <ul className="mt-2 space-y-2">
+                {plannedCourses
+                  .filter((c) => prereqChecks.get(c.id)?.status === "missing")
+                  .map((c) => {
+                    const check = prereqChecks.get(c.id);
+                    return (
+                      <li key={c.id}>
+                        <span className="text-sm text-rose-700">
+                          <span className="font-semibold">{c.code}</span>
+                          {check && check.missingCodes.length > 0 && (
+                            <span className="text-rose-600"> — {check.missingCodes.join(", ")}</span>
+                          )}
+                        </span>
+                        {check && check.missingCodes.length > 0 && (
+                          <div className="mt-1 flex flex-wrap gap-1.5">
+                            {check.missingCodes.map((code) => (
+                              <button
+                                key={code}
+                                type="button"
+                                onClick={() => markCompleted(code)}
+                                className="inline-flex items-center rounded-full border border-emerald-300 bg-white px-2.5 py-1 text-xs font-semibold text-emerald-700 transition hover:bg-emerald-50 hover:border-emerald-400"
+                              >
+                                ✓ {code} — {t.prereqWarning.markCompleted}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </li>
+                    );
+                  })}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Semester points breakdown */}
       {semesterPoints.length > 0 && (
@@ -359,7 +414,7 @@ export function PlanSummary({ courses }: PlanSummaryProps) {
                   </div>
                   <p className="text-sm text-slate-600">{course.title}</p>
                   <p className="mt-1 text-xs text-slate-500">
-                    {formatPoints(course.points)} points | {formatSemesters(course)} | Stage {course.stage}
+                    {formatPoints(course.points)} points | {translateSemesters(course.semesters, lang)} | {translateStage(course.stage, lang)}
                   </p>
                   {check && (
                     <PrereqDetail

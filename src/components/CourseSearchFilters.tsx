@@ -1,7 +1,8 @@
 "use client";
 
 import type { CourseFilters } from "@/lib/courseFilters";
-import { useT } from "@/lib/i18n";
+import { useT, useLang } from "@/lib/i18n";
+import { translateSemester } from "@/lib/courseDisplay";
 
 interface CourseSearchFiltersProps {
   filters: CourseFilters;
@@ -19,6 +20,7 @@ export function CourseSearchFilters({
   onChange
 }: CourseSearchFiltersProps) {
   const t = useT();
+  const { lang } = useLang();
 
   const update = (key: keyof CourseFilters, value: string) => {
     onChange({ ...filters, [key]: value });
@@ -63,7 +65,7 @@ export function CourseSearchFilters({
             <option value="all">{t.courses.allSemesters}</option>
             {semesters.map((semester) => (
               <option key={semester} value={semester}>
-                {semester}
+                {translateSemester(semester, lang)}
               </option>
             ))}
           </select>

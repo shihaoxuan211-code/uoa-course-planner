@@ -3,7 +3,8 @@
 import { useState } from "react";
 import type { Course, CourseReview } from "@/types/course";
 import { SimpleCourseView } from "@/components/SimpleCourseView";
-import { formatPoints, formatSemesters } from "@/lib/courseDisplay";
+import { formatPoints, translateSemesters, translateStage } from "@/lib/courseDisplay";
+import { useT, useLang } from "@/lib/i18n";
 import { ExamModeBadge } from "@/components/ExamModeBadge";
 import { AssessmentInsights } from "@/components/AssessmentInsights";
 import { GradeOutlook } from "@/components/GradeOutlook";
@@ -14,8 +15,6 @@ import { HistoricalExamPattern } from "@/components/HistoricalExamPattern";
 import { AddCourseActions } from "@/components/AddCourseActions";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { CourseIntelligence } from "@/components/CourseIntelligence";
-import { useT } from "@/lib/i18n";
-
 interface CourseDetailViewProps {
   course: Course;
   allCourses: Course[];
@@ -26,6 +25,7 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
   const [showAdvanced, setShowAdvanced] = useState(false);
   const reviewRatings = reviewData?.ratings;
   const t = useT();
+  const { lang } = useLang();
 
   if (!showAdvanced) {
     return (
@@ -61,7 +61,7 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
       </button>
 
       {/* Header */}
-      <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
+      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <div>
             <p className="text-sm font-bold uppercase text-fern">{course.code}</p>
@@ -75,7 +75,7 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
       </section>
 
       {/* S1 Exam */}
-      <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
+      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
         <h2 className="text-lg font-bold text-ink">{t.courseDetail.s1ExamInfo}</h2>
         {s1Exam ? (
           <dl className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -93,12 +93,12 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
 
       {/* Course Info + Assessments */}
       <section className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
+        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
           <h2 className="text-lg font-bold text-ink">{t.courseDetail.courseInformation}</h2>
           <dl className="mt-4 grid gap-3 text-sm">
             <Info label={t.courseDetail.points} value={formatPoints(course.points)} />
-            <Info label={t.courseDetail.semester} value={formatSemesters(course)} />
-            <Info label={t.courseDetail.stage} value={`Stage ${course.stage}`} />
+            <Info label={t.courseDetail.semester} value={translateSemesters(course.semesters, lang)} />
+            <Info label={t.courseDetail.stage} value={translateStage(course.stage, lang)} />
             <Info label={t.courseDetail.subject} value={course.subject} />
             <Info label={t.courseDetail.faculty} value={course.faculty} />
             <Info label={t.courseDetail.prerequisite} value={course.prerequisites} />
@@ -107,7 +107,7 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
             <Info label={t.courseDetail.workload} value={course.workload} />
           </dl>
         </div>
-        <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-card">
+        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
           <h2 className="text-lg font-bold text-ink">{t.courseDetail.assessmentStructure}</h2>
           {course.assessments.length > 0 ? (
             <div className="mt-4 divide-y divide-slate-100">
