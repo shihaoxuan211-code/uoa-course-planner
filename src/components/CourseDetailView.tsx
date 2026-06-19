@@ -15,6 +15,7 @@ import { HistoricalExamPattern } from "@/components/HistoricalExamPattern";
 import { AddCourseActions } from "@/components/AddCourseActions";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { CourseIntelligence } from "@/components/CourseIntelligence";
+import { QuickPageFeedback } from "@/components/QuickPageFeedback";
 interface CourseDetailViewProps {
   course: Course;
   allCourses: Course[];
@@ -37,6 +38,9 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
             review={reviewRatings}
             onViewDetails={() => setShowAdvanced(true)}
           />
+        </div>
+        <div className="mt-6">
+          <QuickPageFeedback pageId={course.id} />
         </div>
       </main>
     );
@@ -133,6 +137,9 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
       {reviewData && <ReviewSection review={reviewData} />}
 
       <HistoricalExamPattern exams={course.historicalExams} />
+      <div className="mt-6">
+        <QuickPageFeedback pageId={course.id} />
+      </div>
     </main>
   );
 }

@@ -22,6 +22,7 @@ export interface Translations {
     planner: string;
     compare: string;
     brand: string;
+    about: string;
   };
   // Language toggle
   lang: {
@@ -304,6 +305,8 @@ export interface Translations {
     finalStageCourse: string;
     standaloneCourse: string;
     noConnected: string;
+    expandPathway: string;
+    collapsePathway: string;
     beforeThis: string;
     afterThis: string;
     prereqsNotInDataset: string;
@@ -372,6 +375,49 @@ export interface Translations {
     terms: string;
     disclaimer: string;
   };
+  // Beta badge
+  beta: {
+    badge: string;
+    subtitle: string;
+  };
+  // Feedback
+  feedback: {
+    button: string;
+    title: string;
+    description: string;
+    typeLabel: string;
+    typeBug: string;
+    typeCourseError: string;
+    typeFeature: string;
+    typeSuggestion: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    submit: string;
+    cancel: string;
+    success: string;
+  };
+  // Quick page feedback
+  quickFeedback: {
+    question: string;
+    helpful: string;
+    needsImprovement: string;
+    thanks: string;
+  };
+  // About page
+  about: {
+    heading: string;
+    whoTitle: string;
+    whoBody: string;
+    featuresTitle: string;
+    featureCards: Array<{ title: string; body: string }>;
+    dataTitle: string;
+    dataBody: string;
+    disclaimer: string;
+    contactTitle: string;
+    contactBody: string;
+  };
   // Prerequisite warning modal
   prereqWarning: {
     title: string;
@@ -407,7 +453,8 @@ const en: Translations = {
     myPlan: "My Plan",
     planner: "Planner",
     compare: "Compare",
-    brand: "Course Planner"
+    brand: "Course Planner",
+    about: "About"
   },
   lang: {
     label: "Language",
@@ -581,6 +628,52 @@ const en: Translations = {
     partiallySatisfied: "Partially satisfied:",
     source: "Source:"
   },
+  beta: {
+    badge: "🚀 Beta Version",
+    subtitle: "Built by UoA Students. Feedback Welcome."
+  },
+  feedback: {
+    button: "💬 Feedback",
+    title: "Help Improve This Website",
+    description: "Found a bug? Missing course information? Have a feature idea? Let us know.",
+    typeLabel: "Feedback Type",
+    typeBug: "Bug Report",
+    typeCourseError: "Course Information Error",
+    typeFeature: "Feature Request",
+    typeSuggestion: "General Suggestion",
+    messageLabel: "Message",
+    messagePlaceholder: "Describe the issue or suggestion...",
+    emailLabel: "Email (optional)",
+    emailPlaceholder: "your@email.com",
+    submit: "Submit",
+    cancel: "Cancel",
+    success: "Thank you! Your feedback has been received."
+  },
+  quickFeedback: {
+    question: "Was this page helpful?",
+    helpful: "👍 Helpful",
+    needsImprovement: "👎 Needs Improvement",
+    thanks: "Thanks for your feedback!"
+  },
+  about: {
+    heading: "About",
+    whoTitle: "Who Built This?",
+    whoBody: "This project was created by University of Auckland students to make course planning easier.",
+    featuresTitle: "Features",
+    featureCards: [
+      { title: "Course Search", body: "Browse 1000+ courses across 61 subjects from the UOA public catalogue." },
+      { title: "Course Reviews", body: "Student-contributed difficulty, workload, and enjoyment ratings." },
+      { title: "Course Planning", body: "Build semester plans with prerequisite checking and credit tracking." },
+      { title: "Degree Mapping", body: "Visualize course pathways and prerequisite relationships." },
+      { title: "Prerequisite Visualization", body: "See immediate prerequisites clearly with AND/OR logic." },
+      { title: "Course Comparison", body: "Compare up to 4 courses side by side across all dimensions." }
+    ],
+    dataTitle: "Data Sources",
+    dataBody: "Course information is sourced from publicly available University of Auckland course catalogue data.",
+    disclaimer: "Information may not always be up to date. Please verify important enrolment decisions through official University of Auckland sources.",
+    contactTitle: "Contact",
+    contactBody: "Questions or suggestions? Use the Feedback button on any page."
+  },
   prereqWarning: {
     title: "Prerequisite Warning",
     message: "This course may require prerequisites you have not completed yet.",
@@ -688,6 +781,8 @@ const en: Translations = {
     finalStageCourse: "Final Stage Course",
     standaloneCourse: "This is a standalone course — no prerequisites or follow-up courses found in the current dataset.",
     noConnected: "No connected courses found in the current dataset.",
+    expandPathway: "Expand Pathway",
+    collapsePathway: "Collapse Pathway",
     beforeThis: "Before this course",
     afterThis: "After this course",
     prereqsNotInDataset: "Prerequisites (not in current dataset)"
@@ -791,7 +886,8 @@ const zh: Translations = {
     myPlan: "我的课程",
     planner: "规划工具",
     compare: "课程对比",
-    brand: "课程规划助手"
+    brand: "课程规划助手",
+    about: "关于"
   },
   lang: {
     label: "语言",
@@ -965,6 +1061,52 @@ const zh: Translations = {
     partiallySatisfied: "部分满足:",
     source: "来源:"
   },
+  beta: {
+    badge: "🚀 测试版",
+    subtitle: "由奥大学生开发，欢迎反馈意见。"
+  },
+  feedback: {
+    button: "💬 意见反馈",
+    title: "帮助改进这个网站",
+    description: "发现错误？课程信息有误？有新功能建议？欢迎告诉我们。",
+    typeLabel: "反馈类型",
+    typeBug: "错误报告",
+    typeCourseError: "课程信息错误",
+    typeFeature: "功能建议",
+    typeSuggestion: "一般建议",
+    messageLabel: "留言",
+    messagePlaceholder: "描述问题或建议...",
+    emailLabel: "邮箱（选填）",
+    emailPlaceholder: "your@email.com",
+    submit: "提交",
+    cancel: "取消",
+    success: "感谢反馈！我们已收到你的意见。"
+  },
+  quickFeedback: {
+    question: "这个页面对你有帮助吗？",
+    helpful: "👍 有帮助",
+    needsImprovement: "👎 有问题",
+    thanks: "感谢你的反馈！"
+  },
+  about: {
+    heading: "关于",
+    whoTitle: "谁开发的？",
+    whoBody: "这个项目由奥克兰大学学生开发，旨在帮助学生更轻松地进行课程规划。",
+    featuresTitle: "功能",
+    featureCards: [
+      { title: "课程搜索", body: "浏览来自奥大公开目录的1000+门课程，涵盖61个学科。" },
+      { title: "课程评价", body: "学生贡献的难度、学习负担和趣味性评分。" },
+      { title: "课程规划", body: "建立学期计划，包含先修课程检查和学分追踪。" },
+      { title: "学位路径", body: "可视化课程路径和先修课程关系。" },
+      { title: "先修课程可视化", body: "清晰查看直接先修课程，包含AND/OR逻辑。" },
+      { title: "课程对比", body: "最多同时对比4门课程的所有维度。" }
+    ],
+    dataTitle: "数据来源",
+    dataBody: "课程信息来源于奥克兰大学公开课程目录数据。",
+    disclaimer: "课程信息可能存在延迟，请在正式选课前以奥克兰大学官方信息为准。",
+    contactTitle: "联系方式",
+    contactBody: "有问题或建议？欢迎使用页面上的意见反馈功能。"
+  },
   prereqWarning: {
     title: "先修课程提醒",
     message: "这门课程可能需要你先完成部分先修课程。",
@@ -1072,6 +1214,8 @@ const zh: Translations = {
     finalStageCourse: "最终阶段课程",
     standaloneCourse: "这是一门独立课程 — 当前数据集中未找到先修或后续课程。",
     noConnected: "当前数据集中未找到关联课程。",
+    expandPathway: "展开学习路径",
+    collapsePathway: "收起学习路径",
     beforeThis: "此课程之前",
     afterThis: "此课程之后",
     prereqsNotInDataset: "先修课程（不在当前数据集中）"

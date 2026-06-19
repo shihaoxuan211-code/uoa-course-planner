@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { Navigation } from "@/components/Navigation";
+import { FeedbackButton } from "@/components/FeedbackButton";
 import { useT } from "@/lib/i18n";
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -11,6 +12,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     <>
       <Navigation />
       {children}
+      <FeedbackButton />
       <footer className="mx-auto max-w-6xl px-4 pb-8 pt-12">
         <div className="rounded-lg border border-slate-200 bg-slate-50 px-5 py-4 text-center text-xs leading-5 text-slate-500">
           <p className="font-semibold text-slate-600">

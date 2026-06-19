@@ -14,7 +14,8 @@ export function Navigation() {
     { href: "/courses", label: t.nav.courses },
     { href: "/plan", label: t.nav.myPlan },
     { href: "/planner", label: t.nav.planner },
-    { href: "/compare", label: t.nav.compare }
+    { href: "/compare", label: t.nav.compare },
+    { href: "/about", label: t.nav.about }
   ];
 
   return (

@@ -24,9 +24,13 @@ export default function HomePage() {
           <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-tight tracking-tight text-ink sm:text-5xl">
             {t.home.heroTitle}
           </h1>
+          <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700 ring-1 ring-inset ring-amber-200">
+            {t.beta.badge}
+          </p>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
             {t.home.heroSubtitle}
           </p>
+          <p className="mt-2 text-sm text-slate-500">{t.beta.subtitle}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/courses"
