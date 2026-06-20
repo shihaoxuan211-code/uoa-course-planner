@@ -374,6 +374,7 @@ export interface Translations {
     privacy: string;
     terms: string;
     disclaimer: string;
+    analytics: string;
   };
   // Beta badge
   beta: {
@@ -1208,7 +1209,8 @@ const en: Translations = {
     sourceNote: "Course information is sourced from publicly available university catalogues and may be incomplete or outdated. University names and course information are referenced for informational purposes only. Please verify important information using official University of Auckland sources before making enrolment decisions.",
     privacy: "Privacy Policy",
     terms: "Terms of Use",
-    disclaimer: "Disclaimer"
+    disclaimer: "Disclaimer",
+    analytics: "This website uses anonymous analytics to improve user experience."
   },
   shared: {
     semesters: {
@@ -1822,7 +1824,8 @@ const zh: Translations = {
     sourceNote: "课程信息来源于公开的大学目录，可能不完整或已过时。大学名称和课程信息仅供参考。请在做出选课决定前，通过奥克兰大学官方渠道核实重要信息。",
     privacy: "隐私政策",
     terms: "使用条款",
-    disclaimer: "免责声明"
+    disclaimer: "免责声明",
+    analytics: "本网站使用匿名统计数据来改进用户体验。"
   },
   shared: {
     semesters: {

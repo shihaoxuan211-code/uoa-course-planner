@@ -21,6 +21,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <p className="mt-1">
             {t.footer.sourceNote}
           </p>
+          <p className="mt-2 text-slate-400">{t.footer.analytics}</p>
           <p className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1">
             <a href="/privacy" className="underline decoration-dotted underline-offset-2 hover:text-ink">{t.footer.privacy}</a>
             <a href="/terms" className="underline decoration-dotted underline-offset-2 hover:text-ink">{t.footer.terms}</a>
