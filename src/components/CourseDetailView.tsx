@@ -16,6 +16,7 @@ import { AddCourseActions } from "@/components/AddCourseActions";
 import { DisclaimerBox } from "@/components/DisclaimerBox";
 import { CourseIntelligence } from "@/components/CourseIntelligence";
 import { QuickPageFeedback } from "@/components/QuickPageFeedback";
+import { CourseReviewsSection } from "@/components/CourseReviewsSection";
 interface CourseDetailViewProps {
   course: Course;
   allCourses: Course[];
@@ -135,6 +136,8 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
       <GradeOutlook course={course} review={reviewRatings} />
 
       {reviewData && <ReviewSection review={reviewData} />}
+
+      <CourseReviewsSection courseId={course.id} courseCode={course.code} />
 
       <HistoricalExamPattern exams={course.historicalExams} />
       <div className="mt-6">

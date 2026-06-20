@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useT } from "@/lib/i18n";
+import { useT, useLang } from "@/lib/i18n";
 
 export default function HomePage() {
   const t = useT();
+  const { lang } = useLang();
 
   const valueCards = [
     { title: t.home.card1Title, body: t.home.card1Body, icon: "🔍" },
     { title: t.home.card2Title, body: t.home.card2Body, icon: "📊" },
-    { title: t.home.card3Title, body: t.home.card3Body, icon: "📋" }
+    { title: t.home.card3Title, body: t.home.card3Body, icon: "📋" },
+    { title: lang === "zh" ? "学位路线图" : "Degree Roadmap", body: lang === "zh" ? "查看学位进度、发现缺失课程、估算毕业时间并识别延期毕业风险。" : "Track degree progress, identify missing requirements, estimate graduation timing, and detect graduation risks.", icon: "🗺️" }
   ];
 
   return (
@@ -61,7 +63,7 @@ export default function HomePage() {
 
       {/* Feature Cards */}
       <section className="mx-auto max-w-6xl px-4 pb-14">
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {valueCards.map((card) => (
             <article key={card.title} className="rounded-xl border border-slate-200 bg-white p-6 shadow-card transition hover:shadow-md">
               <span className="text-2xl">{card.icon}</span>

@@ -418,6 +418,186 @@ export interface Translations {
     contactTitle: string;
     contactBody: string;
   };
+  // Student-submitted reviews
+  studentReviews: {
+    heading: string;
+    totalReviews: string;
+    avgRating: string;
+    avgDifficulty: string;
+    avgWorkload: string;
+    recommendationRate: string;
+    writeReview: string;
+    overallRating: string;
+    difficultyLabel: string;
+    easy: string;
+    medium: string;
+    hard: string;
+    veryHard: string;
+    workloadLabel: string;
+    light: string;
+    heavy: string;
+    assessmentFairness: string;
+    wouldRecommend: string;
+    wouldRecommendYes: string;
+    wouldRecommendNo: string;
+    semesterTaken: string;
+    semesterPlaceholder: string;
+    commentLabel: string;
+    commentPlaceholder: string;
+    submitReview: string;
+    submitting: string;
+    submittedMessage: string;
+    noReviewsYet: string;
+    sortRecent: string;
+    sortHighest: string;
+    sortHelpful: string;
+    helpful: string;
+    report: string;
+    reported: string;
+    disclaimer: string;
+    anonymous: string;
+  };
+  // AI Recommender
+  recommender: {
+    badge: string;
+    heading: string;
+    subtitle: string;
+    degree: string;
+    degreePlaceholder: string;
+    major: string;
+    majorPlaceholder: string;
+    stage: string;
+    targetSemester: string;
+    completedCourses: string;
+    completedHint: string;
+    studyGoal: string;
+    goalMaxGPA: string;
+    goalLowerWorkload: string;
+    goalAvoidExams: string;
+    goalPractical: string;
+    goalExplore: string;
+    goalBalanced: string;
+    assessmentPref: string;
+    prefCoursework: string;
+    prefExams: string;
+    prefGroupProjects: string;
+    prefAvoidGroup: string;
+    prefNone: string;
+    workloadPref: string;
+    wlLight: string;
+    wlMedium: string;
+    wlHeavyOk: string;
+    submit: string;
+    results: string;
+    topCourses: string;
+    matchScore: string;
+    whyFits: string;
+    consider: string;
+    eligible: string;
+    possiblyEligible: string;
+    missingPrereq: string;
+    difficulty: string;
+    workload: string;
+    examWeight: string;
+    noResults: string;
+    disclaimer: string;
+  };
+  // Degree Roadmap
+  degreeRoadmap: {
+    badge: string;
+    heading: string;
+    subtitle: string;
+    degree: string;
+    degreePlaceholder: string;
+    major: string;
+    majorPlaceholder: string;
+    currentYear: string;
+    yearFirst: string;
+    yearSecond: string;
+    yearThird: string;
+    yearFourth: string;
+    yearOther: string;
+    completedCourses: string;
+    completedHint: string;
+    gradTiming: string;
+    gradAsap: string;
+    gradBalanced: string;
+    gradPartTime: string;
+    gradNotSure: string;
+    semesterLoad: string;
+    load2: string;
+    load3: string;
+    load4: string;
+    loadFlexible: string;
+    summerSchool: string;
+    yes: string;
+    no: string;
+    maybe: string;
+    submit: string;
+    progressTitle: string;
+    completedPoints: string;
+    remainingPoints: string;
+    remainingCourses: string;
+    estimatedGrad: string;
+    delayWarning: string;
+    planTitle: string;
+    electiveOption: string;
+    genEdOption: string;
+    courseCards: string;
+    requiredHeading: string;
+    requiredDesc: string;
+    electiveHeading: string;
+    electiveDesc: string;
+    warningEarly: string;
+    warningSemester: string;
+    warningMissing: string;
+    alternativeTitle: string;
+    altSummer: string;
+    altDualSemester: string;
+    altEarlyPrereq: string;
+    altElective: string;
+    betaLabel: string;
+    disclaimer: string;
+    auditTitle: string;
+    auditRequiredCompleted: string;
+    auditRequiredMissing: string;
+    auditRemainingMajor: string;
+    auditProgress: string;
+    auditNoTemplate: string;
+    auditNeedCourses: string;
+    badgeRequired: string;
+    badgeMajor: string;
+    badgeElective: string;
+    badgeRecommended: string;
+    highPriority: string;
+    semesterPoints: string;
+    semesterCourses: string;
+    majorChangeTitle: string;
+    majorChangeLabel: string;
+    majorChangeOverlap: string;
+    majorChangeNoLonger: string;
+    majorChangeAdditional: string;
+    majorChangeExtraSems: string;
+    riskTitle: string;
+    riskLow: string;
+    riskMedium: string;
+    riskHigh: string;
+    riskReasons: string;
+    availSem1Only: string;
+    availSem2Only: string;
+    availSummer: string;
+    highPriorityFlag: string;
+    highPriorityTooltip: string;
+    delayTitle: string;
+    delayMissing: string;
+    delayNoSummer: string;
+    delaySem2Start: string;
+    conflictTitle: string;
+    conflictBody: string;
+    startImpactTitle: string;
+    startImpactBody: string;
+    semesterLoadRisk: string;
+  };
   // Prerequisite warning modal
   prereqWarning: {
     title: string;
@@ -673,6 +853,183 @@ const en: Translations = {
     disclaimer: "Information may not always be up to date. Please verify important enrolment decisions through official University of Auckland sources.",
     contactTitle: "Contact",
     contactBody: "Questions or suggestions? Use the Feedback button on any page."
+  },
+  studentReviews: {
+    heading: "Student Reviews",
+    totalReviews: "reviews",
+    avgRating: "Average Rating",
+    avgDifficulty: "Avg Difficulty",
+    avgWorkload: "Avg Workload",
+    recommendationRate: "Would Recommend",
+    writeReview: "Write a Review",
+    overallRating: "Overall Rating",
+    difficultyLabel: "Difficulty",
+    easy: "Easy",
+    medium: "Medium",
+    hard: "Hard",
+    veryHard: "Very Hard",
+    workloadLabel: "Workload",
+    light: "Light",
+    heavy: "Heavy",
+    assessmentFairness: "Assessment Fairness",
+    wouldRecommend: "Would Recommend",
+    wouldRecommendYes: "Yes",
+    wouldRecommendNo: "No",
+    semesterTaken: "Semester Taken (optional)",
+    semesterPlaceholder: "e.g. Semester 1 2025",
+    commentLabel: "Your Review",
+    commentPlaceholder: "Share your experience with this course...",
+    submitReview: "Submit Review",
+    submitting: "Submitting...",
+    submittedMessage: "Your review has been submitted. Thank you!",
+    noReviewsYet: "No reviews yet. Be the first to share your experience!",
+    sortRecent: "Most Recent",
+    sortHighest: "Highest Rated",
+    sortHelpful: "Most Helpful",
+    helpful: "👍 Helpful",
+    report: "Report",
+    reported: "Reported",
+    disclaimer: "Reviews are student-submitted and may be subjective. They do not represent official university data.",
+    anonymous: "Anonymous"
+  },
+  recommender: {
+    badge: "AI Recommender",
+    heading: "Course Recommender",
+    subtitle: "Get personalised course recommendations based on your degree, preferences, and completed courses.",
+    degree: "Degree / Programme",
+    degreePlaceholder: "e.g. BCom, BSc, BA, Engineering...",
+    major: "Major / Subject",
+    majorPlaceholder: "e.g. Accounting, Computer Science...",
+    stage: "Current Stage",
+    targetSemester: "Target Semester",
+    completedCourses: "Completed Courses",
+    completedHint: "Enter course codes separated by commas",
+    studyGoal: "Study Goal",
+    goalMaxGPA: "Maximise GPA",
+    goalLowerWorkload: "Lower workload",
+    goalAvoidExams: "Avoid heavy exams",
+    goalPractical: "Prefer practical skills",
+    goalExplore: "Explore interesting electives",
+    goalBalanced: "Balanced recommendation",
+    assessmentPref: "Assessment Preference",
+    prefCoursework: "Prefer coursework",
+    prefExams: "Prefer exams",
+    prefGroupProjects: "Prefer group projects",
+    prefAvoidGroup: "Avoid group projects",
+    prefNone: "No preference",
+    workloadPref: "Workload Preference",
+    wlLight: "Light",
+    wlMedium: "Medium",
+    wlHeavyOk: "Heavy is okay",
+    submit: "Get Recommendations",
+    results: "Recommendations",
+    topCourses: "Top Recommendations",
+    matchScore: "Match Score",
+    whyFits: "Why this fits",
+    consider: "Things to consider",
+    eligible: "Eligible",
+    possiblyEligible: "Possibly eligible",
+    missingPrereq: "Missing prerequisite",
+    difficulty: "Difficulty",
+    workload: "Workload",
+    examWeight: "Exam Weight",
+    noResults: "No courses matched your criteria. Try adjusting your preferences.",
+    disclaimer: "Recommendations are generated based on available course information and student preferences. They are not official academic advice. Please verify enrolment requirements with the official University of Auckland catalogue."
+  },
+  degreeRoadmap: {
+    badge: "Degree Roadmap",
+    heading: "Degree Roadmap Planner",
+    subtitle: "Plan your entire degree pathway semester by semester. See which courses to take and when, understand prerequisite chains, and estimate your graduation timeline.",
+    degree: "Programme / Degree",
+    degreePlaceholder: "e.g. BCom, BSc, BA, Engineering...",
+    major: "Major / Specialisation",
+    majorPlaceholder: "e.g. Management, Computer Science...",
+    currentYear: "Current Year / Stage",
+    yearFirst: "First year",
+    yearSecond: "Second year",
+    yearThird: "Third year",
+    yearFourth: "Fourth year",
+    yearOther: "Other",
+    completedCourses: "Completed Courses",
+    completedHint: "Enter course codes separated by commas (e.g. BUS 111, BUS 114, INFOSYS 110)",
+    gradTiming: "Target Graduation Timing",
+    gradAsap: "As soon as possible",
+    gradBalanced: "Balanced workload",
+    gradPartTime: "Part-time / flexible",
+    gradNotSure: "Not sure",
+    semesterLoad: "Preferred Semester Load",
+    load2: "2 courses/semester",
+    load3: "3 courses/semester",
+    load4: "4 courses/semester",
+    loadFlexible: "Flexible",
+    summerSchool: "Include Summer School?",
+    yes: "Yes",
+    no: "No",
+    maybe: "Maybe",
+    submit: "Generate Roadmap",
+    progressTitle: "Degree Progress Summary",
+    completedPoints: "Completed Points",
+    remainingPoints: "Remaining Points",
+    remainingCourses: "Remaining Courses",
+    estimatedGrad: "Estimated Graduation",
+    delayWarning: "Graduation may be delayed due to semester availability or missing prerequisites.",
+    planTitle: "Semester-by-Semester Plan",
+    electiveOption: "Elective option",
+    genEdOption: "General Education option",
+    courseCards: "Course",
+    requiredHeading: "Required vs Elective",
+    requiredDesc: "Required courses are those that appear necessary for your selected pathway based on prerequisite chains and major relevance.",
+    electiveHeading: "Elective Options",
+    electiveDesc: "Elective suggestions are courses that may fit your degree but should be verified against official UoA programme requirements.",
+    warningEarly: "Take this course early — it is a prerequisite for later-stage courses.",
+    warningSemester: "This course is only available in one semester, which may affect your graduation timeline.",
+    warningMissing: "You may be missing prerequisites for this recommended course.",
+    alternativeTitle: "Alternative Pathway Suggestions",
+    altSummer: "Take Summer School to reduce timeline",
+    altDualSemester: "Choose courses available in both Semester 1 and Semester 2",
+    altEarlyPrereq: "Complete key prerequisite courses early",
+    altElective: "Consider alternative electives if a course is unavailable",
+    betaLabel: "Beta estimate",
+    disclaimer: "This roadmap is an unofficial planning aid generated from available course data and your inputs. It is not official academic advice. Always verify degree requirements, prerequisites, concessions, and enrolment decisions with the University of Auckland.",
+    auditTitle: "Degree Audit",
+    auditRequiredCompleted: "✓ Completed Required Courses",
+    auditRequiredMissing: "⚠ Missing Required Courses",
+    auditRemainingMajor: "📚 Remaining Major Courses",
+    auditProgress: "Degree Progress",
+    auditNoTemplate: "A detailed roadmap for this major is not available yet. General recommendations are shown instead.",
+    auditNeedCourses: "You still need these courses to satisfy the selected pathway.",
+    badgeRequired: "Required",
+    badgeMajor: "Major",
+    badgeElective: "Elective",
+    badgeRecommended: "Recommended",
+    highPriority: "High Priority — recommended early because it unlocks multiple future courses.",
+    semesterPoints: "Points",
+    semesterCourses: "Courses",
+    majorChangeTitle: "Major Change Simulator",
+    majorChangeLabel: "Compare with another major",
+    majorChangeOverlap: "Courses that overlap",
+    majorChangeNoLonger: "Courses no longer needed",
+    majorChangeAdditional: "Additional courses required",
+    majorChangeExtraSems: "Estimated additional semesters",
+    riskTitle: "Graduation Risk Assessment",
+    riskLow: "🟢 Low Risk",
+    riskMedium: "🟡 Medium Risk",
+    riskHigh: "🔴 High Risk",
+    riskReasons: "Reasons",
+    availSem1Only: "Semester 1 only",
+    availSem2Only: "Semester 2 only",
+    availSummer: "Summer School available",
+    highPriorityFlag: "🔥 High Priority",
+    highPriorityTooltip: "Recommended to complete as early as possible.",
+    delayTitle: "Potential Graduation Delays",
+    delayMissing: "Missing {{course}} may delay completion of {{target}}.",
+    delayNoSummer: "This required course appears unavailable in Summer School.",
+    delaySem2Start: "Starting in Semester 2 may extend this pathway by approximately one additional semester.",
+    conflictTitle: "Heavy Semester Warning",
+    conflictBody: "{{semester}} contains {{count}} required courses.",
+    startImpactTitle: "Start Semester Impact",
+    startImpactBody: "Starting in Semester 2 may extend this pathway by approximately one additional semester.",
+    semesterLoadRisk: "Taking only 2 courses per semester will significantly extend the timeline."
   },
   prereqWarning: {
     title: "Prerequisite Warning",
@@ -1106,6 +1463,183 @@ const zh: Translations = {
     disclaimer: "课程信息可能存在延迟，请在正式选课前以奥克兰大学官方信息为准。",
     contactTitle: "联系方式",
     contactBody: "有问题或建议？欢迎使用页面上的意见反馈功能。"
+  },
+  studentReviews: {
+    heading: "学生评价",
+    totalReviews: "条评价",
+    avgRating: "平均评分",
+    avgDifficulty: "平均难度",
+    avgWorkload: "平均负担",
+    recommendationRate: "推荐率",
+    writeReview: "写评价",
+    overallRating: "总体评分",
+    difficultyLabel: "难度",
+    easy: "容易",
+    medium: "中等",
+    hard: "较难",
+    veryHard: "很难",
+    workloadLabel: "学习负担",
+    light: "轻松",
+    heavy: "繁重",
+    assessmentFairness: "考核公平性",
+    wouldRecommend: "是否推荐",
+    wouldRecommendYes: "推荐",
+    wouldRecommendNo: "不推荐",
+    semesterTaken: "修读学期（可选）",
+    semesterPlaceholder: "例如 2025年第一学期",
+    commentLabel: "你的评价",
+    commentPlaceholder: "分享你对这门课的体验...",
+    submitReview: "提交评价",
+    submitting: "提交中...",
+    submittedMessage: "你的评价已提交，感谢分享！",
+    noReviewsYet: "暂无评价，成为第一个分享体验的人吧！",
+    sortRecent: "最新",
+    sortHighest: "最高评分",
+    sortHelpful: "最有帮助",
+    helpful: "👍 有帮助",
+    report: "举报",
+    reported: "已举报",
+    disclaimer: "评价由学生提交，可能带有主观性。不代表官方大学数据。",
+    anonymous: "匿名"
+  },
+  recommender: {
+    badge: "AI推荐",
+    heading: "课程推荐器",
+    subtitle: "根据你的学位、偏好和已完成课程，获取个性化课程推荐。",
+    degree: "学位 / 专业方向",
+    degreePlaceholder: "例如 BCom、BSc、BA、工程...",
+    major: "专业 / 学科",
+    majorPlaceholder: "例如 会计、计算机科学...",
+    stage: "当前阶段",
+    targetSemester: "目标学期",
+    completedCourses: "已完成课程",
+    completedHint: "用逗号分隔课程代码",
+    studyGoal: "学习目标",
+    goalMaxGPA: "提高GPA",
+    goalLowerWorkload: "减轻负担",
+    goalAvoidExams: "避免重考试",
+    goalPractical: "偏好实践技能",
+    goalExplore: "探索有趣选修",
+    goalBalanced: "均衡推荐",
+    assessmentPref: "考核偏好",
+    prefCoursework: "偏好作业考核",
+    prefExams: "偏好考试考核",
+    prefGroupProjects: "偏好小组项目",
+    prefAvoidGroup: "避免小组项目",
+    prefNone: "无偏好",
+    workloadPref: "学习负担偏好",
+    wlLight: "轻松",
+    wlMedium: "适中",
+    wlHeavyOk: "繁重也可以",
+    submit: "获取推荐",
+    results: "推荐结果",
+    topCourses: "最佳推荐",
+    matchScore: "匹配度",
+    whyFits: "推荐理由",
+    consider: "注意事项",
+    eligible: "符合条件",
+    possiblyEligible: "可能符合",
+    missingPrereq: "缺少先修课程",
+    difficulty: "难度",
+    workload: "学习负担",
+    examWeight: "考试权重",
+    noResults: "没有符合你条件的课程。请尝试调整偏好。",
+    disclaimer: "推荐结果基于现有课程信息和个人偏好生成，不代表官方学术建议。正式选课前请以奥克兰大学官方课程目录为准。"
+  },
+  degreeRoadmap: {
+    badge: "学位路线图",
+    heading: "学位路线图规划器",
+    subtitle: "逐学期规划你的完整学位路径。了解每学期该修哪些课程、理解前置课关系链，并预估毕业时间。",
+    degree: "学位 / 专业方向",
+    degreePlaceholder: "例如 BCom、BSc、BA、工程...",
+    major: "专业 / 方向",
+    majorPlaceholder: "例如 管理学、计算机科学...",
+    currentYear: "当前年级 / 阶段",
+    yearFirst: "大一",
+    yearSecond: "大二",
+    yearThird: "大三",
+    yearFourth: "大四",
+    yearOther: "其他",
+    completedCourses: "已完成课程",
+    completedHint: "用逗号分隔课程代码（例如 BUS 111, BUS 114, INFOSYS 110）",
+    gradTiming: "目标毕业时间",
+    gradAsap: "尽快毕业",
+    gradBalanced: "均衡负担",
+    gradPartTime: "兼职 / 灵活",
+    gradNotSure: "不确定",
+    semesterLoad: "每学期修课量",
+    load2: "每学期2门",
+    load3: "每学期3门",
+    load4: "每学期4门",
+    loadFlexible: "灵活安排",
+    summerSchool: "是否考虑 Summer School？",
+    yes: "是",
+    no: "否",
+    maybe: "可能",
+    submit: "生成路线图",
+    progressTitle: "学位进度概览",
+    completedPoints: "已完成学分",
+    remainingPoints: "剩余学分",
+    remainingCourses: "剩余课程",
+    estimatedGrad: "预计毕业时间",
+    delayWarning: "由于学期限制或前置课缺失，毕业可能延迟。",
+    planTitle: "逐学期规划",
+    electiveOption: "选修课",
+    genEdOption: "通识教育选项",
+    courseCards: "课程",
+    requiredHeading: "必修 vs 选修",
+    requiredDesc: "必修课程是根据前置课关系和专业相关性推测需要完成的课程。",
+    electiveHeading: "选修选项",
+    electiveDesc: "选修建议是可能适合该学位的课程，但正式选课前仍需以奥克兰大学官方要求为准。",
+    warningEarly: "建议尽早完成这门课——它可能是后续高阶课程的前置课。",
+    warningSemester: "这门课似乎只在单一学期开设，可能影响你的毕业时间。",
+    warningMissing: "你可能还未满足这门推荐课程的前置要求。",
+    alternativeTitle: "替代路径建议",
+    altSummer: "使用 Summer School 缩短毕业时间",
+    altDualSemester: "优先选择第一、第二学期都开设的课程",
+    altEarlyPrereq: "尽早完成关键前置课",
+    altElective: "如果某门课本学期不开设，可选择替代选修课",
+    betaLabel: "测试版估算",
+    disclaimer: "本路线图是根据现有课程数据和你的输入生成的非官方规划辅助工具，不代表官方学术建议。正式选课前，请务必通过奥克兰大学官方渠道确认学位要求、前置课、豁免和选课决定。",
+    auditTitle: "学位完成情况",
+    auditRequiredCompleted: "✓ 已完成必修课程",
+    auditRequiredMissing: "⚠ 缺少必修课程",
+    auditRemainingMajor: "📚 剩余专业课程",
+    auditProgress: "学位进度",
+    auditNoTemplate: "该专业的详细路线图暂未收录。目前展示通用推荐结果。",
+    auditNeedCourses: "你仍需完成以下课程以满足当前专业路径要求。",
+    badgeRequired: "必修",
+    badgeMajor: "专业课",
+    badgeElective: "选修",
+    badgeRecommended: "推荐",
+    highPriority: "高优先级 – 建议尽早完成，可解锁多门后续课程。",
+    semesterPoints: "学分",
+    semesterCourses: "门课程",
+    majorChangeTitle: "换专业模拟器",
+    majorChangeLabel: "与其他专业对比",
+    majorChangeOverlap: "重叠课程",
+    majorChangeNoLonger: "不再需要的课程",
+    majorChangeAdditional: "需要额外的课程",
+    majorChangeExtraSems: "预计额外学期数",
+    riskTitle: "毕业风险评估",
+    riskLow: "🟢 低风险",
+    riskMedium: "🟡 中风险",
+    riskHigh: "🔴 高风险",
+    riskReasons: "原因",
+    availSem1Only: "仅第一学期",
+    availSem2Only: "仅第二学期",
+    availSummer: "可选 Summer School",
+    highPriorityFlag: "🔥 高优先级",
+    highPriorityTooltip: "建议尽早完成。",
+    delayTitle: "可能导致延期毕业的因素",
+    delayMissing: "缺少 {{course}} 可能导致 {{target}} 的完成延迟。",
+    delayNoSummer: "该必修课在 Summer School 中不开设。",
+    delaySem2Start: "从第二学期开始学习可能使该路线额外延长约一个学期。",
+    conflictTitle: "高负荷学期提醒",
+    conflictBody: "{{semester}} 包含 {{count}} 门必修课程。",
+    startImpactTitle: "入学学期影响",
+    startImpactBody: "从第二学期开始学习可能使该路线额外延长约一个学期。",
+    semesterLoadRisk: "每学期仅修2门课将显著延长毕业时间。"
   },
   prereqWarning: {
     title: "先修课程提醒",

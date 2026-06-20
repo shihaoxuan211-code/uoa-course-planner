@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useT } from "@/lib/i18n";
+import { useT, useLang } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/LanguageToggle";
 
 export function Navigation() {
   const pathname = usePathname();
   const t = useT();
+  const { lang } = useLang();
 
   const navItems = [
     { href: "/", label: t.nav.home },
@@ -15,6 +16,8 @@ export function Navigation() {
     { href: "/plan", label: t.nav.myPlan },
     { href: "/planner", label: t.nav.planner },
     { href: "/compare", label: t.nav.compare },
+    { href: "/roadmap", label: lang === "zh" ? "🗺️ 学位路线图" : "🗺️ Degree Roadmap" },
+    { href: "/recommender", label: lang === "zh" ? "🤖 AI推荐" : "🤖 AI Recommender" },
     { href: "/about", label: t.nav.about }
   ];
 
