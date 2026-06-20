@@ -71,6 +71,7 @@ export function RecommenderContent({ courses }: RecommenderContentProps) {
         <p className="text-sm font-bold uppercase tracking-normal text-fern">{t.badge}</p>
         <h1 className="mt-2 text-3xl font-bold tracking-normal text-ink">{t.heading}</h1>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{t.subtitle}</p>
+        <p className="mt-2 text-center text-xs text-slate-400">{t.pageDisclaimer}</p>
       </div>
 
       {/* Form */}
@@ -175,76 +176,62 @@ export function RecommenderContent({ courses }: RecommenderContentProps) {
       </section>
 
       {/* Results */}
-      {results && (
-        <section className="space-y-4">
+      {results && (<>
+        <section className="space-y-3">
           <h2 className="text-xl font-bold text-ink">{t.topCourses}</h2>
-          {results.length > 0 ? (
-            results.map((rec) => (
-              <div key={rec.course.id} className="rounded-xl border border-slate-200 bg-white p-5 shadow-card">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <Link href={`/courses/${rec.course.id}`} className="text-lg font-bold text-fern hover:underline">
-                      {rec.course.code}
-                    </Link>
-                    <p className="text-sm font-semibold text-ink line-clamp-1">{rec.course.title}</p>
-                    <p className="mt-1 text-xs text-slate-500">
-                      {formatPoints(rec.course.points)} pts · {translateSemesters(rec.course.semesters, lang)} · {translateStage(rec.course.stage, lang)} · {rec.course.subject}
-                    </p>
+          {results.length > 0 ? results.map((rec) => (
+            <div key={rec.course.id} className="rounded-xl border border-slate-200 bg-white p-4 shadow-card">
+              <div className="flex items-start gap-4">
+                {/* Score circle */}
+                <div className="shrink-0 text-center">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-fern/10 ring-2 ring-fern/30">
+                    <span className="text-base font-bold text-fern">{rec.score}%</span>
                   </div>
-                  <div className="shrink-0 text-center">
-                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-fern/10 ring-2 ring-fern/30">
-                      <span className="text-lg font-bold text-fern">{rec.score}%</span>
+                  <p className="mt-0.5 text-[9px] text-slate-400">{t.matchScore}</p>
+                </div>
+                {/* Course info + badges */}
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <Link href={`/courses/${rec.course.id}`} className="text-base font-bold text-fern hover:underline">{rec.course.code}</Link>
+                      <p className="text-sm font-semibold text-ink line-clamp-1">{rec.course.title}</p>
                     </div>
-                    <p className="mt-1 text-[10px] text-slate-400">{t.matchScore}</p>
                   </div>
-                </div>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600">
-                    {t.difficulty}: <Stars value={Math.min(5, rec.course.stage + (rec.course.hasFinalExam ? 1 : 0))} />
-                  </span>
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600">
-                    {t.workload}: {rec.course.assessments.length >= 5 ? "Heavy" : rec.course.assessments.length >= 3 ? "Medium" : "Light"}
-                  </span>
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600">
-                    {t.examWeight}: {rec.examWeightPct > 0 ? `${rec.examWeightPct}%` : "None"}
-                  </span>
-                  <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${
-                    rec.prereqStatus === "eligible" ? "bg-emerald-100 text-emerald-700" :
-                    rec.prereqStatus === "possibly" ? "bg-amber-100 text-amber-700" : "bg-rose-100 text-rose-700"
-                  }`}>
-                    {rec.prereqStatus === "eligible" ? `✓ ${t.eligible}` :
-                     rec.prereqStatus === "possibly" ? `⚠ ${t.possiblyEligible}` : `✗ ${t.missingPrereq}`}
-                  </span>
-                </div>
-                <div className="mt-4 grid gap-3 text-xs sm:grid-cols-2">
-                  <div className="rounded-lg bg-emerald-50 p-3">
-                    <p className="font-semibold text-emerald-800">💡 {t.whyFits}</p>
-                    <ul className="mt-1.5 space-y-0.5">
-                      {rec.reasons.map((r, i) => (<li key={i} className="text-emerald-700">• {r}</li>))}
-                    </ul>
+                  {/* Badges row */}
+                  <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-600">
+                      {t.difficulty}: <Stars value={Math.min(5, rec.course.stage + (rec.course.hasFinalExam ? 1 : 0))} />
+                    </span>
+                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${
+                      rec.course.assessments.length >= 5 ? "bg-rose-50 text-rose-700" : rec.course.assessments.length >= 3 ? "bg-amber-50 text-amber-700" : "bg-emerald-50 text-emerald-700"
+                    }`}>
+                      {rec.course.assessments.length >= 5 ? "Heavy" : rec.course.assessments.length >= 3 ? "Medium" : "Light"}
+                    </span>
+                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${rec.examWeightPct > 0 ? "bg-amber-50 text-amber-700" : "bg-emerald-50 text-emerald-700"}`}>
+                      {rec.examWeightPct > 0 ? `Exam ${rec.examWeightPct}%` : "No exam"}
+                    </span>
+                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${
+                      rec.prereqStatus === "eligible" ? "bg-emerald-50 text-emerald-700" : rec.prereqStatus === "possibly" ? "bg-amber-50 text-amber-700" : "bg-rose-50 text-rose-700"
+                    }`}>
+                      {rec.prereqStatus === "eligible" ? "✓ Eligible" : rec.prereqStatus === "possibly" ? "⚠ Maybe" : "✗ Prereq"}
+                    </span>
+                    {rec.isPathwayCourse && <span className="rounded-full bg-orange-50 px-2 py-0.5 text-[10px] font-medium text-orange-700" title={t.pathwayTooltip}>{t.importantPathway}</span>}
+                    {rec.warning && <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[10px] font-medium text-rose-600">⚠ {rec.warning}</span>}
                   </div>
-                  <div className="rounded-lg bg-amber-50 p-3">
-                    <p className="font-semibold text-amber-800">⚠️ {t.consider}</p>
-                    <ul className="mt-1.5 space-y-0.5">
-                      {rec.warnings.map((w, i) => (<li key={i} className="text-amber-700">• {w}</li>))}
-                    </ul>
-                  </div>
+                  {/* Reasons */}
+                  <ul className="mt-2 space-y-0.5">
+                    {rec.reasons.map((r, i) => (<li key={i} className="text-xs text-slate-600 flex items-center gap-1"><span className="text-emerald-500 shrink-0">•</span> {r}</li>))}
+                  </ul>
+                  <p className="mt-1 text-[10px] text-slate-400">{formatPoints(rec.course.points)} pts · {translateSemesters(rec.course.semesters, lang)} · {translateStage(rec.course.stage, lang)}</p>
                 </div>
               </div>
-            ))
-          ) : (
-            <div className="rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center text-sm text-slate-500">
-              {t.noResults}
             </div>
+          )) : (
+            <div className="rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center text-sm text-slate-500">{t.noResults}</div>
           )}
         </section>
-      )}
-
-      {showDisclaimer && (
-        <div className="rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 text-center text-xs text-amber-800">
-          {t.disclaimer}
-        </div>
-      )}
+        {showDisclaimer && <p className="text-center text-xs text-slate-400">{t.disclaimer}</p>}
+      </>)}
     </main>
   );
 }

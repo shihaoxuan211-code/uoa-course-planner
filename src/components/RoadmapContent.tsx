@@ -82,6 +82,7 @@ export function RoadmapContent({ courses }: RoadmapContentProps) {
         <p className="text-sm font-bold uppercase tracking-normal text-fern">{t.badge}</p>
         <h1 className="mt-2 text-3xl font-bold tracking-normal text-ink">{t.heading}</h1>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{t.subtitle}</p>
+        <p className="mt-2 text-center text-xs text-slate-400">{t.pageDisclaimer}</p>
       </div>
 
       {/* Form */}

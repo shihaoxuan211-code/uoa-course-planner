@@ -491,6 +491,9 @@ export interface Translations {
     results: string;
     topCourses: string;
     matchScore: string;
+    pageDisclaimer: string;
+    importantPathway: string;
+    pathwayTooltip: string;
     whyFits: string;
     consider: string;
     eligible: string;
@@ -597,6 +600,7 @@ export interface Translations {
     startImpactTitle: string;
     startImpactBody: string;
     semesterLoadRisk: string;
+    pageDisclaimer: string;
   };
   // Prerequisite warning modal
   prereqWarning: {
@@ -644,7 +648,7 @@ const en: Translations = {
   home: {
     badge: "Independent Student Planning Tool",
     heroTitle: "Plan Your Degree Smarter",
-    heroSubtitle: "Compare workload, difficulty, assessments and exam styles across 1000+ courses.",
+    heroSubtitle: "Plan smarter, avoid prerequisite mistakes, and stay on track for graduation.",
     browseCourses: "Browse courses",
     smartPlanner: "Smart Planner",
     card1Title: "Search Courses",
@@ -934,7 +938,10 @@ const en: Translations = {
     workload: "Workload",
     examWeight: "Exam Weight",
     noResults: "No courses matched your criteria. Try adjusting your preferences.",
-    disclaimer: "Recommendations are generated based on available course information and student preferences. They are not official academic advice. Please verify enrolment requirements with the official University of Auckland catalogue."
+    disclaimer: "Recommendations are suggestions only and may not reflect official University of Auckland degree requirements.",
+    pageDisclaimer: "Recommendations are suggestions only and may not reflect official University of Auckland degree requirements.",
+    importantPathway: "🔥 Important Pathway Course",
+    pathwayTooltip: "Missing this course may reduce future course options."
   },
   degreeRoadmap: {
     badge: "Degree Roadmap",
@@ -1029,7 +1036,8 @@ const en: Translations = {
     conflictBody: "{{semester}} contains {{count}} required courses.",
     startImpactTitle: "Start Semester Impact",
     startImpactBody: "Starting in Semester 2 may extend this pathway by approximately one additional semester.",
-    semesterLoadRisk: "Taking only 2 courses per semester will significantly extend the timeline."
+    semesterLoadRisk: "Taking only 2 courses per semester will significantly extend the timeline.",
+    pageDisclaimer: "Recommendations are suggestions only and may not reflect official University of Auckland degree requirements."
   },
   prereqWarning: {
     title: "Prerequisite Warning",
@@ -1254,7 +1262,7 @@ const zh: Translations = {
   home: {
     badge: "学生独立选课规划工具",
     heroTitle: "更聪明地规划你的课程",
-    heroSubtitle: "比较1000+门课程的学习负担、难度、考核方式和考试形式。",
+    heroSubtitle: "更聪明地规划课程，避免先修课陷阱，降低毕业延期风险。",
     browseCourses: "浏览课程",
     smartPlanner: "智能规划",
     card1Title: "搜索课程",
@@ -1544,7 +1552,10 @@ const zh: Translations = {
     workload: "学习负担",
     examWeight: "考试权重",
     noResults: "没有符合你条件的课程。请尝试调整偏好。",
-    disclaimer: "推荐结果基于现有课程信息和个人偏好生成，不代表官方学术建议。正式选课前请以奥克兰大学官方课程目录为准。"
+    disclaimer: "推荐结果仅供参考，不代表奥克兰大学官方学位要求。",
+    pageDisclaimer: "推荐结果仅供参考，不代表奥克兰大学官方学位要求。",
+    importantPathway: "🔥 重要路径课程",
+    pathwayTooltip: "缺少此课程可能影响后续选课路径。"
   },
   degreeRoadmap: {
     badge: "学位路线图",
@@ -1639,7 +1650,8 @@ const zh: Translations = {
     conflictBody: "{{semester}} 包含 {{count}} 门必修课程。",
     startImpactTitle: "入学学期影响",
     startImpactBody: "从第二学期开始学习可能使该路线额外延长约一个学期。",
-    semesterLoadRisk: "每学期仅修2门课将显著延长毕业时间。"
+    semesterLoadRisk: "每学期仅修2门课将显著延长毕业时间。",
+    pageDisclaimer: "推荐结果仅供参考，不代表奥克兰大学官方学位要求。"
   },
   prereqWarning: {
     title: "先修课程提醒",
