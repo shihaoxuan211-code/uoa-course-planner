@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import Link from "next/link";
 import type { Course } from "@/types/course";
 import { generateRecommendations } from "@/lib/majorPlanner";
@@ -37,13 +37,16 @@ export function PlannerContent({ allCourses }: PlannerContentProps) {
   const [workload, setWorkload] = useState<WorkloadPref>("balanced");
   const [goal, setGoal] = useState<GoalType>("major-progression");
   const [refreshKey, setRefreshKey] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   // Warning modal state
   const [modalCourse, setModalCourse] = useState<{ id: string; code: string; missing: string[] } | null>(null);
 
-  const completedCodes = useMemo(() => readSet("uoa-course-planner:completed-courses"), [refreshKey]);
-  const plannedCodes = useMemo(() => readSet("uoa-course-planner:plan"), [refreshKey]);
-  const assumedCodes = useMemo(() => readSet("uoa-course-planner:assumed-courses"), [refreshKey]);
+  useEffect(() => { setMounted(true); }, []);
+
+  const completedCodes = useMemo(() => mounted ? readSet("uoa-course-planner:completed-courses") : new Set<string>(), [refreshKey, mounted]);
+  const plannedCodes = useMemo(() => mounted ? readSet("uoa-course-planner:plan") : new Set<string>(), [refreshKey, mounted]);
+  const assumedCodes = useMemo(() => mounted ? readSet("uoa-course-planner:assumed-courses") : new Set<string>(), [refreshKey, mounted]);
 
   const goalLabels = GOAL_LABELS[lang] ?? GOAL_LABELS.en;
   const workloadLabels = WORKLOAD_LABELS[lang] ?? WORKLOAD_LABELS.en;

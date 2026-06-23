@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  color: #172033;
-  background: #f6f8fb;
+  color: #1a1a1a;
+  background: #fafaf8;
 }
 
 * {
@@ -14,10 +14,8 @@
 body {
   min-height: 100vh;
   margin: 0;
-  background:
-    linear-gradient(180deg, rgba(238, 243, 248, 0.9), rgba(246, 248, 251, 1) 360px),
-    #f6f8fb;
-  color: #172033;
+  background: #fafaf8;
+  color: #1a1a1a;
 }
 
 a {

@@ -3,6 +3,7 @@ import type { Course } from "@/types/course";
 import { formatPoints, formatSemesters, translateSemesters, translateStage } from "@/lib/courseDisplay";
 import { getLatestHistoricalExamMode } from "@/lib/exam";
 import { useT, useLang } from "@/lib/i18n";
+import { useFavorites } from "@/lib/useFavorites";
 import { AddCourseActions } from "@/components/AddCourseActions";
 import { ExamModeBadge } from "@/components/ExamModeBadge";
 
@@ -24,14 +25,26 @@ function StarsMini({ value }: { value: number }) {
 export function CourseCard({ course, difficulty }: CourseCardProps) {
   const t = useT();
   const { lang } = useLang();
+  const { toggle, isFavorite } = useFavorites();
   const latestMode = getLatestHistoricalExamMode(course.historicalExams);
+  const fav = isFavorite(course.id);
 
   return (
     <article className="flex h-full flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-card">
-      {/* Top row: code + badge — fixed height */}
+      {/* Top row: code + badge + heart */}
       <div className="flex items-start justify-between gap-2 min-h-[28px]">
         <p className="text-sm font-bold text-fern">{course.code}</p>
-        <ExamModeBadge mode={latestMode} />
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={(e) => { e.preventDefault(); toggle(course.id); }}
+            className={`text-lg leading-none transition ${fav ? "text-rose-500" : "text-slate-300 hover:text-rose-400"}`}
+            title={fav ? "Remove from favorites" : "Add to favorites"}
+          >
+            {fav ? "♥" : "♡"}
+          </button>
+          <ExamModeBadge mode={latestMode} />
+        </div>
       </div>
 
       {/* Title — max 2 lines, consistent height */}

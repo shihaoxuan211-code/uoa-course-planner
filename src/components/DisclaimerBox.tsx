@@ -13,16 +13,13 @@ export function DisclaimerBox({ children, title }: DisclaimerBoxProps) {
   const resolvedTitle = title ?? t.disclaimer.title;
 
   return (
-    <section className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950">
-      <p className="font-semibold">{resolvedTitle}</p>
-      <div className="mt-1 leading-6">
-        {children ?? (
-          <div className="space-y-2">
-            <p>{t.disclaimer.body1}</p>
-            <p>{t.disclaimer.body2}</p>
-          </div>
-        )}
-      </div>
+    <section className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-slate-500">
+      <span className="font-semibold text-slate-600">{resolvedTitle}</span>
+      {children ? (
+        <span className="ml-1">{children}</span>
+      ) : (
+        <span className="ml-1">Course data is collected from public sources and may be incomplete or outdated. Please verify important enrolment details with official university pages.</span>
+      )}
     </section>
   );
 }

@@ -231,8 +231,8 @@ export function ComparisonTable({ courses }: ComparisonTableProps) {
             </tr>
           </thead>
           <tbody>
-            {rows.map((row) => (
-              <tr key={row.label} className="align-top">
+            {rows.map((row, index) => (
+              <tr key={`${row.label}-${index}`} className="align-top">
                 <th className="border-b border-slate-100 bg-slate-50 px-4 py-3 font-semibold text-slate-600">
                   {row.label}
                 </th>

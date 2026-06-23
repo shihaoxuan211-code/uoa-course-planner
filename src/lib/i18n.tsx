@@ -46,6 +46,28 @@ export interface Translations {
     coursesAvailable: string;
     courseCount: string;
     disclaimer: string;
+    searchPlaceholder: string;
+    indexedLine: string;
+    popularCourses: string;
+    recentReviews: string;
+    browseByCategory: string;
+    howItWorks: string;
+    step1Title: string;
+    step1Body: string;
+    step2Title: string;
+    step2Body: string;
+    step3Title: string;
+    step3Body: string;
+    heroStats: string;
+    exploreTitle: string;
+    exploreLibrary: string;
+    exploreLibraryDesc: string;
+    exploreRoadmap: string;
+    exploreRoadmapDesc: string;
+    exploreAI: string;
+    exploreAIDesc: string;
+    popularThisWeek: string;
+    recentReviewsTitle: string;
   };
   // Course list
   courses: {
@@ -139,6 +161,14 @@ export interface Translations {
     prerequisite: string;
     restriction: string;
     workload: string;
+    lastUpdated: string;
+    lastUpdatedUnknown: string;
+    similarCourses: string;
+    noSimilar: string;
+    noExamInfo: string;
+    noReviews: string;
+    noPrereqs: string;
+    noAssessment: string;
   };
   // Add to plan / compare
   addActions: {
@@ -375,6 +405,7 @@ export interface Translations {
     terms: string;
     disclaimer: string;
     analytics: string;
+    dataFreshness: string;
   };
   // Beta badge
   beta: {
@@ -648,8 +679,8 @@ const en: Translations = {
   },
   home: {
     badge: "Independent Student Planning Tool",
-    heroTitle: "Plan Your Degree Smarter",
-    heroSubtitle: "Plan smarter, avoid prerequisite mistakes, and stay on track for graduation.",
+    heroTitle: "Course Planner",
+    heroSubtitle: "Plan smarter. Graduate faster.",
     browseCourses: "Browse courses",
     smartPlanner: "Smart Planner",
     card1Title: "Search Courses",
@@ -660,7 +691,29 @@ const en: Translations = {
     card3Body: "Understand exam weights, group work, presentation requirements, and continuous assessment ratios.",
     coursesAvailable: "Courses available",
     courseCount: "1000+ Courses",
-    disclaimer: "Course Planner is an independent student-created platform. This website is not affiliated with the University of Auckland. Course data is sourced from public catalogues. Verify all information with official university sources."
+    disclaimer: "Course Planner is an independent student-created platform. This website is not affiliated with the University of Auckland. Course data is sourced from public catalogues. Verify all information with official university sources.",
+    searchPlaceholder: "Search by course code or title...",
+    indexedLine: "1000+ courses indexed from the public catalogue",
+    popularCourses: "Popular courses",
+    recentReviews: "Recently reviewed",
+    browseByCategory: "Browse by category",
+    howItWorks: "How it works",
+    step1Title: "Search",
+    step1Body: "Find courses by code, subject, semester, or workload preference.",
+    step2Title: "Compare",
+    step2Body: "View difficulty estimates, assessment breakdowns, and student-submitted reviews side by side.",
+    step3Title: "Plan",
+    step3Body: "Check prerequisites, map your degree pathway, and estimate graduation timing.",
+    heroStats: "1070+ courses indexed · Course reviews · Degree planning tools · Roadmap visualisation",
+    exploreTitle: "Explore the platform",
+    exploreLibrary: "Course Library",
+    exploreLibraryDesc: "Browse and compare courses",
+    exploreRoadmap: "Degree Roadmap",
+    exploreRoadmapDesc: "Visualise your degree structure",
+    exploreAI: "AI Recommendation",
+    exploreAIDesc: "Discover what to take next",
+    popularThisWeek: "Popular This Week",
+    recentReviewsTitle: "Recent Reviews"
   },
   courses: {
     badge: "Course search",
@@ -749,7 +802,15 @@ const en: Translations = {
     faculty: "Faculty",
     prerequisite: "Prerequisite",
     restriction: "Restriction",
-    workload: "Workload"
+    workload: "Workload",
+    lastUpdated: "Last updated",
+    lastUpdatedUnknown: "Last updated: Unknown",
+    similarCourses: "Similar Courses",
+    noSimilar: "No similar courses found.",
+    noExamInfo: "No exam information found yet.",
+    noReviews: "No student reviews yet.",
+    noPrereqs: "No prerequisite information found.",
+    noAssessment: "No assessment breakdown found."
   },
   addActions: {
     inPlan: "In Plan",
@@ -1210,7 +1271,8 @@ const en: Translations = {
     privacy: "Privacy Policy",
     terms: "Terms of Use",
     disclaimer: "Disclaimer",
-    analytics: "This website uses anonymous analytics to improve user experience."
+    analytics: "This website uses anonymous analytics to improve user experience.",
+    dataFreshness: "Course data may change. Please verify key details before enrolling."
   },
   shared: {
     semesters: {
@@ -1263,8 +1325,8 @@ const zh: Translations = {
   },
   home: {
     badge: "学生独立选课规划工具",
-    heroTitle: "更聪明地规划你的课程",
-    heroSubtitle: "更聪明地规划课程，避免先修课陷阱，降低毕业延期风险。",
+    heroTitle: "课程规划助手",
+    heroSubtitle: "更聪明地规划，更快地毕业。",
     browseCourses: "浏览课程",
     smartPlanner: "智能规划",
     card1Title: "搜索课程",
@@ -1275,7 +1337,29 @@ const zh: Translations = {
     card3Body: "了解考试权重、小组作业、演讲要求和持续性考核比例。",
     coursesAvailable: "可用课程",
     courseCount: "1000+ 门课程",
-    disclaimer: "课程规划助手是一个学生独立创建的平台。本网站与奥克兰大学无关。课程数据来源于公开目录。请以官方大学信息为准。"
+    disclaimer: "课程规划助手是一个学生独立创建的平台。本网站与奥克兰大学无关。课程数据来源于公开目录。请以官方大学信息为准。",
+    searchPlaceholder: "按课程代码或标题搜索...",
+    indexedLine: "已收录 1000+ 门公开课程目录数据",
+    popularCourses: "热门课程",
+    recentReviews: "最近评价",
+    browseByCategory: "按分类浏览",
+    howItWorks: "使用方式",
+    step1Title: "搜索",
+    step1Body: "按课程代码、学科、学期或学习偏好查找课程。",
+    step2Title: "对比",
+    step2Body: "并排查看难度评估、考核结构和学生评价。",
+    step3Title: "规划",
+    step3Body: "检查前置课、规划学位路径并预估毕业时间。",
+    heroStats: "已收录 1070+ 门课程 · 课程评价 · 学位规划工具 · 路线图可视化",
+    exploreTitle: "探索平台",
+    exploreLibrary: "课程库",
+    exploreLibraryDesc: "浏览和对比课程",
+    exploreRoadmap: "学位路线图",
+    exploreRoadmapDesc: "可视化你的学位结构",
+    exploreAI: "AI 推荐",
+    exploreAIDesc: "发现下一步该学什么",
+    popularThisWeek: "本周热门",
+    recentReviewsTitle: "最新评价"
   },
   courses: {
     badge: "课程搜索",
@@ -1364,7 +1448,15 @@ const zh: Translations = {
     faculty: "院系",
     prerequisite: "先修课程",
     restriction: "限制条件",
-    workload: "学习负担"
+    workload: "学习负担",
+    lastUpdated: "最后更新",
+    lastUpdatedUnknown: "最后更新：未知",
+    similarCourses: "相似课程",
+    noSimilar: "暂未找到相似课程。",
+    noExamInfo: "暂未找到考试信息。",
+    noReviews: "暂无学生评价。",
+    noPrereqs: "暂未找到先修课信息。",
+    noAssessment: "暂未找到考核组成信息。"
   },
   addActions: {
     inPlan: "已添加",
@@ -1825,7 +1917,8 @@ const zh: Translations = {
     privacy: "隐私政策",
     terms: "使用条款",
     disclaimer: "免责声明",
-    analytics: "本网站使用匿名统计数据来改进用户体验。"
+    analytics: "本网站使用匿名统计数据来改进用户体验。",
+    dataFreshness: "课程数据可能发生变化。选课前请核实关键信息。"
   },
   shared: {
     semesters: {

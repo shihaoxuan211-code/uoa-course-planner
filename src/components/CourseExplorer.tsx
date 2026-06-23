@@ -81,7 +81,7 @@ export function CourseExplorer({ courses, difficultyMap }: CourseExplorerProps) 
 
       {visibleCourses.length > 0 ? (
         <>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {visibleCourses.map((course) => (
               <CourseCard key={course.id} course={course} difficulty={difficultyMap?.get(course.code)} />
             ))}
