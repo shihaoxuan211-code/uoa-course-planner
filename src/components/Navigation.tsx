@@ -57,8 +57,8 @@ export function Navigation() {
   const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur overflow-hidden">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3 overflow-x-auto">
+    <header className="sticky top-0 z-[100] border-b border-slate-200 bg-white/90 backdrop-blur">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-3">
         <Link href="/" className="text-lg font-bold tracking-tight text-ink shrink-0">
           {t.nav.brand}
         </Link>
