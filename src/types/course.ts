@@ -48,6 +48,7 @@ export interface Course {
   sourceUrl?: string;
   sourceFetchedAt?: string;
   dataSource?: "mock" | "imported";
+  dataQuality?: "full" | "basic";
   historicalExams: HistoricalExam[];
 }
 
@@ -88,4 +89,5 @@ export interface ImportedCourse {
   hasGroupWork?: boolean;
   sourceUrl?: string;
   sourceFetchedAt?: string;
+  dataQuality?: "full" | "basic";
 }

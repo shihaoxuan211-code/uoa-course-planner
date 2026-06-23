@@ -169,6 +169,7 @@ export interface Translations {
     noReviews: string;
     noPrereqs: string;
     noAssessment: string;
+    basicRecordNotice: string;
   };
   // Add to plan / compare
   addActions: {
@@ -805,6 +806,7 @@ const en: Translations = {
     workload: "Workload",
     lastUpdated: "Last updated",
     lastUpdatedUnknown: "Last updated: Unknown",
+    basicRecordNotice: "Limited course information is available for this paper. Please verify details with the official course page.",
     similarCourses: "Similar Courses",
     noSimilar: "No similar courses found.",
     noExamInfo: "No exam information found yet.",
@@ -1451,6 +1453,7 @@ const zh: Translations = {
     workload: "学习负担",
     lastUpdated: "最后更新",
     lastUpdatedUnknown: "最后更新：未知",
+    basicRecordNotice: "该课程目前只有基础信息。请通过官方课程页面核实详细信息。",
     similarCourses: "相似课程",
     noSimilar: "暂未找到相似课程。",
     noExamInfo: "暂未找到考试信息。",

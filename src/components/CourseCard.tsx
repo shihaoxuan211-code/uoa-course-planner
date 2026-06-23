@@ -44,6 +44,9 @@ export function CourseCard({ course, difficulty }: CourseCardProps) {
             {fav ? "♥" : "♡"}
           </button>
           <ExamModeBadge mode={latestMode} />
+          {course.dataQuality === "basic" && (
+            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-500">{lang === "zh" ? "基础信息" : "Basic info"}</span>
+          )}
         </div>
       </div>
 
@@ -54,14 +57,16 @@ export function CourseCard({ course, difficulty }: CourseCardProps) {
 
       {/* Description — max 3 lines, consistent height */}
       <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600 min-h-[4.5rem]">
-        {course.description}
+        {course.dataQuality === "basic"
+          ? (lang === "zh" ? "该课程目前只有基础信息。" : "Basic course information only.")
+          : course.description}
       </p>
 
       {/* Info grid — 3x2, consistent layout */}
       <dl className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2.5 text-sm min-h-[7.5rem]">
         <div>
           <dt className="text-xs text-slate-500">{t.courseCard.points}</dt>
-          <dd className="text-sm font-semibold text-ink">{formatPoints(course.points)}</dd>
+          <dd className="text-sm font-semibold text-ink">{course.points > 0 ? formatPoints(course.points) : <span className="font-normal text-slate-400">{lang === "zh" ? "学分信息暂缺" : "Points unavailable"}</span>}</dd>
         </div>
         <div>
           <dt className="text-xs text-slate-500">{t.courseCard.semester}</dt>
@@ -83,7 +88,7 @@ export function CourseCard({ course, difficulty }: CourseCardProps) {
           <dt className="text-xs text-slate-500">{t.courseCard.s1Exam}</dt>
           <dd className="text-sm font-semibold text-ink">{latestMode ? `Mode ${latestMode}` : t.courseCard.infoUnavailable}</dd>
         </div>
-        {difficulty !== undefined && (
+        {difficulty !== undefined && course.dataQuality !== "basic" && (
           <div className="col-span-2">
             <dt className="text-xs text-slate-500">{t.courseCard.estimatedDifficulty}</dt>
             <dd className="text-sm font-semibold text-ink"><StarsMini value={difficulty} /></dd>

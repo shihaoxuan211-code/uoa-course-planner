@@ -27,6 +27,7 @@ export default function HomePage() {
       courses={courses}
       difficultyMap={difficultyMap}
       reviewSnippets={reviewSnippets}
+      totalCount={courses.length}
     />
   );
 }

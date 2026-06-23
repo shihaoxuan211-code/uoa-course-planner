@@ -64,6 +64,8 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
   const outlook = computeGradeOutlook(course, reviewRatings);
   const tags = getRecommendTags(course, reviewRatings, lang);
   const diff = getDifficulty(course, reviewRatings);
+  const isBasic = course.dataQuality === "basic";
+  const naText = lang === "zh" ? "暂无信息" : "N/A";
 
   return (
     <main>
@@ -84,6 +86,11 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
             <div className="min-w-0">
               <p className="text-sm font-bold uppercase tracking-wide text-fern">{course.code}</p>
               <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink">{course.title}</h1>
+              {course.dataQuality === "basic" && (
+                <div className="mt-3 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-500">
+                  {t.courseDetail.basicRecordNotice}
+                </div>
+              )}
               <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">{course.description}</p>
               <div className="mt-6 flex flex-wrap items-center gap-2">
                 <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-ink">{translateStage(course.stage, lang)}</span>
@@ -121,28 +128,28 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div className="rounded-xl border border-slate-200 bg-white p-3 text-center">
-                  <p className="text-lg">{ci.workload.icon}</p>
-                  <p className={`mt-1 text-xs font-semibold ${ci.workload.level==="High"?"text-rose-600":ci.workload.level==="Medium"?"text-amber-600":"text-emerald-600"}`}>{ci.workload.level}</p>
+                  <p className="text-lg">{isBasic ? "—" : ci.workload.icon}</p>
+                  <p className={`mt-1 text-xs font-semibold ${isBasic ? "text-slate-400" : ci.workload.level==="High"?"text-rose-600":ci.workload.level==="Medium"?"text-amber-600":"text-emerald-600"}`}>{isBasic ? naText : ci.workload.level}</p>
                   <p className="text-[10px] text-slate-400">Workload</p>
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-white p-3 text-center">
-                  <p className="text-lg">{ci.difficulty.icon}</p>
-                  <p className={`mt-1 text-xs font-semibold ${ci.difficulty.level==="Intensive"?"text-rose-600":ci.difficulty.level==="Moderate"?"text-amber-600":"text-emerald-600"}`}>{ci.difficulty.level}</p>
+                  <p className="text-lg">{isBasic ? "—" : ci.difficulty.icon}</p>
+                  <p className={`mt-1 text-xs font-semibold ${isBasic ? "text-slate-400" : ci.difficulty.level==="Intensive"?"text-rose-600":ci.difficulty.level==="Moderate"?"text-amber-600":"text-emerald-600"}`}>{isBasic ? naText : ci.difficulty.level}</p>
                   <p className="text-[10px] text-slate-400">Difficulty</p>
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-white p-3 text-center">
-                  <p className="text-lg">{course.hasFinalExam ? "📝" : "🚫"}</p>
-                  <p className="mt-1 text-xs font-semibold text-ink">{course.hasFinalExam ? "Final Exam" : "No Exam"}</p>
+                  <p className="text-lg">{isBasic ? "—" : (course.hasFinalExam ? "📝" : "🚫")}</p>
+                  <p className="mt-1 text-xs font-semibold text-ink">{isBasic ? <span className="text-slate-400 font-normal">{naText}</span> : (course.hasFinalExam ? "Final Exam" : "No Exam")}</p>
                   <p className="text-[10px] text-slate-400">Exam</p>
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-white p-3 text-center">
-                  <p className="text-lg">{course.hasGroupWork ? "👥" : "🚫"}</p>
-                  <p className="mt-1 text-xs font-semibold text-ink">{course.hasGroupWork ? "Group Work" : "No Groups"}</p>
+                  <p className="text-lg">{isBasic ? "—" : (course.hasGroupWork ? "👥" : "🚫")}</p>
+                  <p className="mt-1 text-xs font-semibold text-ink">{isBasic ? <span className="text-slate-400 font-normal">{naText}</span> : (course.hasGroupWork ? "Group Work" : "No Groups")}</p>
                   <p className="text-[10px] text-slate-400">Groups</p>
                 </div>
                 <div className="col-span-2 rounded-xl border border-slate-200 bg-white p-3 text-center">
-                  <p className="text-lg font-bold text-ink">{"★".repeat(diff.level)}{"☆".repeat(5-diff.level)}</p>
-                  <p className="mt-1 text-xs font-semibold text-ink">{outlook.easyAIndex} · {outlook.aRangePotential} A-Range · {outlook.riskLevel} Risk</p>
+                  <p className="text-lg font-bold text-ink">{isBasic ? <span className="text-xs text-slate-400">{naText}</span> : "★".repeat(diff.level)+"☆".repeat(5-diff.level)}</p>
+                  <p className="mt-1 text-xs font-semibold text-ink">{isBasic ? <span className="text-slate-400 font-normal">{naText}</span> : `${outlook.easyAIndex} · ${outlook.aRangePotential} A-Range · ${outlook.riskLevel} Risk`}</p>
                   <p className="text-[10px] text-slate-400">Grade Outlook</p>
                 </div>
               </div>
@@ -199,7 +206,7 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
             <dl className="grid gap-x-8 gap-y-3 text-sm sm:grid-cols-2">
               <Info label={t.courseDetail.semester} value={translateSemesters(course.semesters, lang)} />
               <Info label={t.courseDetail.stage} value={translateStage(course.stage, lang)} />
-              <Info label={t.courseDetail.points} value={formatPoints(course.points)} />
+              <Info label={t.courseDetail.points} value={course.points > 0 ? formatPoints(course.points) : (lang === "zh" ? "学分暂缺" : "Points unavailable")} />
               <Info label={t.courseDetail.faculty} value={course.faculty} />
               <Info label={t.courseDetail.workload} value={course.workload} />
               <Info label={t.courseDetail.subject} value={course.subject} />
@@ -225,7 +232,14 @@ export function CourseDetailView({ course, allCourses, reviewData }: CourseDetai
         </section>
 
         <CourseRoadmap course={course} allCourses={allCourses} />
-        <AssessmentInsights course={course} />
+        {isBasic ? (
+          <section>
+            <h2 className="text-xl font-bold text-ink">{t.assessmentInsights.heading}</h2>
+            <p className="mt-3 text-sm text-slate-400">{lang === "zh" ? "暂无考核信息。" : "Assessment information unavailable."}</p>
+          </section>
+        ) : (
+          <AssessmentInsights course={course} />
+        )}
         {reviewData && <ReviewSection review={reviewData} />}
         <CourseReviewsSection courseId={course.id} courseCode={course.code} />
         <SimilarCourses course={course} allCourses={allCourses} difficultyMap={new Map()} />

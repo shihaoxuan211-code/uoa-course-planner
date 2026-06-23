@@ -20,9 +20,10 @@ interface HomePageClientProps {
   courses: Course[];
   difficultyMap: Map<string, number>;
   reviewSnippets: { course: Course; comment: string }[];
+  totalCount: number;
 }
 
-export function HomePageClient({ courses, difficultyMap, reviewSnippets }: HomePageClientProps) {
+export function HomePageClient({ courses, difficultyMap, reviewSnippets, totalCount }: HomePageClientProps) {
   const t = useT();
   const { lang } = useLang();
   const router = useRouter();
@@ -171,7 +172,9 @@ export function HomePageClient({ courses, difficultyMap, reviewSnippets }: HomeP
           )}
         </div>
 
-        <p className="mt-5 text-xs text-slate-400">{t.home.heroStats}</p>
+        <p className="mt-5 text-xs text-slate-400">
+          {lang === "zh" ? `已收录 ${totalCount.toLocaleString()} 门课程 · 课程评价 · 学位规划工具 · 路线图可视化` : `${totalCount.toLocaleString()} courses indexed · Course reviews · Degree planning tools · Roadmap visualisation`}
+        </p>
       </section>
 
       {/* ── Quick Access ── */}

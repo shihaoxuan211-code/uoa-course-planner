@@ -43,7 +43,11 @@ export function SimpleCourseView({ course, review, onViewDetails }: SimpleCourse
   const ci = computeCourseIntelligence(course);
   const outlook = computeGradeOutlook(course, review);
   const tags = getRecommendTags(course, review, lang);
-  const verdict = generateQuickVerdict(course, diffInfo.level, review, lang);
+  const isBasic = course.dataQuality === "basic";
+  const verdict = isBasic
+    ? (lang === "zh" ? "该课程目前仅收录基础信息，暂不进行难度、学习负担或成绩潜力评估。" : "This course currently has basic information only. Difficulty, workload and grade potential are not estimated.")
+    : generateQuickVerdict(course, diffInfo.level, review, lang);
+  const naText = lang === "zh" ? "信息暂缺" : "N/A";
   const yesText = t.courseCard.yes;
   const noText = t.courseCard.no;
 
@@ -65,10 +69,17 @@ export function SimpleCourseView({ course, review, onViewDetails }: SimpleCourse
         </div>
         <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-600">
           <span className="rounded-full bg-slate-100 px-2.5 py-1 font-semibold">{translateStage(course.stage, lang)}</span>
-          <span className="rounded-full bg-slate-100 px-2.5 py-1 font-semibold">{formatPoints(course.points)} points</span>
+          <span className="rounded-full bg-slate-100 px-2.5 py-1 font-semibold">{course.points > 0 ? `${formatPoints(course.points)} points` : (lang === "zh" ? "学分暂缺" : "Points unavailable")}</span>
           <span className="rounded-full bg-slate-100 px-2.5 py-1 font-semibold">{translateSemesters(course.semesters, lang)}</span>
         </div>
-        <p className="mt-4 text-sm leading-7 text-slate-600">{course.description}</p>
+        <p className="mt-4 text-sm leading-7 text-slate-600">
+          {isBasic ? (lang === "zh" ? "该课程目前只有基础信息。" : "Basic course information only.") : course.description}
+        </p>
+        {course.dataQuality === "basic" && (
+          <div className="mt-3 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-500">
+            {t.courseDetail.basicRecordNotice}
+          </div>
+        )}
       </section>
 
       {/* Two-column — desktop only */}
@@ -81,18 +92,15 @@ export function SimpleCourseView({ course, review, onViewDetails }: SimpleCourse
             <div className="mt-4 grid grid-cols-2 gap-3 text-sm lg:grid-cols-3">
               <div className="flex flex-col justify-center rounded-lg bg-slate-50 p-3 min-h-[4.5rem]">
                 <p className="text-xs text-slate-500">{t.simpleView.estimatedDifficulty}</p>
-                <p className="mt-1"><Stars value={diffInfo.level} /></p>
-                {diffInfo.source === "real" ? null : <p className="mt-0.5 text-[10px] text-slate-400">{t.simpleView.estimated}</p>}
+                <div className="mt-1">{isBasic ? <span className="text-xs text-slate-400">{naText}</span> : <><Stars value={diffInfo.level} />{diffInfo.source !== "real" && <span className="mt-0.5 block text-[10px] text-slate-400">{t.simpleView.estimated}</span>}</>}</div>
               </div>
               <div className="flex flex-col justify-center rounded-lg bg-slate-50 p-3 min-h-[4.5rem]">
                 <p className="text-xs text-slate-500">{t.simpleView.workload}</p>
-                <p className={`mt-1 text-sm font-bold ${ci.workload.level==="High"?"text-rose-700":ci.workload.level==="Medium"?"text-amber-700":"text-emerald-700"}`}>
-                  {ci.workload.icon} {lang === "zh" ? (ci.workload.level==="High"?"高":ci.workload.level==="Medium"?"中":"低") : ci.workload.level}
-                </p>
+                <p className="mt-1 text-sm font-bold text-ink">{isBasic ? <span className="text-xs font-normal text-slate-400">{naText}</span> : <span className={ci.workload.level==="High"?"text-rose-700":ci.workload.level==="Medium"?"text-amber-700":"text-emerald-700"}>{ci.workload.icon} {lang === "zh" ? (ci.workload.level==="High"?"高":ci.workload.level==="Medium"?"中":"低") : ci.workload.level}</span>}</p>
               </div>
               <div className="flex flex-col justify-center rounded-lg bg-slate-50 p-3 min-h-[4.5rem]">
                 <p className="text-xs text-slate-500">{t.simpleView.easyAPotential}</p>
-                <p className="mt-1 text-sm font-bold text-ink">{outlook.easyAIndex}</p>
+                <p className="mt-1 text-sm font-bold text-ink">{isBasic ? <span className="text-xs font-normal text-slate-400">{naText}</span> : outlook.easyAIndex}</p>
               </div>
             </div>
           </section>
@@ -140,14 +148,14 @@ export function SimpleCourseView({ course, review, onViewDetails }: SimpleCourse
           <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-card">
             <h3 className="text-sm font-bold text-ink">Quick Facts</h3>
             <div className="mt-3 grid grid-cols-2 gap-2">
-              <MiniStat label="Final Exam" value={course.hasFinalExam ? `📝 ${yesText}` : `🚫 ${noText}`}
-                color={course.hasFinalExam?"text-amber-700":"text-emerald-700"} />
-              <MiniStat label="Group Work" value={course.hasGroupWork ? `👥 ${yesText}` : `🚫 ${noText}`}
-                color={course.hasGroupWork?"text-sky-700":"text-emerald-700"} />
-              <MiniStat label="GPA Potential" value={outlook.easyAIndex}
-                color={outlook.easyAIndex==="Easy"?"text-emerald-700":outlook.easyAIndex==="Moderate"?"text-sky-700":"text-amber-700"} />
-              <MiniStat label="A Range" value={outlook.aRangePotential}
-                color={outlook.aRangePotential==="High"?"text-emerald-700":outlook.aRangePotential==="Medium"?"text-sky-700":"text-amber-700"} />
+              <MiniStat label="Final Exam" value={isBasic ? naText : (course.hasFinalExam ? `📝 ${yesText}` : `🚫 ${noText}`)}
+                color={isBasic?"":course.hasFinalExam?"text-amber-700":"text-emerald-700"} />
+              <MiniStat label="Group Work" value={isBasic ? naText : (course.hasGroupWork ? `👥 ${yesText}` : `🚫 ${noText}`)}
+                color={isBasic?"":course.hasGroupWork?"text-sky-700":"text-emerald-700"} />
+              <MiniStat label="GPA Potential" value={isBasic ? naText : outlook.easyAIndex}
+                color={isBasic?"":outlook.easyAIndex==="Easy"?"text-emerald-700":outlook.easyAIndex==="Moderate"?"text-sky-700":"text-amber-700"} />
+              <MiniStat label="A Range" value={isBasic ? naText : outlook.aRangePotential}
+                color={isBasic?"":outlook.aRangePotential==="High"?"text-emerald-700":outlook.aRangePotential==="Medium"?"text-sky-700":"text-amber-700"} />
             </div>
           </div>
 
@@ -158,18 +166,22 @@ export function SimpleCourseView({ course, review, onViewDetails }: SimpleCourse
           </div>
 
           {/* Suitable for */}
-          {tags.length > 0 && (
-            <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-card">
-              <h3 className="text-sm font-bold text-ink">{t.simpleView.recommendedFor}</h3>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {tags.slice(0, 5).map((tag) => (
+          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-card">
+            <h3 className="text-sm font-bold text-ink">{t.simpleView.recommendedFor}</h3>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {isBasic ? (
+                <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-500">
+                  {lang === "zh" ? "仅基础信息" : "Basic info only"}
+                </span>
+              ) : tags.length > 0 ? (
+                tags.slice(0, 5).map((tag) => (
                   <span key={tag.label} className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-600">
                     {tag.icon} {tag.label}
                   </span>
-                ))}
-              </div>
+                ))
+              ) : null}
             </div>
-          )}
+          </div>
         </div>
       </div>
 
